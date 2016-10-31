@@ -1,0 +1,18 @@
+include ./tables.pug
+include ./spacer.pug
+mixin bullets(items)
+	+table
+		tbody
+			for item in props.items
+				tr
+					if props.spaceBeforeBullet
+						td
+							+spacer({ width: props.spaceBeforeBullet })
+					td
+						span(style= props.bulletStyle ? props.bulletStyle : props.style)
+							| &bull;
+					if props.spaceAfterBullet
+						td
+							+spacer({ width: props.spaceAfterBullet })
+					td
+						span(style= props.bulletStyle ? props.textStyle : props.style)!= item

@@ -1,0 +1,71 @@
+include ../modules/bar.pug
+include ../modules/break.pug
+include ../modules/bullets.pug
+include ../modules/image.pug
+include ../modules/linkWithTracking.pug
+include ../modules/spacer.pug
+include ../modules/sub.pug
+include ../modules/sup.pug
+include ../modules/text.pug
+include ../modules/tables.pug
+//- Uncomment this section to include Adestra components
+	include ../modules/Adestra/linkAdestraUnsubscribe.pug
+	include ../modules/Adestra/linkAdestraWebView.pug
+	include ../modules/Adestra/textAdestraMerge.pug
+//-
+//- BASELINE STYLE SETTINGS
+- contentWidth = 600
+- bodyBgColor = "#FFFFFF"
+- var styles = { "global": {} }
+- styles.global["font-family"] = "Arial,Helvetica,sans-serif"
+- styles.global["font-size"] ="12px"
+- styles.global["text-align"] ="center"
+- styles.global["color"] = "#000000"
+//-
+//- IMPORTED STYLE SETTINGS
+block vars
+//-
+//- CONTENT
+doctype html
+html(xmlns="http://www.w3.org/1999/xhtml")
+	head
+		meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
+		title #{pageTitle}
+		style(type="text/css")
+			| ReadMsgBody{ width: 100%;}
+			| .ExternalClass {width: 100%;}
+			| .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+			| body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important; padding:0 !important;}
+			| p { margin: 0 !important; padding:0;}
+			| p { margin: 0 !important; padding:0;}
+			| table td { border-collapse: collapse;}
+			| img {outline:0;}
+			| a img {border:none;}
+			| @-ms-viewport{ width: device-width;}
+		block head
+	body(bgcolor=bodyBgColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
+
+		+table({
+			"align": "center",
+			"width": "100%",
+			"style": "background-color:" + bodyBgColor + ";"
+		})
+			+tableBody
+				+tableRow
+					+tableCell({
+						"align": "center"
+					})
+
+						+table({
+							"align": "center",
+							"width": contentWidth,
+							"style": "background-color:" + bodyBgColor + ";"
+						})
+							+tableBody
+								+tableRow
+									+tableCell({
+										"valign": "top",
+										"style" : styles.global
+									})
+
+										block content

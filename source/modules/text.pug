@@ -1,0 +1,4 @@
+mixin text(props)
+	- finalProps = (props && props.style && props.style["background-color"]) ? extend(props, { bgcolor: props.style["background-color"] }) : props
+	div&attributes(props?props:{})
+		block

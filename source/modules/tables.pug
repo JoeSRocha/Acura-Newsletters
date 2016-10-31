@@ -1,0 +1,15 @@
+- var baseTableAttributes = { border: "0", cellspacing: "0", cellpadding: "0", style: "width:100%;" };
+mixin table(props)
+	if (props && props.width)
+		- props.style = Rhythm.AppendStyle(props.style, "width:" + props.width + "px");
+	table&attributes(Rhythm.MergeAttributes(baseTableAttributes, props))
+		block
+mixin tableBody(props)
+	tbody&attributes(props ? props : {})
+		block
+mixin tableRow(props)
+	tr&attributes(props ? props : {})
+		block
+mixin tableCell(props)
+	td(valign="middle",style="vertical-align:middle;")&attributes(props ? props : {})
+		block
