@@ -2,11 +2,15 @@ var Rhythm = {};
 var extend = require('util')._extend;
 
 Rhythm.BuildUrl = function (base, query) {
-    var result = base + "?";
-    for (var item in query) {
-        result += item + "=" + query[item] + "&"
+    var result = base;
+    if (query) {
+        result += "?"
+        for (var item in query) {
+            result += item + "=" + query[item] + "&"
+        }
+        result = result.substring(0, result.length - 1);
     }
-    return result.substring(0, result.length - 1);
+    return result;
 }
 
 Rhythm.GetStyleObject = function (source) {

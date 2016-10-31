@@ -1,4 +1,4 @@
 mixin break(props)
-	- var thisHeight = (props && props.height ? props.height : (baseBreakHeight ? baseBreakHeight : 30))
+	- var thisHeight = (props && props.height ? props.height : (defaults.breakHeight ? defaults.breakHeight : 30))
 	div(style="font-size:1px;height:" + thisHeight + "px;line-height:" + thisHeight + "px;")
 		| &nbsp;

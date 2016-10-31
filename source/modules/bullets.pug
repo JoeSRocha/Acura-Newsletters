@@ -1,18 +1,20 @@
 include ./tables.pug
 include ./spacer.pug
-mixin bullets(items)
+mixin bulletList(props)
 	+table
-		tbody
-			for item in props.items
-				tr
-					if props.spaceBeforeBullet
-						td
-							+spacer({ width: props.spaceBeforeBullet })
-					td
-						span(style= props.bulletStyle ? props.bulletStyle : props.style)
-							| &bull;
-					if props.spaceAfterBullet
-						td
-							+spacer({ width: props.spaceAfterBullet })
-					td
-						span(style= props.bulletStyle ? props.textStyle : props.style)!= item
+		+tableBody
+			block
+mixin bulletListItem(props)
+	- var thisSpaceBeforeBullet = (props && props.spaceBeforeBullet ? props.spaceBeforeBullet : (defaults.spaceBeforeBullet ? defaults.spaceBeforeBullet : 0))
+	- var thisSpaceAfterBullet = (props && props.spaceAfterBullet ? props.spaceAfterBullet : (defaults.spaceAfterBullet ? defaults.spaceAfterBullet : 0))
+	+tableRow
+		if thisSpaceBeforeBullet
+			+tableCell
+				+spacer({ width: thisSpaceBeforeBullet })
+		+tableCell
+			span(style= props.bulletStyle ? props.bulletStyle : "")= props.bulletCharacter ? props.bulletCharacter : "&bull;"
+		if thisSpaceAfterBullet
+			+tableCell
+				+spacer({ width: thisSpaceAfterBullet })
+		+tableCell
+			block

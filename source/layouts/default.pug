@@ -2,7 +2,7 @@ include ../modules/bar.pug
 include ../modules/break.pug
 include ../modules/bullets.pug
 include ../modules/image.pug
-include ../modules/linkWithTracking.pug
+include ../modules/link.pug
 include ../modules/spacer.pug
 include ../modules/sub.pug
 include ../modules/sup.pug
@@ -13,9 +13,16 @@ include ../modules/tables.pug
 	include ../modules/Adestra/linkAdestraWebView.pug
 	include ../modules/Adestra/textAdestraMerge.pug
 //-
-//- BASELINE STYLE SETTINGS
-- contentWidth = 600
-- bodyBgColor = "#FFFFFF"
+//- DEFAULT VARIBLES
+- defaults = {}
+- defaults.contentWidth = 600
+- defaults.bodyBgColor = "#FFFFFF"
+//- defaults.imagePath = "//"
+//- defaults.breakHeight = 30
+//- defaults.spaceBeforeBullet = 5
+//- defaults.spaceAfterBullet = 20
+//-
+//- BASELINE STYLES
 - var styles = { "global": {} }
 - styles.global["font-family"] = "Arial,Helvetica,sans-serif"
 - styles.global["font-size"] ="12px"
@@ -43,12 +50,12 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 			| a img {border:none;}
 			| @-ms-viewport{ width: device-width;}
 		block head
-	body(bgcolor=bodyBgColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
+	body(bgcolor=defaults.bodyBgColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
 
 		+table({
 			"align": "center",
 			"width": "100%",
-			"style": "background-color:" + bodyBgColor + ";"
+			"style": "background-color:" + defaults.bodyBgColor + ";"
 		})
 			+tableBody
 				+tableRow
@@ -58,8 +65,8 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 
 						+table({
 							"align": "center",
-							"width": contentWidth,
-							"style": "background-color:" + bodyBgColor + ";"
+							"width": defaults.contentWidth,
+							"style": "background-color:" + defaults.bodyBgColor + ";"
 						})
 							+tableBody
 								+tableRow
