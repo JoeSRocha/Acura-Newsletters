@@ -1,67 +1,71 @@
 extends ./layouts/default.pug
 //-
 block vars
-	- contentWidth = 600
-	- bodyBgColor = "#FFFFFF"
-
-	- styles.global["font-family"] = "Arial,Helvetica,sans-serif"
-	- styles.global["font-size"] ="12px"
-	- styles.global["text-align"] ="center"
-	- styles.global["color"] = "#000000"
-
-	- styles.header = {}
-	- styles.header["font-family"] = "Arial,Helvetica,sans-serif"
-	- styles.header["font-size"] ="24px"
-	- styles.header["text-align"] ="center"
-	- styles.header["color"] = "#AA0000"
 //-
 block head
 //-
 block content
-	+table
-		+tableRow
-			+tableCell
-				+image({ src:"http://placehold.it/600x300", alt: "" })
-	+break
-	+text({ style: styles.header })
-		| SAMPLE SAMPLE SAMPLE
-	+break
-	+table
-		+tableRow
-			+tableCell
-				a(href="#")
-					+image({ src:"http://placehold.it/300x150", alt: "" })
-			+tableCell
-				a(href="#")
-					+image({ src:"http://placehold.it/300x150", alt: "" })
-	+table
-		+tableRow
-			+tableCell
-				+spacer({ width: 50 })
-			+tableCell(style="text-align:left;")
-				+break
-				+text
-					| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium tristique lacus. Maecenas bibendum nisl ac volutpat fermentum. Pellentesque id accumsan lacus, quis scelerisque mi. Praesent vel lacus volutpat, scelerisque tellus non, iaculis erat. Quisque nec mi ut dui venenatis suscipit sed non ante. Nulla quis imperdiet ex. Nullam varius faucibus nibh, eget consequat ligula ornare nec. Fusce eget faucibus risus. Integer eget pulvinar lectus, vel congue eros. Mauris a auctor nisl. Nunc elementum ex iaculis, faucibus nulla id, viverra magna. Cras eu sodales tortor, quis suscipit eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris elementum risus quis mauris cursus lobortis. Fusce tincidunt tincidunt velit, ut volutpat arcu faucibus elementum. Suspendisse ante leo, tincidunt vitae laoreet ac, dapibus sed elit.
-				+break
-				+text
-					| Nunc diam lectus, ultricies nec metus in, malesuada tempus tortor. Cras vitae auctor urna. Nunc elementum sit amet ligula vitae faucibus. Morbi eu ex porta, pellentesque magna a, interdum tellus. Aliquam tempor purus quam, ac lobortis nisi interdum nec. Phasellus mauris tellus, posuere ut diam ac, dictum maximus felis. Etiam non faucibus nisi, a sagittis neque. 
-				+break
-				+text({ style: styles.header })
-					| MORE HEADER
-				+text
-					| In eleifend metus non ligula pharetra dignissim. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed congue in turpis sed venenatis. Morbi consequat dapibus lacus sed consectetur. Nulla dictum diam orci, a pharetra nisl tristique sed. Nam luctus, eros eu scelerisque pretium, risus sapien interdum erat, eget condimentum massa purus quis erat. Donec id accumsan risus. Maecenas ac nisl non diam semper iaculis. 
-				+break
-				+text
-					| Donec egestas consequat ex, et condimentum elit rhoncus sit amet. Maecenas tristique pulvinar enim, vitae accumsan urna. Curabitur finibus, enim quis cursus pharetra, odio ligula rutrum tellus, ac porta dolor mi sit amet velit. Aenean quis augue libero. Proin at commodo arcu. Curabitur sit amet finibus nibh, a faucibus sapien. Aliquam ut libero mattis, commodo odio id, rutrum nibh. Morbi in lectus nunc. Nam at mauris eu tortor congue interdum. Proin euismod tempor metus, interdum finibus justo. Donec laoreet velit ac tincidunt volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis magna ut est pellentesque maximus. Nulla ultrices, diam at feugiat eleifend, urna nulla consectetur orci, vitae sollicitudin orci neque eu quam. Pellentesque nec eleifend ante. Nam tincidunt arcu ac tellus blandit ornare vel aliquet velit. 
-				+break
-				+text
-					| Vestibulum eu libero consequat, dictum ipsum eu, hendrerit odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sollicitudin tortor ut metus sollicitudin, lacinia vulputate ipsum volutpat. Duis tincidunt volutpat arcu, nec iaculis augue dictum vitae. Sed id faucibus sem, eu pharetra est. Vivamus quam massa, tincidunt non mi sit amet, consequat volutpat leo. Proin ac tellus eget urna placerat elementum at quis tortor. Nam pharetra accumsan molestie. Praesent vel sodales risus, ac porttitor sapien. Aliquam erat volutpat. Vivamus ut lacus luctus, blandit mi quis, placerat quam. Cras arcu ex, interdum non tristique a, efficitur ut purus. Vestibulum nec rutrum erat. 
-				+break
-			+tableCell
-				+spacer({ width: 50 })
-	+table
-		+tableRow
-			+tableCell
-				+image({ src:"http://placehold.it/600x300", alt: "" })
-	+break
-	+break
+	+GraphicCTA({
+		linkUrl: "http://google.com",
+		linkTracking: null,
+		graphicUrl: "header-tlx-white.png",
+		graphicAlt: "ACURA | TLX"
+	})
+	+GraphicCTA({
+		linkUrl: "http://google.com",
+		linkTracking: null,
+		graphicUrl: "tlx-gt-hero-animation.gif",
+		graphicAlt: null
+	})
+	+ContentContainer
+		+spacer({ height: 40 })
+		+content(tagAttribs.header)
+			| Break The Mold, Not The Bank
+		+spacer({ height: 35 })
+		+content(tagAttribs.bodyCopy)
+			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
+		+spacer({ height: 50 })
+		+content(tagAttribs.buttonCtaRow)
+			+AcuraButton("http://google.com", { sidePadding: "50px" })
+				| EXPLORE TLX
+	+ContentContainer({ padding: 35 })
+		+columns
+			+column({ width: 299 })
+				+OfferCTA
+					+OfferCTA_Header
+						| Featured APR Offer
+					+spacer({ height: 18 })
+					+OfferCTA_Subheader
+						| 2016 TLX Special APR
+					+spacer({ height: 25 })
+					+OfferCTA_Stinger
+						| 0.9% APR for 60 months
+					+spacer({ height: 12 })
+					+OfferCTA_Details
+						| For well qualified buyers and buyers that qualify for the Acura Graduate Program criteria.
+					+spacer({ height: 60 })
+					+OfferCTA_Link
+						| SEE TLX OFFERS
+			+columnRule({ width: 40, height: 470, lineWidth: 1, lineHeight: 470 })
+			+column({ width: 300 })
+				+OfferCTA
+					+OfferCTA_Header
+						| Featured Lease Offer
+					+spacer({ height: 18 })
+					+OfferCTA_Subheader
+						| 2016 TLX 8 Speed Dual-Clutch P-AWS#[br]Featured Special Lease
+					+spacer({ height: 8 })
+					+OfferCTA_Stinger
+						| $299 per month for 36 months#[br]$2499 total due at signing
+					+spacer({ height: 12 })
+					+OfferCTA_Details
+						| Includes down payment with no security deposit. Excludes taxes, titles and either dealer fees or documentary service fee. For well-qualified lessees.
+					+spacer({ height: 60 })
+					+OfferCTA_Link
+						| BUILD &amp; PRICE YOUR TLX
+	+GraphicCTA({
+		linkUrl: "http://google.com",
+		linkTracking: null,
+		graphicUrl: "tlx-gt-red-sideview.jpg",
+		graphicAlt: null
+	})

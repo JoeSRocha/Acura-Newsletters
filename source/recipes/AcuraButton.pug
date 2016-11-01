@@ -1,0 +1,19 @@
+include ../modules/link.pug
+mixin AcuraButton(url, props)
+	if (!props)
+		- props = {}
+	- var outerStyle = { style: {} }
+	if (props.width)
+		- outerStyle.style["width"] = props.width
+	- var innerStyle = { style: {} }
+	if (props.sidePadding)
+		- innerStyle.style["border-left-width"] = props.sidePadding
+		- innerStyle.style["border-right-width"] = props.sidePadding
+	if (props.verticalPadding)
+		- innerStyle.style["border-top-width"] = props.verticalPadding
+		- innerStyle.style["border-bottom-width"] = props.verticalPadding
+	if (props.textColor)
+		- innerStyle.style["color"] = props.textColor
+	+link(url, Rhythm.ExtendAttributes({}, tagAttribs.AcuraButton, outerStyle))
+		span&attributes(Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner, innerStyle))
+			block

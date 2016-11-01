@@ -44,28 +44,36 @@ Rhythm.ImplyStyles = function (params) {
     if (params.align)
         params.style["text-align"] = params.align;
 
+    if (params.valign)
+        params.style["vertical-align"] = params.valign;
+
     return params;
 }
 
 /*  ExtendStyle
- *  Extends a style object with another one. Calls GetStyleObject first to handle string inputs.
+ *  Extends a style object with one or more others. Calls GetStyleObject first to handle string inputs.
  */
-Rhythm.ExtendStyle = function (base, extension) {
-    base = Rhythm.GetStyleObject(base ? base : {});
-    extension = Rhythm.GetStyleObject(extension ? extension : {});
-    return extend(base, extension);
+Rhythm.ExtendStyle = function (base) { // additional parameters handled by parsing arguments array
+    var result = extend({}, Rhythm.GetStyleObject(base ? base : {}));
+    for (var i = 1; i < arguments.length; i++) {
+        var current = Rhythm.GetStyleObject(arguments[i] ? arguments[i] : {});
+        result = extend(result, current);
+    }
+    return result;
 }
 
 /*  ExtendAttributes
- *  Extends a tag parameters object with another one. Also calls ImplyStyles on each parameter before combining them, and merges the resulting styles objects.
+ *  Extends a tag parameters object with one or more others. Also calls ImplyStyles on each parameter before combining them, and merges the resulting styles objects.
  */
-Rhythm.ExtendAttributes = function (base, extension) {
-    base = Rhythm.ImplyStyles(base ? base : {});
-    extension = Rhythm.ImplyStyles(extension ? extension : {});
-
-    extension.style = Rhythm.ExtendStyle(base.style, extension.style);
-    var result = extend(base, extension);
-
+Rhythm.ExtendAttributes = function (base) { // additional parameters handled by parsing arguments array
+    var result = Rhythm.ImplyStyles(extend({}, base ? base : {})); // extend to clone, and imply styles for basic setup
+    for (var i = 1; i < arguments.length; i++) {
+        var current = arguments[i] ? arguments[i] : {}; // process this right now to avoid null problems
+        var combinedStyles = Rhythm.ExtendStyle({}, result.style, current.style); // extend doesn't do deep cloning; we need to get a merged version of the styles before we merge everything else
+        result = extend(result, current);
+        result.style = combinedStyles; // now drop in the extended styles
+        result = Rhythm.ImplyStyles(result); // ... and imply styles on top of that pile
+    }
     return result;
 }
 

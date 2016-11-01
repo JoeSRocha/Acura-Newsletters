@@ -9,5 +9,7 @@ mixin tableRow(props)
 	tr&attributes(props ? props : {})
 		block
 mixin tableCell(props)
-	td(valign="middle",style="vertical-align:middle;")&attributes(props ? props : {})
+	- var cellAttribs = { valign: "middle", style: { "vertical-align": "middle" } }
+	- cellAttribs = Rhythm.ExtendAttributes(cellAttribs, props)
+	td&attributes(cellAttribs)
 		block

@@ -1,8 +1,7 @@
-mixin link(url, query)
-	- var trackedUrl = Rhythm.BuildUrl(url, query)
+mixin link(url, props)
 	- if (url)
-		a(href=trackedUrl)&attributes(attributes)
+		a(href=url)&attributes(props)
 			block
 	- else
-		span&attributes(attributes)
+		span&attributes(props)
 			block

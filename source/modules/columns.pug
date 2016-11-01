@@ -1,0 +1,27 @@
+include ./tables.pug
+include ./spacer.pug
+mixin columns(props)
+	+table
+		+tableBody
+			+tableRow
+				block
+mixin column(props)
+	+tableCell(props)
+		block
+mixin columnRule(props)
+	if (!props)
+		- props = {}
+	- var cellProps = { width: 1 }
+	if (props.width)
+		- cellProps.width = props.width
+	if (props.height)
+		- cellProps.height = props.height
+	- var spacerProps = { color: defaults.columnRuleColor ? defaults.columnRuleColor : "#000000" }
+	if (props.lineWidth)
+		- spacerProps.width = props.lineWidth
+	if (props.lineHeight)
+		- spacerProps.height = props.lineHeight
+	if (props.lineColor)
+		- spacerProps.color = props.lineColor
+	+tableCell(cellProps)
+		+spacer(spacerProps)

@@ -1,0 +1,8 @@
+mixin GraphicCTA(props)
+	div.graphic-cta
+		+link(props.linkUrl, props.linkTracking)
+			+image({
+				src: constants.ImagePath + props.graphicUrl,
+				alt: props.graphicAlt,
+				style: "width:100%;"
+			})

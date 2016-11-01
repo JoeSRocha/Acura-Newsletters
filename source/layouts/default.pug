@@ -2,12 +2,13 @@
 include ../modules/bar.pug
 include ../modules/break.pug
 include ../modules/bullets.pug
+include ../modules/columns.pug
+include ../modules/content.pug
 include ../modules/image.pug
 include ../modules/link.pug
 include ../modules/spacer.pug
 include ../modules/sub.pug
 include ../modules/sup.pug
-include ../modules/text.pug
 include ../modules/tables.pug
 //- Uncomment this section to include Adestra components
 	include ../modules/Adestra/linkAdestraUnsubscribe.pug
@@ -18,39 +19,12 @@ include ../modules/tables.pug
 include ../recipes/AcuraButton.pug
 include ../recipes/ContentContainer.pug
 include ../recipes/GraphicCTA.pug
+include ../recipes/OfferCTA.pug
 //-
-//- SHARED CONSTANTS
-//- Constants are essential predefined values which are used in numerous places.
-- var constants = {}
-- constants.ContentWidth = 600
-- constants.ImagePath = "images/"
-- constants.PrimaryBackgroundColor = "#FFFFFF"
-- constants.PrimaryTextColor = "#000000"
-- constants.PrimaryFontFamily = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', Helvetica, Arial, sans-serif"
-- constants.AcuraRed = "#e82c2a"
+//- SHARED VARIABLES
+include ./variables.pug
 //-
-//- DEFAULT VARIBLES
-//- Defaults are optional overrides for items that have existing default values.
-- var defaults = {}
-//- defaults.breakHeight = 30
-//- defaults.spaceBeforeBullet = 5
-//- defaults.spaceAfterBullet = 20
-//-
-//- BASELINE STYLES
-//- 
-- var styles = { "global": {} }
-- styles.global["font-family"] = "Helvetica, Arial, sans-serif"
-- styles.global["font-size"] = "16px"
-- styles.global["text-align"] = "left"
-- styles.global["color"] = constants.PrimaryTextColor
-//-
-- styles.header = {}
-- styles.header["font-family"] = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif"
-- styles.header["font-size"] = "34px"
-- styles.header["text-align"] = "left"
-- styles.header["color"] = constants.PrimaryTextColor
-//-
-//- IMPORTED STYLE SETTINGS
+//- IMPORTED VARIABLES FROM CHILD PAGE
 block vars
 //-
 //- CONTENT
@@ -71,8 +45,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 			| a img {border:none;}
 			| @-ms-viewport{ width: device-width;}
 		block head
-	body(bgcolor=constants.PrimaryBackgroundColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
-
+	body(bgcolor=constants.PrimaryBackgroundColor,style="min-width:100%;padding:0;margin:0;background-color:" + constants.PrimaryBackgroundColor + "-webkit-text-size-adjust:none;")
 		+table({
 			"align": "center",
 			"width": "100%",
@@ -83,7 +56,6 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 					+tableCell({
 						"align": "center"
 					})
-
 						+table({
 							"align": "center",
 							"width": constants.ContentWidth,
@@ -95,5 +67,4 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 										"valign": "top",
 										"style" : styles.global
 									})
-
 										block content

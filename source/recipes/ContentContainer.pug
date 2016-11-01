@@ -1,0 +1,14 @@
+include ../modules/tables.pug
+include ../modules/spacer.pug
+mixin ContentContainer(containerProps, contentProps)
+	- var containerPadding = containerProps && containerProps.padding ? containerProps.padding : 50
+	- contentPropsFinal = Rhythm.ExtendAttributes({ align: "center" }, contentProps ? contentProps : {})
+	+table
+		+tableBody
+			+tableRow
+				+tableCell
+					+spacer({ width: containerPadding })
+				+tableCell(contentPropsFinal)
+					block
+				+tableCell
+					+spacer({ width: containerPadding })
