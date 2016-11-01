@@ -1,3 +1,4 @@
+//- BASE MODULES
 include ../modules/bar.pug
 include ../modules/break.pug
 include ../modules/bullets.pug
@@ -13,21 +14,41 @@ include ../modules/tables.pug
 	include ../modules/Adestra/linkAdestraWebView.pug
 	include ../modules/Adestra/textAdestraMerge.pug
 //-
+//- RECIPE MODULES
+include ../recipes/AcuraButton.pug
+include ../recipes/ContentContainer.pug
+include ../recipes/GraphicCTA.pug
+//-
+//- SHARED CONSTANTS
+//- Constants are essential predefined values which are used in numerous places.
+- var constants = {}
+- constants.ContentWidth = 600
+- constants.ImagePath = "images/"
+- constants.PrimaryBackgroundColor = "#FFFFFF"
+- constants.PrimaryTextColor = "#000000"
+- constants.PrimaryFontFamily = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', Helvetica, Arial, sans-serif"
+- constants.AcuraRed = "#e82c2a"
+//-
 //- DEFAULT VARIBLES
-- defaults = {}
-- defaults.contentWidth = 600
-- defaults.bodyBgColor = "#FFFFFF"
-//- defaults.imagePath = "//"
+//- Defaults are optional overrides for items that have existing default values.
+- var defaults = {}
 //- defaults.breakHeight = 30
 //- defaults.spaceBeforeBullet = 5
 //- defaults.spaceAfterBullet = 20
 //-
 //- BASELINE STYLES
+//- 
 - var styles = { "global": {} }
-- styles.global["font-family"] = "Arial,Helvetica,sans-serif"
-- styles.global["font-size"] ="12px"
-- styles.global["text-align"] ="center"
-- styles.global["color"] = "#000000"
+- styles.global["font-family"] = "Helvetica, Arial, sans-serif"
+- styles.global["font-size"] = "16px"
+- styles.global["text-align"] = "left"
+- styles.global["color"] = constants.PrimaryTextColor
+//-
+- styles.header = {}
+- styles.header["font-family"] = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- styles.header["font-size"] = "34px"
+- styles.header["text-align"] = "left"
+- styles.header["color"] = constants.PrimaryTextColor
 //-
 //- IMPORTED STYLE SETTINGS
 block vars
@@ -50,12 +71,12 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 			| a img {border:none;}
 			| @-ms-viewport{ width: device-width;}
 		block head
-	body(bgcolor=defaults.bodyBgColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
+	body(bgcolor=constants.PrimaryBackgroundColor,style="min-width:100%;padding:0; margin:0;-webkit-text-size-adjust:none;")
 
 		+table({
 			"align": "center",
 			"width": "100%",
-			"style": "background-color:" + defaults.bodyBgColor + ";"
+			"style": "background-color:" + constants.PrimaryBackgroundColor + ";"
 		})
 			+tableBody
 				+tableRow
@@ -65,8 +86,8 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 
 						+table({
 							"align": "center",
-							"width": defaults.contentWidth,
-							"style": "background-color:" + defaults.bodyBgColor + ";"
+							"width": constants.ContentWidth,
+							"style": "background-color:" + constants.PrimaryBackgroundColor + ";"
 						})
 							+tableBody
 								+tableRow
