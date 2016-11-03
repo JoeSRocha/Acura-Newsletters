@@ -1,0 +1,6 @@
+//- A preheader is a hidden chunk of text which is placed first in the body, to provide a summary for email clients.
+mixin preheader(props)
+	- var propsFinal = { style: styles.preheader }
+	- propsFinal = Rhythm.ExtendAttributes(propsFinal, props)
+	div&attributes(propsFinal)
+		block

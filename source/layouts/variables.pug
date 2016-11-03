@@ -7,22 +7,24 @@
 - constants.PrimaryTextColor = "#000000"
 - constants.AcuraRed = "#e82c2a"
 - constants.DividerGray = "#afafaf"
-//-
+- constants.FooterGray = "#9b9b9b"
+
 //- DEFAULT VARIBLES
 //- Defaults are optional overrides for items that have existing default values.
 - var defaults = {}
 //- defaults.breakHeight = 30
 - defaults.columnRuleColor = constants.DividerGray
+- defaults.preheader = null
 //- defaults.spaceBeforeBullet = 5
 //- defaults.spaceAfterBullet = 20
-//-
+
 //- FONT FAMILY DEFINITIONS
 //- Font families are often very picky. Define them here to make sure they're the same everywhere.
 - var fonts = {}
 - fonts.normal = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 - fonts.ultraLight = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 - fonts.bold = "'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif"
-//-
+
 //- STYLE DEFINITIONS
 //- Put shared style definitions here.
 //- We're extending our styles into shared tag attributes, so we only need to define more than one if we've got a couple of major 
@@ -31,13 +33,27 @@
 - styles.global["font-size"] = "16px"
 - styles.global["text-align"] = "left"
 - styles.global["color"] = constants.PrimaryTextColor
-//-
+
+//- PREHEADER STYLES
+//- Recommended by a blog post from Email On Acid: https://www.emailonacid.com/blog/article/email-development/tips-for-coding-email-preheaders
+- styles.preheader = {}
+- styles.preheader["display"] = "none !important"
+- styles.preheader["visibility"] = "hidden"
+- styles.preheader["mso-hide"] = "all"
+- styles.preheader["font-size"] = "1px"
+- styles.preheader["color"] = "#ffffff"
+- styles.preheader["line-height"] = "1px"
+- styles.preheader["max-height"] = "0px"
+- styles.preheader["max-width"] = "0px"
+- styles.preheader["opacity"] = "0"
+- styles.preheader["overflow"] = "hidden"
+
 //- STOCK TAG ATTRIBUTES
 //- Since we're handling the possibility of archaic html rendering, we've got a variety of html attributes to support. By standardizing these into variables, we ensure that they stay the same throughout.
 - var tagAttribs = {}
-//-
+
 //- BASIC COPY ELEMENTS
-//-
+
 - tagAttribs.header = {}
 - tagAttribs.header.align = "left"
 - tagAttribs.header.class = "acura-header"
@@ -45,20 +61,15 @@
 - tagAttribs.header.style["font-family"] = fonts.ultraLight
 - tagAttribs.header.style["font-size"] = "34px"
 - tagAttribs.header.style["line-height"] = "34px"
-//-
+
 - tagAttribs.bodyCopy = {}
 - tagAttribs.bodyCopy.align = "left"
 - tagAttribs.bodyCopy.class = "acura-body-copy"
 - tagAttribs.bodyCopy.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.bodyCopy.style["line-height"] = "30px"
-//-
-- tagAttribs.buttonCtaRow = {}
-- tagAttribs.buttonCtaRow.align = "center"
-- tagAttribs.buttonCtaRow.class = "acura-button-cta-row"
-- tagAttribs.buttonCtaRow.style = Rhythm.ExtendStyle({}, styles.global)
-//-
+
 //- ACURA BUTTON
-//-
+
 - tagAttribs.AcuraButton = {}
 - tagAttribs.AcuraButton.align = "center"
 - tagAttribs.AcuraButton.class = "acura-button"
@@ -77,7 +88,7 @@
 - tagAttribs.AcuraButton.style["font-weight"] = "bold"
 - tagAttribs.AcuraButton.style["line-height"] = "16px"
 - tagAttribs.AcuraButton.style["text-decoration"] = "none"
-//-
+
 - tagAttribs.AcuraButtonInner = {}
 - tagAttribs.AcuraButtonInner.align = "center"
 - tagAttribs.AcuraButtonInner.class = "acura-button-inner"
@@ -87,47 +98,77 @@
 - tagAttribs.AcuraButtonInner.style["border-right-width"] = tagAttribs.AcuraButton.style["font-size"]
 - tagAttribs.AcuraButtonInner.style["border-top-width"] = tagAttribs.AcuraButton.style["font-size"]
 - tagAttribs.AcuraButtonInner.style["border-bottom-width"] = tagAttribs.AcuraButton.style["font-size"]
-//-
+
+- tagAttribs.AcuraButtonArrow = {}
+- tagAttribs.AcuraButtonArrow.width = "34px"
+- tagAttribs.AcuraButtonArrow.sidePadding = "0"
+- tagAttribs.AcuraButtonArrow.verticalPadding = "10px"
+- tagAttribs.AcuraButtonArrow.textColor = constants.AcuraRed
+
+- tagAttribs.AcuraButtonArrowText = {}
+- tagAttribs.AcuraButtonArrowText.class = "acura-button-arrow-text"
+- tagAttribs.AcuraButtonArrowText.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.AcuraButtonArrowText.style["border-color"] = constants.PrimaryBackgroundColor
+- tagAttribs.AcuraButtonArrowText.style["border-style"] = "solid"
+- tagAttribs.AcuraButtonArrowText.style["border-left-width"] = "16px"
+- tagAttribs.AcuraButtonArrowText.style["border-right-width"] = "0"
+- tagAttribs.AcuraButtonArrowText.style["border-top-width"] = "9px"
+- tagAttribs.AcuraButtonArrowText.style["border-bottom-width"] = "9px"
+- tagAttribs.AcuraButtonArrowText.style["color"] = constants.AcuraRed
+- tagAttribs.AcuraButtonArrowText.style["display"] = "inline-block"
+- tagAttribs.AcuraButtonArrowText.style["font-size"] = "16px"
+- tagAttribs.AcuraButtonArrowText.style["font-weight"] = "bold"
+- tagAttribs.AcuraButtonArrowText.style["line-height"] = "16px"
+
 //- OFFER CTA
-//-
+
 - tagAttribs.OfferCtaWrapper = {}
 - tagAttribs.OfferCtaWrapper.class = "offer-cta"
 - tagAttribs.OfferCtaWrapper.style = Rhythm.ExtendStyle({}, styles.global)
-//-
+
 - tagAttribs.OfferCtaHeader = {}
 - tagAttribs.OfferCtaHeader.class = "offer-cta-header"
 - tagAttribs.OfferCtaHeader.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.OfferCtaHeader.style["font-size"] = "24px"
 - tagAttribs.OfferCtaHeader.style["line-height"] = "24px"
 - tagAttribs.OfferCtaHeader.style["text-align"] = "center"
-//-
+
 - tagAttribs.OfferCtaSubheader = {}
 - tagAttribs.OfferCtaSubheader.class = "offer-cta-subheader"
 - tagAttribs.OfferCtaSubheader.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.OfferCtaSubheader.style["font-family"] = fonts.bold
-- tagAttribs.OfferCtaSubheader.style["font-size"] = "10px"
+- tagAttribs.OfferCtaSubheader.style["font-size"] = "14px"
 - tagAttribs.OfferCtaSubheader.style["font-weight"] = "bold"
 - tagAttribs.OfferCtaSubheader.style["line-height"] = "16px"
 - tagAttribs.OfferCtaSubheader.style["text-align"] = "center"
-//-
-- tagAttribs.OfferCtaStinger = {}
-- tagAttribs.OfferCtaStinger.class = "offer-cta-stinger"
-- tagAttribs.OfferCtaStinger.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.OfferCtaStinger.style["text-align"] = "center"
-//-
+
+- tagAttribs.OfferCtaStingerContent = {}
+- tagAttribs.OfferCtaStingerContent.class = "offer-cta-stinger"
+- tagAttribs.OfferCtaStingerContent.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.OfferCtaStingerContent.style["font-size"] = "14px"
+- tagAttribs.OfferCtaStingerContent.style["line-height"] = "16px"
+- tagAttribs.OfferCtaStingerContent.style["text-align"] = "left"
+
+- tagAttribs.OfferCtaStingerBigText = {}
+- tagAttribs.OfferCtaStingerBigText.class = "offer-cta-stinger"
+- tagAttribs.OfferCtaStingerBigText.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.OfferCtaStingerBigText.style["font-size"] = "30px"
+- tagAttribs.OfferCtaStingerBigText.style["line-height"] = "32px"
+- tagAttribs.OfferCtaStingerBigText.style["text-align"] = "right"
+
 - tagAttribs.OfferCtaDetails = {}
 - tagAttribs.OfferCtaDetails.class = "offer-cta-details"
 - tagAttribs.OfferCtaDetails.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.OfferCtaDetails.style["font-size"] = "10px"
 - tagAttribs.OfferCtaDetails.style["line-height"] = "14px"
 - tagAttribs.OfferCtaDetails.style["text-align"] = "center"
-//-
+
 - tagAttribs.OfferCtaLinkWrapper = {}
 - tagAttribs.OfferCtaLinkWrapper.class = "offer-cta-link-wrapper"
 - tagAttribs.OfferCtaLinkWrapper.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.OfferCtaLinkWrapper.style["display"] = "block"
 - tagAttribs.OfferCtaLinkWrapper.style["text-align"] = "center"
-//-
+
 - tagAttribs.OfferCtaLinkContent = {}
 - tagAttribs.OfferCtaLinkContent.class = "offer-cta-link-content"
 - tagAttribs.OfferCtaLinkContent.style = Rhythm.ExtendStyle({}, styles.global)
@@ -142,3 +183,21 @@
 - tagAttribs.OfferCtaLinkContent.style["font-size"] = "16px"
 - tagAttribs.OfferCtaLinkContent.style["font-weight"] = "bold"
 - tagAttribs.OfferCtaLinkContent.style["line-height"] = "16px"
+
+//- FOOTER
+
+- tagAttribs.Footer = {}
+- tagAttribs.Footer.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.Footer.style["color"] = "#ffffff"
+- tagAttribs.Footer.style["background-color"] = "#000000"
+
+- tagAttribs.FooterSmallPrint = {}
+- tagAttribs.FooterSmallPrint.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.FooterSmallPrint.style["color"] = constants.FooterGray
+- tagAttribs.FooterSmallPrint.style["font-size"] = "13px"
+- tagAttribs.FooterSmallPrint.style["line-height"] = "17px"
+- tagAttribs.FooterSmallPrint.style["text-align"] = "left"
+
+- tagAttribs.FooterLink = {}
+- tagAttribs.FooterLink.style = Rhythm.ExtendStyle({}, tagAttribs.FooterSmallPrint.style)
+- tagAttribs.FooterLink.style["color"] = constants.FooterGray + " !important"

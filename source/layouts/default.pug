@@ -6,6 +6,7 @@ include ../modules/columns.pug
 include ../modules/content.pug
 include ../modules/image.pug
 include ../modules/link.pug
+include ../modules/preheader.pug
 include ../modules/spacer.pug
 include ../modules/sub.pug
 include ../modules/sup.pug
@@ -14,19 +15,21 @@ include ../modules/tables.pug
 	include ../modules/Adestra/linkAdestraUnsubscribe.pug
 	include ../modules/Adestra/linkAdestraWebView.pug
 	include ../modules/Adestra/textAdestraMerge.pug
-//-
+
 //- RECIPE MODULES
 include ../recipes/AcuraButton.pug
+include ../recipes/AcuraButtonArrow.pug
 include ../recipes/ContentContainer.pug
+include ../recipes/Footer.pug
 include ../recipes/GraphicCTA.pug
 include ../recipes/OfferCTA.pug
-//-
+
 //- SHARED VARIABLES
 include ./variables.pug
-//-
+
 //- IMPORTED VARIABLES FROM CHILD PAGE
 block vars
-//-
+
 //- CONTENT
 doctype html
 html(xmlns="http://www.w3.org/1999/xhtml")
@@ -46,6 +49,8 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 			| @-ms-viewport{ width: device-width;}
 		block head
 	body(bgcolor=constants.PrimaryBackgroundColor,style="min-width:100%;padding:0;margin:0;background-color:" + constants.PrimaryBackgroundColor + "-webkit-text-size-adjust:none;")
+		if (defaults.preheader)
+			+preheader= defaults.preheader
 		+table({
 			"align": "center",
 			"width": "100%",

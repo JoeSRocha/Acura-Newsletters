@@ -3,16 +3,41 @@ var extend = require('util')._extend;
 
 /*  BuildUrl
  *  Combines a base url string with an object containing query parameters, and returns the resulting url as a string.
+ *  Example: Rhythm.BuildUrl({ url: "http://google.com", query: [ { test1: "test1" }, { test2: "test2"} ], fragment: "test3" })
+ *  Example output: http://google.com?test1=test1&test2=test2#test3
  */
-Rhythm.BuildUrl = function (base, query) {
-    var result = base;
-    if (query) {
-        result += "?"
-        for (var item in query) {
-            result += item + "=" + query[item] + "&"
+Rhythm.BuildUrl = function (pieces) { // additional parameters handled by parsing arguments array
+    if (!pieces || !pieces.url)
+        throw "Rhythm.BuildUrl: base url not found";
+
+    var result = pieces.url;
+
+    if (pieces.query) {
+        var query = pieces.query;
+
+        if (typeof query === "string")
+            result += "?" + query;
+
+        if (Array.isArray(query)) {
+            var combinedQuery = {};
+            for (var item in query) {
+                combinedQuery = extend(combinedQuery, query[item]);
+            }
+            query = combinedQuery; // fall through to object handling
         }
-        result = result.substring(0, result.length - 1);
+
+        if (typeof query === "object") {
+            result += "?"
+            for (var item in query) {
+                result += item + "=" + query[item] + "&"
+            }
+            result = result.substring(0, result.length - 1);
+        }
     }
+
+    if (pieces.fragment)
+        result += "#" + pieces.fragment;
+
     return result;
 }
 
