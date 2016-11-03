@@ -1,4 +1,5 @@
 include ../modules/content.pug
+include ./AcuraButtonArrow.pug
 mixin OfferCTA(props)
 	+content(tagAttribs.OfferCtaWrapper)
 		block
@@ -9,8 +10,16 @@ mixin OfferCTA_Subheader(props)
 	+content(tagAttribs.OfferCtaSubheader)
 		block
 mixin OfferCTA_Stinger(props)
-	+content(tagAttribs.OfferCtaStinger)
-		block
+	+table({ width: "", style: { width: "auto", "margin-left": "auto", "margin-right": "auto" } })
+		+tableBody
+			+tableRow
+				+tableCell
+					+content(tagAttribs.OfferCtaStingerBigText)= props.bigText
+				+tableCell({ width: 10 })
+					+spacer({ width: 10 })
+				+tableCell
+					+content(tagAttribs.OfferCtaStingerContent)
+						block
 mixin OfferCTA_Details(props)
 	+content(tagAttribs.OfferCtaDetails)
 		block
@@ -18,8 +27,5 @@ mixin OfferCTA_Link(props)
 	if (!props)
 		- props = {}
 	+content
-		+link(props.url, tagAttribs.OfferCtaLinkWrapper)
-			+AcuraButton(null, { width: "34px", sidePadding: "0", verticalPadding: "10px", textColor: constants.AcuraRed })
-				| &gt;
-			span&attributes(tagAttribs.OfferCtaLinkContent)
-				block
+		+AcuraButtonArrow(props.url, tagAttribs.OfferCtaLinkWrapper)
+			block

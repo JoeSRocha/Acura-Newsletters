@@ -1,0 +1,78 @@
+include ./ContentContainer.pug
+mixin Footer(props)
+	+content(tagAttribs.Footer)
+		+spacer({ height: 40 })
+		+ContentContainer
+			+GraphicCTA({
+				graphicUrl: "acura-logo-white.png",
+				graphicAlt: null,
+				graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+			})
+		+spacer({ height: 60 })
+		+ContentContainer
+			+table
+				+tableBody
+					+tableRow
+						+tableCell({ width: 80, align: "left" })
+							+GraphicCTA({
+								linkUrl: "",
+								graphicUrl: "footer-icon-facebook.png",
+								graphicAlt: null,
+								graphicStyle: { display: "inline-block", width: "auto", "text-align": "left" }
+							})
+						+tableCell({ width: 120, align: "center" })
+							+GraphicCTA({
+								linkUrl: "",
+								graphicUrl: "footer-icon-twitter.png",
+								graphicAlt: null,
+								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							})
+						+tableCell({ width: 100, align: "center" })
+							+GraphicCTA({
+								linkUrl: "",
+								graphicUrl: "footer-icon-instagram.png",
+								graphicAlt: null,
+								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							})
+						+tableCell({ width: 120, align: "center" })
+							+GraphicCTA({
+								linkUrl: "",
+								graphicUrl: "footer-icon-pinterest.png",
+								graphicAlt: null,
+								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							})
+						+tableCell({ width: 80, align: "right" })
+							+GraphicCTA({
+								linkUrl: "",
+								graphicUrl: "footer-icon-youtube.png",
+								graphicAlt: null,
+								graphicStyle: { display: "inline-block", width: "auto", "text-align": "right" }
+							})
+		+spacer({ height: 60 })
+		+ContentContainer
+			+table
+				+tableBody
+					+tableRow
+						+tableCell({ width: 160, align: "left" })
+							+link("#", tagAttribs.FooterLink)
+								| Privacy Policy
+						+tableCell({ width: 180, align: "center" })
+							+link("#", tagAttribs.FooterLink)
+								| Terms and Conditions
+						+tableCell({ width: 160, align: "right" })
+							+link("#", tagAttribs.FooterLink)
+								| &copy;2016 Acura
+		+spacer({ height: 50 })
+		+ContentContainer
+			+content(tagAttribs.FooterSmallPrint)
+				| [*] Closed-end lease for 2017 RDX 6 Speed Automatic vehicles (TB3H3HJNW) available from September 7, 2016 through October 31, 2016, to well-qualified lessees approved by Acura Financial Services. Not all lessees will qualify. Higher lease rates apply for lessees with lower credit ratings. MSRP $36,510.00 (includes destination, excludes tax, license, title fee, registration, documentation fees, options, insurance and the like). Actual net capitalized cost $32,317.70. Net capitalized cost includes $595 acquisition fee. Dealer contribution may vary and could affect actual lease payment. Total monthly payments $12,204.00. Option to purchase at lease end $23,001.30. Must take new retail delivery on vehicle from dealer stock by October 31, 2016. Lessee responsible for maintenance, excessive wear/tear and 15¢/mile over 10,000 miles/year for vehicles with MSRP less than $30,000, and 20¢/mile over 10,000 miles/year for vehicles with MSRP of $30,000 or more. See your Acura dealer for details.
+			+spacer({ height: 24 })
+			+content(tagAttribs.FooterSmallPrint)
+				| [**] Special APR offer valid on new and unregistered 2017 RDX models from September 7, 2016 through October 31, 2016, to well-qualified buyers on approved credit by Acura Financial Services through participating dealers. Must take new retail delivery on vehicle from dealer stock by October 31, 2016. Not all buyers may qualify. Higher rates apply for buyers with lower credit ratings. Example for 2017 RDX: 1.9% for 36 months financing at $28.60 a month for every $1,000.00 financed. Dealers set actual prices. See your Acura dealer for details.
+			+spacer({ height: 24 })
+			+content(tagAttribs.FooterSmallPrint)
+				| Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please click here. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only. See our Privacy Policy.
+			+spacer({ height: 24 })
+			+content(tagAttribs.FooterSmallPrint)
+				| &copy;2016 Acura. 1919 Torrance Blvd., Torrance, CA 90501
+		+spacer({ height: 40 })

@@ -1,22 +1,41 @@
 extends ./layouts/default.pug
-//-
+
 block vars
-//-
+	- constants.ImagePath = "example-product/"
+	- defaults.preheader = "[First Name], Make a bold statement with a new, racing-inspired GT package."
+
+	- var tracking = {}
+	- tracking["utm_source"] = "source"
+	- tracking["utm_medium"] = "medium"
+	- tracking["utm_campaign"] = "campaign"
+	- tracking["utm_term"] = "term"
+	- tracking["utm_content"] = "content"
+
+	- var urls = {}
+	- urls.ExploreTlx = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: tracking })
+	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "TLX" }, tracking ] })
+	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/tlx", query: tracking })
+	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ { test: "test" }, tracking ], fragment: "multi-feature-box-gt" })
+	- urls.Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch?v=8nLd6C5O1HM", query: [ { v: "8nLd6C5O1HM" }, tracking ] })
+	- urls.Explore_Acura_Motorsports = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: tracking });
+	- urls.Watch_Jalopnik_Video = "https://www.youtube.com/watch?v=EcNtE6B5Yvs"
+
 block head
-//-
+
 block content
+
 	+GraphicCTA({
-		linkUrl: "http://google.com",
-		linkTracking: null,
+		linkUrl: urls.Explore_Tlx,
 		graphicUrl: "header-tlx-white.png",
 		graphicAlt: "ACURA | TLX"
 	})
+
 	+GraphicCTA({
-		linkUrl: "http://google.com",
-		linkTracking: null,
+		linkUrl: urls.Explore_Tlx,
 		graphicUrl: "tlx-gt-hero-animation.gif",
 		graphicAlt: null
 	})
+
 	+ContentContainer
 		+spacer({ height: 40 })
 		+content(tagAttribs.header)
@@ -26,11 +45,13 @@ block content
 			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
 		+spacer({ height: 50 })
 		+content(tagAttribs.buttonCtaRow)
-			+AcuraButton("http://google.com", { sidePadding: "50px" })
+			+AcuraButton(urls.Explore_Tlx, { sidePadding: "50px" })
 				| EXPLORE TLX
-	+ContentContainer({ padding: 35 })
+
+	+ContentContainer({ padding: 25 })
 		+columns
-			+column({ width: 299 })
+
+			+column({ width: 260 })
 				+OfferCTA
 					+OfferCTA_Header
 						| Featured APR Offer
@@ -38,16 +59,18 @@ block content
 					+OfferCTA_Subheader
 						| 2016 TLX Special APR
 					+spacer({ height: 25 })
-					+OfferCTA_Stinger
-						| 0.9% APR for 60 months
+					+OfferCTA_Stinger({ bigText: "0.9%" })
+						| APR#[br]for 60 months
 					+spacer({ height: 12 })
 					+OfferCTA_Details
-						| For well qualified buyers and buyers that qualify for the Acura Graduate Program criteria.
-					+spacer({ height: 60 })
-					+OfferCTA_Link
+						| For well qualified buyers and buyers that qualify#[br]for the Acura Graduate Program criteria.
+					+spacer({ height: 42 })
+					+OfferCTA_Link({ url: urls.Tlx_Offers })
 						| SEE TLX OFFERS
-			+columnRule({ width: 40, height: 470, lineWidth: 1, lineHeight: 470 })
-			+column({ width: 300 })
+
+			+columnRule({ width: 30, height: 470, lineWidth: 1, lineHeight: 470 })
+
+			+column({ width: 260 })
 				+OfferCTA
 					+OfferCTA_Header
 						| Featured Lease Offer
@@ -55,17 +78,72 @@ block content
 					+OfferCTA_Subheader
 						| 2016 TLX 8 Speed Dual-Clutch P-AWS#[br]Featured Special Lease
 					+spacer({ height: 8 })
-					+OfferCTA_Stinger
-						| $299 per month for 36 months#[br]$2499 total due at signing
+					+OfferCTA_Stinger({ bigText: "$299" })
+						| per month for 36 months#[br]$2499 total due at signing
 					+spacer({ height: 12 })
 					+OfferCTA_Details
 						| Includes down payment with no security deposit. Excludes taxes, titles and either dealer fees or documentary service fee. For well-qualified lessees.
-					+spacer({ height: 60 })
-					+OfferCTA_Link
+					+spacer({ height: 30 })
+					+OfferCTA_Link({ url: urls.Build_Tlx })
 						| BUILD &amp; PRICE YOUR TLX
+
 	+GraphicCTA({
-		linkUrl: "http://google.com",
-		linkTracking: null,
+		linkUrl: urls.See_Tlx_Gt_Package,
 		graphicUrl: "tlx-gt-red-sideview.jpg",
 		graphicAlt: null
 	})
+
+	+ContentContainer
+		+spacer({ height: 50 })
+		+content(tagAttribs.header)
+			| New TLX GT Package
+		+spacer({ height: 35 })
+		+content(tagAttribs.bodyCopy)
+			| Who doesn&rsquo;t want to be more stylish and sporty? That&rsquo;s what the TLX GT Package is all about &ndash; from its spoilers and underbody kit to optional 19-inch diamond cut wheels. Available on all TLX models, the TLX GT Package makes a bold statement without saying a word.
+		+spacer({ height: 50 })
+		+columns
+			+column({ align: "left" })
+				+AcuraButton(urls.See_Tlx_Gt_Package, { fontSize: "15px" })
+					| SEE THE TLX GT PACKAGE
+			+column({ align: "right" })
+				+AcuraButton(urls.Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
+					| WATCH TLX GT PACKAGE VIDEO
+
+	+spacer({ height: 100 })
+	+ContentContainer
+		+content(tagAttribs.header)
+			| Born To Run
+
+	+GraphicCTA({
+		linkUrl: urls.Explore_Acura_Motorsports,
+		graphicUrl: "tlx-sport-on-racetrack.jpg",
+		graphicAlt: null
+	})
+	
+	+ContentContainer
+		+spacer({ height: 50 })
+		+content(tagAttribs.bodyCopy)
+			| The sleek and sporty style of the Acura TLX GT Package was inspired by the Acura TLX GT race car. For Acura, racing is a heightened expression of Precision Crafted Performance. Now you can experience a quarter century of Acura Motorsports history every time you take the wheel.
+		+spacer({ height: 20 })
+		+content(tagAttribs.bodyCopy)
+			+AcuraButtonArrow(urls.Explore_Acura_Motorsports)
+				| EXPLORE ACURA MOTORSPORTS
+		+spacer({ height: 60 })
+		+columns
+			+column({ valign: "top" })
+				+content(tagAttribs.bodyCopy)
+					| Watch Ryan Eversley test drive the Acura TLX GT race car on the Jalopnik series &lsquo;Neat Stuff In Cool Cars&rsquo;
+				+spacer({ height: 20 })
+				+content(tagAttribs.bodyCopy)
+					+AcuraButtonArrow(urls.Watch_Jalopnik_Video)
+						| WATCH VIDEO
+			+column({ width: 250, align: "right" , valign: "top"})
+				+GraphicCTA({
+					linkUrl: urls.Watch_Jalopnik_Video,
+					graphicUrl: "jalopnik-video-sample.png",
+					graphicAlt: null,
+					graphicStyle: { width: "auto" }
+				})
+	
+	+spacer({ height: 100 })
+	+Footer

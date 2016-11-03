@@ -6,9 +6,9 @@ mixin ContentContainer(containerProps, contentProps)
 	+table
 		+tableBody
 			+tableRow
-				+tableCell
+				+tableCell({ width: containerPadding })
 					+spacer({ width: containerPadding })
 				+tableCell(contentPropsFinal)
 					block
-				+tableCell
+				+tableCell({ width: containerPadding })
 					+spacer({ width: containerPadding })

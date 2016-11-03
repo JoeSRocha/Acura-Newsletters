@@ -5,6 +5,8 @@ mixin AcuraButton(url, props)
 	- var outerStyle = { style: {} }
 	if (props.width)
 		- outerStyle.style["width"] = props.width
+	if (props.borderColor)
+		- outerStyle.style["border-color"] = props.borderColor
 	- var innerStyle = { style: {} }
 	if (props.sidePadding)
 		- innerStyle.style["border-left-width"] = props.sidePadding
@@ -12,8 +14,13 @@ mixin AcuraButton(url, props)
 	if (props.verticalPadding)
 		- innerStyle.style["border-top-width"] = props.verticalPadding
 		- innerStyle.style["border-bottom-width"] = props.verticalPadding
+	if (props.backgroundColor)
+		- innerStyle.style["border-color"] = props.backgroundColor
+		- innerStyle.style["background-color"] = props.backgroundColor
 	if (props.textColor)
 		- innerStyle.style["color"] = props.textColor
+	if (props.fontSize)
+		- innerStyle.style["font-size"] = props.fontSize
 	+link(url, Rhythm.ExtendAttributes({}, tagAttribs.AcuraButton, outerStyle))
 		span&attributes(Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner, innerStyle))
 			block

@@ -1,0 +1,7 @@
+include ./AcuraButton.pug
+mixin AcuraButtonArrow(url, props)
+	+link(url, props)
+		+AcuraButton(null, tagAttribs.AcuraButtonArrow)
+			| &gt;
+		span&attributes(tagAttribs.AcuraButtonArrowText)
+			block

@@ -1,8 +1,8 @@
 mixin GraphicCTA(props)
 	div.graphic-cta
-		+link(props.linkUrl, props.linkTracking)
+		+link(props.linkUrl, { style: { display: "block" } })
 			+image({
 				src: constants.ImagePath + props.graphicUrl,
 				alt: props.graphicAlt,
-				style: "width:100%;"
+				style: Rhythm.ExtendStyle({ width: "100%" }, props.graphicStyle)
 			})
