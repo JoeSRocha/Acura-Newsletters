@@ -21,9 +21,9 @@
 //- FONT FAMILY DEFINITIONS
 //- Font families are often very picky. Define them here to make sure they're the same everywhere.
 - var fonts = {}
-- fonts.normal = "'Helvetica Neue', Helvetica, Arial, sans-serif"
-- fonts.ultraLight = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif"
-- fonts.bold = "'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+- fonts.normal = "'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+- fonts.ultraLight = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+- fonts.bold = "'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
 
 //- STYLE DEFINITIONS
 //- Put shared style definitions here.
@@ -48,6 +48,8 @@
 - styles.preheader["opacity"] = "0"
 - styles.preheader["overflow"] = "hidden"
 
+- styles.rightColumnGraphic = { display: "inline-block", width: "auto", "text-align": "right" }
+
 //- STOCK TAG ATTRIBUTES
 //- Since we're handling the possibility of archaic html rendering, we've got a variety of html attributes to support. By standardizing these into variables, we ensure that they stay the same throughout.
 - var tagAttribs = {}
@@ -62,11 +64,26 @@
 - tagAttribs.header.style["font-size"] = "34px"
 - tagAttribs.header.style["line-height"] = "34px"
 
+- tagAttribs.subheader = {}
+- tagAttribs.subheader.align = "left"
+- tagAttribs.subheader.class = "acura-subheader"
+- tagAttribs.subheader.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.subheader.style["font-family"] = fonts.ultraLight
+- tagAttribs.subheader.style["font-size"] = "26px"
+- tagAttribs.subheader.style["line-height"] = "26px"
+
 - tagAttribs.bodyCopy = {}
 - tagAttribs.bodyCopy.align = "left"
 - tagAttribs.bodyCopy.class = "acura-body-copy"
 - tagAttribs.bodyCopy.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.bodyCopy.style["line-height"] = "30px"
+
+- tagAttribs.lineSpaceExtraSmall = { height: 10 }
+- tagAttribs.lineSpaceSmall = { height: 30 }
+- tagAttribs.lineSpaceMedium = { height: 50 }
+- tagAttribs.lineSpaceLarge = { height: 100 }
+- tagAttribs.lineSpaceFooter = { height: 20 }
+- tagAttribs.lineSpaceBodyCopyAlignment = { height: 7 }
 
 //- ACURA BUTTON
 
@@ -183,6 +200,20 @@
 - tagAttribs.OfferCtaLinkContent.style["font-size"] = "16px"
 - tagAttribs.OfferCtaLinkContent.style["font-weight"] = "bold"
 - tagAttribs.OfferCtaLinkContent.style["line-height"] = "16px"
+
+//- AD CALLOUT
+
+- tagAttribs.AdCalloutOuter = {}
+- tagAttribs.AdCalloutOuter.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.AdCalloutOuter.style["border-width"] = "2px"
+- tagAttribs.AdCalloutOuter.style["border-style"] = "solid"
+- tagAttribs.AdCalloutOuter.style["border-color"] = "#e1e1e1"
+
+- tagAttribs.AdCalloutInner = {}
+- tagAttribs.AdCalloutInner.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.AdCalloutInner.style["border-width"] = "26px"
+- tagAttribs.AdCalloutInner.style["border-style"] = "solid"
+- tagAttribs.AdCalloutInner.style["border-color"] = "transparent"
 
 //- FOOTER
 

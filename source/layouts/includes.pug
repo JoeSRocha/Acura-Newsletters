@@ -1,0 +1,35 @@
+//- SHARED VARIABLES
+include ./variables.pug
+
+//- BASELINE MODULES
+//- ordering these in dependency groups, but you don't really need to
+include ../modules/bar.pug
+include ../modules/break.pug
+include ../modules/content.pug
+include ../modules/image.pug
+include ../modules/link.pug
+include ../modules/preheader.pug
+include ../modules/sub.pug
+include ../modules/sup.pug
+include ../modules/tables.pug
+
+include ../modules/spacer.pug
+
+include ../modules/bullets.pug
+include ../modules/columns.pug
+
+//- Uncomment this section to include Adestra components
+	include ../modules/Adestra/linkAdestraUnsubscribe.pug
+	include ../modules/Adestra/linkAdestraWebView.pug
+	include ../modules/Adestra/textAdestraMerge.pug
+
+//- RECIPE MODULES
+include ../recipes/AcuraButton.pug
+include ../recipes/ContentContainer.pug
+include ../recipes/GraphicCTA.pug
+
+include ../recipes/AcuraButtonArrow.pug
+include ../recipes/AdCallout.pug
+include ../recipes/Footer.pug
+
+include ../recipes/OfferCTA.pug

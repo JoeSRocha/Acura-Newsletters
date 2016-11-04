@@ -1,7 +1,184 @@
 extends ./layouts/default.pug
-//-
+
 block vars
-//-
+	- constants.ImagePath = "example-newsletter/"
+	- defaults.preheader = "[First Name], See the new TLX GT Package and find great seasonal savings."
+
+	- var tracking = {}
+	- tracking["utm_source"] = "source"
+	- tracking["utm_medium"] = "medium"
+	- tracking["utm_campaign"] = "campaign"
+	- tracking["utm_term"] = "term"
+	- tracking["utm_content"] = "content"
+
+	- var urls = {}
+	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: tracking, fragment: "multi-feature-box-gt" })
+	- urls.Watch_Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8nLd6C5O1HM" }, tracking ] })
+	- urls.See_Great_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: tracking })
+	- urls.Shop_Lifestyle_Collection = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: tracking })
+	- urls.Shop_Parts_Accessories = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: tracking })
+	- urls.Shop_Apparel = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: tracking })
+	- urls.Explore_The_Nsx = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: tracking })
+	- urls.Watch_Nsx_Come_To_Life = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8EteOAVppGU", feature: "youtu.be" }, tracking ] })
+	
+	//- urls. = Rhythm.BuildUrl({ url: "", query: tracking })
+
 block head
-//-
+
 block content
+
+	+GraphicCTA({
+		linkUrl: urls.See_Tlx_Gt_Package,
+		graphicUrl: "header-newsletter-black.png",
+		graphicAlt: "ACURA | Newsletter"
+	})
+
+	+GraphicCTA({
+		linkUrl: urls.See_Tlx_Gt_Package,
+		graphicUrl: "tlx-gt-red-sideview-faded-bottom.jpg",
+		graphicAlt: null
+	})
+	+ContentContainer
+		+content(tagAttribs.header)
+			| New TLX GT Package
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.subheader)
+			| Performance Meets Style
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			| The new TLX GT Package is the ultimate embodiment of track-proven performance. Available on all TLX models, this pulse-revving design package breaks the mold, not the bank. Ready to make a bold statement? You will with racing-inspired spoilers and optional 19-inch diamond cut wheels.
+		+spacer(tagAttribs.lineSpaceSmall)
+		+columns
+			+column({ align: "left" })
+				+AcuraButton(urls.See_Tlx_Gt_Package, { fontSize: "15px" })
+					| SEE THE TLX GT PACKAGE
+			+column({ align: "right" })
+				+AcuraButton(urls.Watch_Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
+					| WATCH TLX GT PACKAGE VIDEO
+
+	+spacer(tagAttribs.lineSpaceLarge)
+	
+	+ContentContainer
+		+GraphicCTA({
+			linkUrl: urls.See_Great_Offers,
+			graphicUrl: "snowy-forest-road.jpg",
+			graphicAlt: null
+		})
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| Oh What Fun Event
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			| Ho ho hold the presses: the &ldquo;Oh What Fun&rdquo; sales event is here! With special offers on the popular TLX, ILX, RLX, RDX, and MDX, &rsquo;tis the season for Precision Crafted Performance. And by the way, it&rsquo;s perfectly OK to unwrap your presents early.
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			+AcuraButtonArrow(urls.See_Great_Offers)
+				| SEE GREAT OFFERS
+
+	+spacer(tagAttribs.lineSpaceMedium)
+	//- smaller gap than normal because the next image is a slanted one
+	
+	+GraphicCTA({
+		linkUrl: urls.Shop_Lifestyle_Collection,
+		graphicUrl: "lifestyle-collection.png",
+		graphicAlt: "THE NSX LIFESTYLE COLLECTION"
+	})
+	+ContentContainer
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| The NSX Lifestyle Collection
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.subheader)
+			| Great style is always in season.
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			| From branded t-shirts and hats to coffee mugs and luggage, the NSX Lifestyle Collection has everything for the supercar enthusiast. The planet&rsquo;s best NSX gear is just a click away.
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			+AcuraButtonArrow(urls.Shop_Lifestyle_Collection)
+				| SHOP THE NSX COLLECTION
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
+	+ContentContainer
+		+content(tagAttribs.header)
+			| More Gear, More Cheer
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.subheader)
+			| Make the holidays merry with Acura parts and apparel
+		+spacer(tagAttribs.lineSpaceSmall)
+
+		+columns
+			+column({ valign: "top" })
+				+content(tagAttribs.bodyCopy)
+					| When it comes to Acura gear for you and your car, we&rsquo;ve got you covered. The weather outside may be frightful, but your ride can always be delightful.
+				+spacer(tagAttribs.lineSpaceExtraSmall)
+				+content(tagAttribs.bodyCopy)
+					+AcuraButtonArrow(urls.Shop_Parts_Accessories)
+						| SHOP PARTS &amp; ACCESSORIES
+			+columnSpacer({ width: 30 })
+			+column({ width: 160, valign: "top" })
+				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
+				+GraphicCTA({
+					linkUrl: urls.Shop_Parts_Accessories,
+					graphicUrl: "wheel-hub.jpg",
+					graphicAlt: null,
+					graphicStyle: styles.rightColumnGraphic
+				})
+
+		+spacer(tagAttribs.lineSpaceMedium)
+
+		+columns
+			+column({ valign: "top" })
+				+content(tagAttribs.bodyCopy)
+					| And for the stylish on your shopping list? All-new Acura apparel and merchandise has arrived just in time for the holidays. Available now with FREE SHIPPING on all orders of $50 or more. Promo code: DECFREESHIP. Valid 12/xx through 12/xx.
+				+spacer(tagAttribs.lineSpaceExtraSmall)
+				+content(tagAttribs.bodyCopy)
+					+AcuraButtonArrow(urls.Shop_Apparel)
+						| SHOP APPAREL
+			+columnSpacer({ width: 30 })
+			+column({ width: 160, valign: "top" })
+				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
+				+GraphicCTA({
+					linkUrl: urls.Shop_Apparel,
+					graphicUrl: "jacket.jpg",
+					graphicAlt: null,
+					graphicStyle: styles.rightColumnGraphic
+				})
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
+	include recipes/AdCallout_Sirius.pug
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
+	+GraphicCTA({
+		linkUrl: urls.Explore_The_Nsx,
+		graphicUrl: "nsx-beauty-shot.png",
+		graphicAlt: null
+	})
+	+spacer(tagAttribs.lineSpaceSmall)
+	+ContentContainer
+		+content(tagAttribs.header)
+			| Built To Thrill
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			| What&rsquo;s better than driving an NSX? Well, almost nothing. Although exploring this dream machine can be nearly as fun. So give it a spin. Check out the cutting-edge engineering that goes into creating this thrilling supercar, and then watch an awesome video of the iconic NSX coming to life.
+		+spacer(tagAttribs.lineSpaceSmall)
+		+columns
+			+column({ align: "left" })
+				+AcuraButton(urls.Explore_The_Nsx,  { sidePadding: "32px" })
+					| EXPLORE THE NSX
+			+column({ align: "right" })
+				+AcuraButton(urls.Watch_Nsx_Come_To_Life, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed })
+					| WATCH THE NSX COME TO LIFE
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
+	+Footer
+		+content(tagAttribs.FooterSmallPrint)
+			| #[+sup 1]SiriusXM#[sup &reg;] and all related marks and logos are trademarks of Sirius XM Radio Inc.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please click here. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only. See our Privacy Policy.
+		+spacer(tagAttribs.lineSpaceFooter)

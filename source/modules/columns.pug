@@ -8,6 +8,17 @@ mixin columns(props)
 mixin column(props)
 	+tableCell(props)
 		block
+mixin columnSpacer(props)
+	if (!props)
+		- props = {}
+	- var cellProps = { width: 1 }
+	if (props.width)
+		- cellProps.width = props.width
+	- var spacerProps = { width: 1 }
+	if (props.width)
+		- spacerProps.width = props.width
+	+tableCell(cellProps)
+		+spacer(spacerProps)
 mixin columnRule(props)
 	if (!props)
 		- props = {}
@@ -16,7 +27,7 @@ mixin columnRule(props)
 		- cellProps.width = props.width
 	if (props.height)
 		- cellProps.height = props.height
-	- var spacerProps = { color: defaults.columnRuleColor ? defaults.columnRuleColor : "#000000" }
+	- var spacerProps = { width: 1, color: defaults.columnRuleColor ? defaults.columnRuleColor : "#000000" }
 	if (props.lineWidth)
 		- spacerProps.width = props.lineWidth
 	if (props.lineHeight)

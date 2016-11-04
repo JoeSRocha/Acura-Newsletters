@@ -35,15 +35,14 @@ block content
 		graphicUrl: "tlx-gt-hero-animation.gif",
 		graphicAlt: null
 	})
-
 	+ContentContainer
-		+spacer({ height: 40 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+content(tagAttribs.header)
 			| Break The Mold, Not The Bank
-		+spacer({ height: 35 })
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
 			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
-		+spacer({ height: 50 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+content(tagAttribs.buttonCtaRow)
 			+AcuraButton(urls.Explore_Tlx, { sidePadding: "50px" })
 				| EXPLORE TLX
@@ -94,13 +93,13 @@ block content
 	})
 
 	+ContentContainer
-		+spacer({ height: 50 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+content(tagAttribs.header)
 			| New TLX GT Package
-		+spacer({ height: 35 })
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
 			| Who doesn&rsquo;t want to be more stylish and sporty? That&rsquo;s what the TLX GT Package is all about &ndash; from its spoilers and underbody kit to optional 19-inch diamond cut wheels. Available on all TLX models, the TLX GT Package makes a bold statement without saying a word.
-		+spacer({ height: 50 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+columns
 			+column({ align: "left" })
 				+AcuraButton(urls.See_Tlx_Gt_Package, { fontSize: "15px" })
@@ -109,7 +108,8 @@ block content
 				+AcuraButton(urls.Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
 					| WATCH TLX GT PACKAGE VIDEO
 
-	+spacer({ height: 100 })
+	+spacer(tagAttribs.lineSpaceLarge)
+
 	+ContentContainer
 		+content(tagAttribs.header)
 			| Born To Run
@@ -121,29 +121,41 @@ block content
 	})
 	
 	+ContentContainer
-		+spacer({ height: 50 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+content(tagAttribs.bodyCopy)
 			| The sleek and sporty style of the Acura TLX GT Package was inspired by the Acura TLX GT race car. For Acura, racing is a heightened expression of Precision Crafted Performance. Now you can experience a quarter century of Acura Motorsports history every time you take the wheel.
-		+spacer({ height: 20 })
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
 			+AcuraButtonArrow(urls.Explore_Acura_Motorsports)
 				| EXPLORE ACURA MOTORSPORTS
-		+spacer({ height: 60 })
+		+spacer(tagAttribs.lineSpaceMedium)
 		+columns
 			+column({ valign: "top" })
 				+content(tagAttribs.bodyCopy)
 					| Watch Ryan Eversley test drive the Acura TLX GT race car on the Jalopnik series &lsquo;Neat Stuff In Cool Cars&rsquo;
-				+spacer({ height: 20 })
+				+spacer(tagAttribs.lineSpaceSmall)
 				+content(tagAttribs.bodyCopy)
 					+AcuraButtonArrow(urls.Watch_Jalopnik_Video)
 						| WATCH VIDEO
-			+column({ width: 250, align: "right" , valign: "top"})
+			+columnSpacer({ width: 10 })
+			+column({ width: 240, align: "right" , valign: "top"})
+				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
 				+GraphicCTA({
 					linkUrl: urls.Watch_Jalopnik_Video,
 					graphicUrl: "jalopnik-video-sample.png",
 					graphicAlt: null,
-					graphicStyle: { width: "auto" }
+					graphicStyle: styles.rightColumnGraphic
 				})
-	
-	+spacer({ height: 100 })
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
 	+Footer
+		+content(tagAttribs.FooterSmallPrint)
+			| [*] Closed-end lease for 2017 RDX 6 Speed Automatic vehicles (TB3H3HJNW) available from September 7, 2016 through October 31, 2016, to well-qualified lessees approved by Acura Financial Services. Not all lessees will qualify. Higher lease rates apply for lessees with lower credit ratings. MSRP $36,510.00 (includes destination, excludes tax, license, title fee, registration, documentation fees, options, insurance and the like). Actual net capitalized cost $32,317.70. Net capitalized cost includes $595 acquisition fee. Dealer contribution may vary and could affect actual lease payment. Total monthly payments $12,204.00. Option to purchase at lease end $23,001.30. Must take new retail delivery on vehicle from dealer stock by October 31, 2016. Lessee responsible for maintenance, excessive wear/tear and 15¢/mile over 10,000 miles/year for vehicles with MSRP less than $30,000, and 20¢/mile over 10,000 miles/year for vehicles with MSRP of $30,000 or more. See your Acura dealer for details.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| [**] Special APR offer valid on new and unregistered 2017 RDX models from September 7, 2016 through October 31, 2016, to well-qualified buyers on approved credit by Acura Financial Services through participating dealers. Must take new retail delivery on vehicle from dealer stock by October 31, 2016. Not all buyers may qualify. Higher rates apply for buyers with lower credit ratings. Example for 2017 RDX: 1.9% for 36 months financing at $28.60 a month for every $1,000.00 financed. Dealers set actual prices. See your Acura dealer for details.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please click here. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only. See our Privacy Policy.
+		+spacer(tagAttribs.lineSpaceFooter)
