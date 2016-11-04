@@ -1,5 +1,8 @@
 .vs/
 node_modules/
-reference/
+obj/
+
+/packages/
+/reference/
 
 compiled/*.html
