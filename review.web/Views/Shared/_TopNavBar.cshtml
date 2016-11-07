@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNet.Identity
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(Reference.ApplicationName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            @if (Request.IsAuthenticated) {
+                <p class="navbar-text navbar-right">Signed in as @User.Identity.GetUserName() | @Html.ActionLink("Log out", "LogOut", "Home", routeValues: null, htmlAttributes: null)</p>
+            } else if (!this.IsLoginPage()) {
+                <p class="navbar-text navbar-right">@Html.ActionLink("Log in", "LogIn", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</p>
+            }
+        </div>
+    </div>
+</div>

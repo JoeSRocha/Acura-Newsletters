@@ -1,0 +1,10 @@
+﻿@{
+    var content = ReviewContent.Get();
+}
+@if (content != null && content.Count > 0) {
+    <ul>
+        @foreach (var item in content) {
+            <li><a href="@Url.Action("Index", "Review", new { id = item.path })">@item.name</a></li>
+        }
+    </ul>
+}

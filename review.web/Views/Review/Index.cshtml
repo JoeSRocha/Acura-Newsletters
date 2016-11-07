@@ -1,0 +1,8 @@
+﻿@model review.web.Models.ReviewContentItem
+@{
+    ViewBag.Title = "EmailFrame";
+}
+
+<h2>EmailFrame</h2>
+
+<iframe class="content-iframe" src="~/Content/Review/@(Model.path).html"></iframe>

@@ -30,21 +30,29 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		copy: {
+			main: {
+				files: [
+					{expand: true, cwd: 'compiled/', src: ['**'], dest: 'review.web/Content/Review/'},
+				]
+			}
+		},
 		watch: {
             options: {
                 debounceDelay: 1
             },
             templates: {
                 files: ['<%= config.files.template_source %>**/*'],
-                tasks: ['pug']
+                tasks: ['pug', 'copy']
             }
         }
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-pug');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	
-    grunt.task.registerTask('dev', ['pug', 'watch']);
-    grunt.task.registerTask('prod', ['pug']);
+    grunt.task.registerTask('dev', ['pug', 'copy', 'watch']);
+    grunt.task.registerTask('prod', ['pug', 'copy']);
     grunt.task.registerTask('default', ['dev']);
 };
