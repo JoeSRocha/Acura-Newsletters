@@ -1,20 +1,16 @@
 include ./tables.pug
 include ./spacer.pug
-mixin bulletList(props)
-	+table
-		+tableBody
-			block
-mixin bulletListItem(props)
-	- var thisSpaceBeforeBullet = (props && props.spaceBeforeBullet ? props.spaceBeforeBullet : (defaults.spaceBeforeBullet ? defaults.spaceBeforeBullet : 0))
-	- var thisSpaceAfterBullet = (props && props.spaceAfterBullet ? props.spaceAfterBullet : (defaults.spaceAfterBullet ? defaults.spaceAfterBullet : 0))
+mixin bulletedContent(bulletProps, contentProps)
+	- bulletProps = Rhythm.ExtendAttributes({}, defaults.bullet, props)
+	- contentProps = Rhythm.ExtendAttributes({}, defaults.bulletedContent, props)
 	+tableRow
 		if thisSpaceBeforeBullet
 			+tableCell
-				+spacer({ width: thisSpaceBeforeBullet })
+				+spacer({ width: bulletPaddingLeft })
 		+tableCell
 			span(style= props.bulletStyle ? props.bulletStyle : "")= props.bulletCharacter ? props.bulletCharacter : "&bull;"
 		if thisSpaceAfterBullet
 			+tableCell
-				+spacer({ width: thisSpaceAfterBullet })
-		+tableCell
+				+spacer({ width: bulletPaddingRight })
+		+tableCell(props)
 			block

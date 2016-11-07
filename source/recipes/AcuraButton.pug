@@ -3,6 +3,8 @@ mixin AcuraButton(url, props)
 	if (!props)
 		- props = {}
 	- var outerStyle = { style: {} }
+	if (props.class)
+		- outerStyle.class = props.class
 	if (props.width)
 		- outerStyle.style["width"] = props.width
 	if (props.borderColor)

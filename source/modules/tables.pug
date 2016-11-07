@@ -1,15 +1,16 @@
 mixin table(props)
-	- var tableAttributesFinal = Rhythm.ExtendAttributes({ border: "0", cellspacing: "0", cellpadding: "0", width: "100%", style: { width: "100%" } }, props);
-	table&attributes(tableAttributesFinal)
+	- props = Rhythm.ExtendAttributes({}, defaults.table, props);
+	table&attributes(props)
 		block
 mixin tableBody(props)
-	tbody&attributes(props ? props : {})
+	- props = Rhythm.ExtendAttributes({}, defaults.tableBody, props);
+	tbody&attributes(props)
 		block
 mixin tableRow(props)
-	tr&attributes(props ? props : {})
+	- props = Rhythm.ExtendAttributes({}, defaults.tableRow, props);
+	tr&attributes(props)
 		block
 mixin tableCell(props)
-	- var cellAttribs = { valign: "middle", style: { "vertical-align": "middle" } }
-	- cellAttribs = Rhythm.ExtendAttributes(cellAttribs, props)
-	td&attributes(cellAttribs)
+	- props = Rhythm.ExtendAttributes({}, defaults.tableCell, props);
+	td&attributes(props)
 		block

@@ -1,4 +1,5 @@
 mixin link(url, props)
+	- props = Rhythm.ExtendAttributes({}, defaults.link, props);
 	- if (url)
 		a(href=url)&attributes(props)
 			block

@@ -1,4 +1,5 @@
 mixin break(props)
-	- var thisHeight = (props && props.height ? props.height : (defaults.breakHeight ? defaults.breakHeight : 30))
-	div(style="font-size:1px;height:" + thisHeight + "px;line-height:" + thisHeight + "px;")
-		| &nbsp;
+	- props = Rhythm.ExtendAttributes({}, defaults.break, props)
+	- props.style["height"] = props.height + "px"
+	- props.style["line-height"] = props.height + "px"
+	div&attributes(props) &nbsp;

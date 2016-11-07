@@ -1,4 +1,4 @@
 mixin content(props)
-	- var propsFinal = Rhythm.ExtendAttributes({}, props)
-	div&attributes(propsFinal)
+	- props = Rhythm.ExtendAttributes({}, defaults.content, props)
+	div&attributes(props)
 		block

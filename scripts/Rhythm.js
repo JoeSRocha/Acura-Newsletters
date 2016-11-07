@@ -91,11 +91,13 @@ Rhythm.ExtendStyle = function (base) { // additional parameters handled by parsi
  *  Extends a tag parameters object with one or more others. Also calls ImplyStyles on each parameter before combining them, and merges the resulting styles objects.
  */
 Rhythm.ExtendAttributes = function (base) { // additional parameters handled by parsing arguments array
-    var result = Rhythm.ImplyStyles(extend({}, base ? base : {})); // extend to clone, and imply styles for basic setup
+    var result = Rhythm.ImplyStyles(extend({ "class": "", "style": {} }, base ? base : {})); // extend to clone, and imply styles for basic setup
     for (var i = 1; i < arguments.length; i++) {
         var current = arguments[i] ? arguments[i] : {}; // process this right now to avoid null problems
         var combinedStyles = Rhythm.ExtendStyle({}, result.style, current.style); // extend doesn't do deep cloning; we need to get a merged version of the styles before we merge everything else
+        var combinedClasses = result.class + (current.class ? " " + current.class : ""); // extend doesn't do deep cloning; we need to get a merged version of the styles before we merge everything else
         result = extend(result, current);
+        result.class = combinedClasses;
         result.style = combinedStyles; // now drop in the extended styles
         result = Rhythm.ImplyStyles(result); // ... and imply styles on top of that pile
     }

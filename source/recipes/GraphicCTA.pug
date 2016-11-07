@@ -1,6 +1,7 @@
 mixin GraphicCTA(props)
+	- props = props ? props : {}
 	div.graphic-cta
-		+link(props.linkUrl, { style: { display: "block" } })
+		+link(props.linkUrl, { style: { display: "block", "text-align": ((props && props.graphicStyle && props.graphicStyle["text-align"]) ? props.graphicStyle["text-align"] : "center") } })
 			+image({
 				src: constants.ImagePath + props.graphicUrl,
 				alt: props.graphicAlt,

@@ -1,3 +1,4 @@
 mixin sup(props)
-	sup(style="vertical-align:baseline;position:relative;top:-0.4em")
+	- props = Rhythm.ExtendAttributes({}, defaults.sup, props)
+	sup&attributes(props)
 		block

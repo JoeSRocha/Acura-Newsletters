@@ -1,38 +1,22 @@
 include ./tables.pug
 include ./spacer.pug
 mixin columns(props)
-	+table
+	- props = Rhythm.ExtendAttributes({}, defaults.columnContainer, props);
+	+table(props)
 		+tableBody
 			+tableRow
 				block
 mixin column(props)
+	- props = Rhythm.ExtendAttributes({}, defaults.columnCell, props);
 	+tableCell(props)
 		block
-mixin columnSpacer(props)
-	if (!props)
-		- props = {}
-	- var cellProps = { width: 1 }
-	if (props.width)
-		- cellProps.width = props.width
-	- var spacerProps = { width: 1 }
-	if (props.width)
-		- spacerProps.width = props.width
+mixin columnSpacer(cellProps, spacerProps)
+	- cellProps = Rhythm.ExtendAttributes({}, defaults.columnSpacerCell, cellProps)
+	- spacerProps = Rhythm.ExtendAttributes({}, defaults.columnSpacer, spacerProps)
 	+tableCell(cellProps)
 		+spacer(spacerProps)
-mixin columnRule(props)
-	if (!props)
-		- props = {}
-	- var cellProps = { width: 1 }
-	if (props.width)
-		- cellProps.width = props.width
-	if (props.height)
-		- cellProps.height = props.height
-	- var spacerProps = { width: 1, color: defaults.columnRuleColor ? defaults.columnRuleColor : "#000000" }
-	if (props.lineWidth)
-		- spacerProps.width = props.lineWidth
-	if (props.lineHeight)
-		- spacerProps.height = props.lineHeight
-	if (props.lineColor)
-		- spacerProps.color = props.lineColor
+mixin columnRule(cellProps, spacerProps)
+	- cellProps = Rhythm.ExtendAttributes({}, defaults.columnRuleCell, cellProps)
+	- spacerProps = Rhythm.ExtendAttributes({}, defaults.columnRule, spacerProps)
 	+tableCell(cellProps)
 		+spacer(spacerProps)

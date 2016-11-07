@@ -2,7 +2,7 @@ extends ./layouts/default.pug
 
 block vars
 	- constants.ImagePath = "example-newsletter/"
-	- defaults.preheader = "[First Name], See the new TLX GT Package and find great seasonal savings."
+	- defaults.preheaderContent = "[First Name], See the new TLX GT Package and find great seasonal savings."
 
 	- var tracking = {}
 	- tracking["utm_source"] = "source"
@@ -48,11 +48,11 @@ block content
 		+content(tagAttribs.bodyCopy)
 			| The new TLX GT Package is the ultimate embodiment of track-proven performance. Available on all TLX models, this pulse-revving design package breaks the mold, not the bank. Ready to make a bold statement? You will with racing-inspired spoilers and optional 19-inch diamond cut wheels.
 		+spacer(tagAttribs.lineSpaceSmall)
-		+columns
-			+column({ align: "left" })
-				+AcuraButton(urls.See_Tlx_Gt_Package, { fontSize: "15px" })
+		+columns({ class: "mobile-clear" })
+			+column({ align: "left", class: "mobile-center" })
+				+AcuraButton(urls.See_Tlx_Gt_Package, { class: "mobile-wide", fontSize: "15px" })
 					| SEE THE TLX GT PACKAGE
-			+column({ align: "right" })
+			+column({ align: "right", class: "mobile-center" })
 				+AcuraButton(urls.Watch_Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
 					| WATCH TLX GT PACKAGE VIDEO
 
@@ -112,10 +112,6 @@ block content
 			+column({ valign: "top" })
 				+content(tagAttribs.bodyCopy)
 					| When it comes to Acura gear for you and your car, we&rsquo;ve got you covered. The weather outside may be frightful, but your ride can always be delightful.
-				+spacer(tagAttribs.lineSpaceExtraSmall)
-				+content(tagAttribs.bodyCopy)
-					+AcuraButtonArrow(urls.Shop_Parts_Accessories)
-						| SHOP PARTS &amp; ACCESSORIES
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
@@ -125,6 +121,10 @@ block content
 					graphicAlt: null,
 					graphicStyle: styles.rightColumnGraphic
 				})
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.bodyCopy)
+			+AcuraButtonArrow(urls.Shop_Parts_Accessories)
+				| SHOP PARTS &amp; ACCESSORIES
 
 		+spacer(tagAttribs.lineSpaceMedium)
 
@@ -132,10 +132,6 @@ block content
 			+column({ valign: "top" })
 				+content(tagAttribs.bodyCopy)
 					| And for the stylish on your shopping list? All-new Acura apparel and merchandise has arrived just in time for the holidays. Available now with FREE SHIPPING on all orders of $50 or more. Promo code: DECFREESHIP. Valid 12/xx through 12/xx.
-				+spacer(tagAttribs.lineSpaceExtraSmall)
-				+content(tagAttribs.bodyCopy)
-					+AcuraButtonArrow(urls.Shop_Apparel)
-						| SHOP APPAREL
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
@@ -145,6 +141,10 @@ block content
 					graphicAlt: null,
 					graphicStyle: styles.rightColumnGraphic
 				})
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.bodyCopy)
+			+AcuraButtonArrow(urls.Shop_Apparel)
+				| SHOP APPAREL
 
 	+spacer(tagAttribs.lineSpaceLarge)
 
@@ -165,11 +165,11 @@ block content
 		+content(tagAttribs.bodyCopy)
 			| What&rsquo;s better than driving an NSX? Well, almost nothing. Although exploring this dream machine can be nearly as fun. So give it a spin. Check out the cutting-edge engineering that goes into creating this thrilling supercar, and then watch an awesome video of the iconic NSX coming to life.
 		+spacer(tagAttribs.lineSpaceSmall)
-		+columns
-			+column({ align: "left" })
-				+AcuraButton(urls.Explore_The_Nsx,  { sidePadding: "32px" })
+		+columns({ class: "mobile-clear" })
+			+column({ align: "left", class: "mobile-center" })
+				+AcuraButton(urls.Explore_The_Nsx,  { class: "mobile-wide", sidePadding: "32px" })
 					| EXPLORE THE NSX
-			+column({ align: "right" })
+			+column({ align: "right", class: "mobile-center" })
 				+AcuraButton(urls.Watch_Nsx_Come_To_Life, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed })
 					| WATCH THE NSX COME TO LIFE
 

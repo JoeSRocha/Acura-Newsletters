@@ -1,14 +1,14 @@
 include ../modules/tables.pug
 include ../modules/spacer.pug
-mixin ContentContainer(containerProps, contentProps)
-	- var containerPadding = containerProps && containerProps.padding ? containerProps.padding : 50
-	- contentPropsFinal = Rhythm.ExtendAttributes({ align: "center" }, contentProps ? contentProps : {})
-	+table
+mixin ContentContainer(props)
+	- props = props ? props : {}
+	- var spacerProps = props.spacer ? props.spacer : tagAttribs.colSpaceContentContainer
+	+table({ class: "content-container" })
 		+tableBody
 			+tableRow
-				+tableCell({ width: containerPadding })
-					+spacer({ width: containerPadding })
-				+tableCell(contentPropsFinal)
+				+tableCell({ width: spacerProps.width })
+					+spacer(spacerProps)
+				+tableCell
 					block
-				+tableCell({ width: containerPadding })
-					+spacer({ width: containerPadding })
+				+tableCell({ width: spacerProps.width })
+					+spacer(spacerProps)

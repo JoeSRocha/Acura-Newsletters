@@ -12,11 +12,47 @@
 //- DEFAULT VARIBLES
 //- Defaults are optional overrides for items that have existing default values.
 - var defaults = {}
-//- defaults.breakHeight = 30
-- defaults.columnRuleColor = constants.DividerGray
-- defaults.preheader = null
-//- defaults.spaceBeforeBullet = 5
-//- defaults.spaceAfterBullet = 20
+
+- defaults.bar = { "class": "header-row", style: { "border-width":"2px 0 0 0", "border-style":"solid", "border-color":"#e6e6e6", "margin":"0" } }
+- defaults.break = { "class": "line-break", "height":30, style: { "font-size":"1px" } }
+- defaults.bullet = { "class":"bullet", bulletCharacter:"&bull;", bulletPaddingLeft: 10, bulletPaddingRight: 10 }
+- defaults.bulletedContent = { "class":"bulleted-content" }
+- defaults.content = { class: "content" }
+- defaults.image = { style: { "margin": "0 auto", "padding": "0", "border": "none", "display": "block", "text-align": "center", "vertical-align": "bottom" } }
+- defaults.link = { }
+- defaults.spacer = { "class": "spacer", "height": 1, "width": 1 }
+- defaults.sub = { style: { "vertical-align": "baseline", "position": "relative", "top": "0.4em" } }
+- defaults.sup = { style: { "vertical-align": "baseline", "position": "relative", "top": "-0.4em" } }
+
+//- PREHEADER STYLES
+//- Recommended by a blog post from Email On Acid: https://www.emailonacid.com/blog/article/email-development/tips-for-coding-email-preheaders
+- defaults.preheader = { style: { } }
+- defaults.preheader.style["display"] = "none !important"
+- defaults.preheader.style["visibility"] = "hidden"
+- defaults.preheader.style["mso-hide"] = "all"
+- defaults.preheader.style["font-size"] = "1px"
+- defaults.preheader.style["color"] = "#ffffff"
+- defaults.preheader.style["line-height"] = "1px"
+- defaults.preheader.style["max-height"] = "0px"
+- defaults.preheader.style["max-width"] = "0px"
+- defaults.preheader.style["opacity"] = "0"
+- defaults.preheader.style["overflow"] = "hidden"
+
+- defaults.preheaderContent = null
+
+//- TABLE STYLES
+- defaults.table = { border: "0", cellspacing: "0", cellpadding: "0", width: "100%", style: { width: "100%" } }
+- defaults.tableBody = {}
+- defaults.tableRow = {}
+- defaults.tableCell = { valign: "middle", style: { "vertical-align": "middle" } }
+
+//- COLUMN STYLES
+- defaults.columnContainer = { class: "column-container" }
+- defaults.columnCell = { class: "column-cell" }
+- defaults.columnSpacerCell = { align: "center", class: "column-spacer-cell", width: 20 }
+- defaults.columnSpacer = { class: "column-spacer", width: 20 }
+- defaults.columnRuleCell = { align: "center", class: "column-rule-cell", width: 20 }
+- defaults.columnRule = { class: "column-rule", width: 1, color: "#000000" }
 
 //- FONT FAMILY DEFINITIONS
 //- Font families are often very picky. Define them here to make sure they're the same everywhere.
@@ -33,20 +69,6 @@
 - styles.global["font-size"] = "16px"
 - styles.global["text-align"] = "left"
 - styles.global["color"] = constants.PrimaryTextColor
-
-//- PREHEADER STYLES
-//- Recommended by a blog post from Email On Acid: https://www.emailonacid.com/blog/article/email-development/tips-for-coding-email-preheaders
-- styles.preheader = {}
-- styles.preheader["display"] = "none !important"
-- styles.preheader["visibility"] = "hidden"
-- styles.preheader["mso-hide"] = "all"
-- styles.preheader["font-size"] = "1px"
-- styles.preheader["color"] = "#ffffff"
-- styles.preheader["line-height"] = "1px"
-- styles.preheader["max-height"] = "0px"
-- styles.preheader["max-width"] = "0px"
-- styles.preheader["opacity"] = "0"
-- styles.preheader["overflow"] = "hidden"
 
 - styles.rightColumnGraphic = { display: "inline-block", width: "auto", "text-align": "right" }
 
@@ -78,12 +100,15 @@
 - tagAttribs.bodyCopy.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.bodyCopy.style["line-height"] = "30px"
 
-- tagAttribs.lineSpaceExtraSmall = { height: 10 }
-- tagAttribs.lineSpaceSmall = { height: 30 }
-- tagAttribs.lineSpaceMedium = { height: 50 }
-- tagAttribs.lineSpaceLarge = { height: 100 }
-- tagAttribs.lineSpaceFooter = { height: 20 }
-- tagAttribs.lineSpaceBodyCopyAlignment = { height: 7 }
+- tagAttribs.lineSpaceExtraSmall = { class: "line-space-extra-small", height: 10 }
+- tagAttribs.lineSpaceSmall = { class: "line-space-small", height: 30 }
+- tagAttribs.lineSpaceMedium = { class: "line-space-medium", height: 50 }
+- tagAttribs.lineSpaceLarge = { class: "line-space-large", height: 100 }
+- tagAttribs.lineSpaceFooter = { class: "line-space-footer", height: 20 }
+- tagAttribs.lineSpaceBodyCopyAlignment = { class: "line-space-body-copy-alignment", height: 7 }
+
+- tagAttribs.colSpaceContentContainer = { class: "col-space-content-container", width: 50 }
+- tagAttribs.colSpaceContentContainerWide = { class: "col-space-content-container-wide", width: 25 }
 
 //- ACURA BUTTON
 
@@ -223,6 +248,7 @@
 - tagAttribs.Footer.style["background-color"] = "#000000"
 
 - tagAttribs.FooterSmallPrint = {}
+- tagAttribs.FooterSmallPrint.class = "footer-small-print"
 - tagAttribs.FooterSmallPrint.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.FooterSmallPrint.style["color"] = constants.FooterGray
 - tagAttribs.FooterSmallPrint.style["font-size"] = "13px"
@@ -230,5 +256,6 @@
 - tagAttribs.FooterSmallPrint.style["text-align"] = "left"
 
 - tagAttribs.FooterLink = {}
+- tagAttribs.FooterLink.class = "footer-small-print-link"
 - tagAttribs.FooterLink.style = Rhythm.ExtendStyle({}, tagAttribs.FooterSmallPrint.style)
 - tagAttribs.FooterLink.style["color"] = constants.FooterGray + " !important"
