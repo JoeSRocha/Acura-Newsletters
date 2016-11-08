@@ -31,14 +31,16 @@ block content
 		relativeSrc: "header-newsletter-black.png",
 		alt: "ACURA | Newsletter",
 		width: 600,
-		height: 85
+		height: 85,
+		style: { "color":"#ffffff", "background-color":"#000000", "line-height":"85px" }
 	})
 
 	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
 		relativeSrc: "tlx-gt-red-sideview-faded-bottom.png",
-		alt: "ACURA GTX",
+		alt: "ACURA TLX GT",
 		width: 600,
-		height: 294
+		height: 294,
+		style: { "line-height":"294px" }
 	})
 	+spacer(tagAttribs.lineSpaceExtraSmall)
 	+ContentContainer
@@ -64,9 +66,10 @@ block content
 	+ContentContainer
 		+GraphicCTA(urls.See_Great_Offers, {}, {
 			relativeSrc: "snowy-forest-road.jpg",
-			alt: "",
+			alt: "{ ALT TEXT HERE }",
 			width: 500,
-			height: 296
+			height: 296,
+			style: { "line-height":"296px" }
 		})
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.header)
@@ -86,7 +89,8 @@ block content
 		relativeSrc: "lifestyle-collection.png",
 		alt: "THE NSX LIFESTYLE COLLECTION",
 		width: 600,
-		height: 449
+		height: 449,
+		style: { "line-height":"449px" }
 	})
 	+ContentContainer
 		+spacer(tagAttribs.lineSpaceSmall)
@@ -125,7 +129,7 @@ block content
 					alt: "",
 					width: 154,
 					height: 147,
-					style: styles.rightColumnGraphic
+					style: styles.rightColumnGraphic,
 				})
 		+spacer(tagAttribs.lineSpaceExtraSmall)
 		+content(tagAttribs.bodyCopy)
@@ -162,9 +166,10 @@ block content
 
 	+GraphicCTA(urls.Explore_The_Nsx, {}, {
 		relativeSrc: "nsx-beauty-shot.png",
-		alt: "",
+		alt: "NSX",
 		width: 600,
-		height: 420
+		height: 420,
+		style: { "line-height":"420px" }
 	})
 	+spacer(tagAttribs.lineSpaceSmall)
 	+ContentContainer

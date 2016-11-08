@@ -17,10 +17,18 @@
 
 @section scripts {
     <script type="text/javascript">
+        var prepIframe = function () {
+            $("#content-iframe").contents().find('img').each(function () {
+                $(this).attr('data-original-source', $(this).attr('src'))
+            });
+        }
+
         $(function () {
+
             $('#review_display_normal')
                 .on('click', function (e) {
                     e.preventDefault();
+                    if ($(this).hasClass('btn-primary')) return;
 
                     $(this)
                         .addClass('btn-primary')
@@ -32,12 +40,14 @@
 
                     $("#content-iframe").contents().find('img').each(function (index, element) {
                         var $this = $(this);
-                        $this.attr('src', $this.data('image-source'));
+                        $this.attr('src', $this.attr('data-original-source'));
                     });
                 });
 
             $('#review_display_no-images')
                 .on('click', function (e) {
+                    e.preventDefault();
+                    if ($(this).hasClass('btn-primary')) return;
 
                     $(this)
                         .addClass('btn-primary')
@@ -49,9 +59,7 @@
 
                     $("#content-iframe").contents().find('img').each(function (index, element) {
                         var $this = $(this);
-                        $this
-                            .data('image-source', $this.attr('src'))
-                            .attr('src', '');
+                        $this.attr('src', '');
                     });
                 })
         });
@@ -78,5 +86,5 @@
         </div>
     </div>
 
-    <iframe id="content-iframe" class="content-iframe" src="@iframeSource"></iframe>
+    <iframe id="content-iframe" class="content-iframe" src="@iframeSource" onload="javascript: prepIframe();"></iframe>
 </div>
