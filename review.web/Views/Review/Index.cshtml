@@ -1,8 +1,12 @@
 ﻿@model review.web.Models.ReviewContentItem
 @{
     ViewBag.Title = "EmailFrame";
+    var iframeSource = "/Content/Review/" + Model.path + ".html";
 }
 
-<h2>EmailFrame</h2>
+<h2>@Model.name</h2>
 
-<iframe class="content-iframe" src="~/Content/Review/@(Model.path).html"></iframe>
+<div class="content-iframe-container">
+    <a href="@iframeSource" target="_blank">view in separate window</a>
+    <iframe class="content-iframe" src="@iframeSource"></iframe>
+</div>

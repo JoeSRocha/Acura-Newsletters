@@ -15,4 +15,5 @@
 
 .login-container .form-group label { display: block; }
 
-.content-iframe { width: 600px; height: 1000px; padding: 1px; border: 1px solid black; }
+.content-iframe-container { width: 700px; margin: 0px auto; }
+.content-iframe { width: 100%; height: 1000px; padding: 1px; border: 1px solid black; }

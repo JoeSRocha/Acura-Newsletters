@@ -11,7 +11,7 @@ namespace review.web {
             get {
                 return
                     String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:CompanyName"]) ?
-                        "Rhythm" :
+                        "{ Company Name }" :
                         ConfigurationManager.AppSettings["Reference:CompanyName"];
             }
         }
@@ -20,8 +20,17 @@ namespace review.web {
             get {
                 return
                     String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:ApplicationName"]) ?
-                        "Rhythm Email Preview" :
+                        "{ Application Name }" :
                         ConfigurationManager.AppSettings["Reference:ApplicationName"];
+            }
+        }
+
+        public static string ClientName {
+            get {
+                return
+                    String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:ClientName"]) ?
+                        "{ Client Name }" :
+                        ConfigurationManager.AppSettings["Reference:ClientName"];
             }
         }
 
