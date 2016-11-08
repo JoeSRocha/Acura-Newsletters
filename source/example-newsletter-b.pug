@@ -27,17 +27,20 @@ block head
 
 block content
 
-	+GraphicCTA({
-		linkUrl: urls.See_Tlx_Gt_Package,
-		graphicUrl: "header-newsletter-black.png",
-		graphicAlt: "ACURA | Newsletter"
+	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+		relativeSrc: "header-newsletter-black.png",
+		alt: "ACURA | Newsletter",
+		width: 600,
+		height: 85
 	})
 
-	+GraphicCTA({
-		linkUrl: urls.See_Tlx_Gt_Package,
-		graphicUrl: "tlx-gt-red-sideview-faded-bottom.jpg",
-		graphicAlt: null
+	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+		relativeSrc: "tlx-gt-red-sideview-faded-bottom.jpg",
+		alt: "ACURA GTX",
+		width: 600,
+		height: 294
 	})
+	+spacer(tagAttribs.lineSpaceSmall)
 	+ContentContainer
 		+content(tagAttribs.header)
 			| New TLX GT Package
@@ -59,10 +62,11 @@ block content
 	+spacer(tagAttribs.lineSpaceLarge)
 	
 	+ContentContainer
-		+GraphicCTA({
-			linkUrl: urls.See_Great_Offers,
-			graphicUrl: "snowy-forest-road.jpg",
-			graphicAlt: null
+		+GraphicCTA(urls.See_Great_Offers, {}, {
+			relativeSrc: "snowy-forest-road.jpg",
+			alt: "",
+			width: 500,
+			height: 296
 		})
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.header)
@@ -78,10 +82,11 @@ block content
 	+spacer(tagAttribs.lineSpaceMedium)
 	//- smaller gap than normal because the next image is a slanted one
 	
-	+GraphicCTA({
-		linkUrl: urls.Shop_Lifestyle_Collection,
-		graphicUrl: "lifestyle-collection.png",
-		graphicAlt: "THE NSX LIFESTYLE COLLECTION"
+	+GraphicCTA(urls.Shop_Lifestyle_Collection, {}, {
+		relativeSrc: "lifestyle-collection.png",
+		alt: "THE NSX LIFESTYLE COLLECTION",
+		width: 600,
+		height: 449
 	})
 	+ContentContainer
 		+spacer(tagAttribs.lineSpaceSmall)
@@ -115,11 +120,12 @@ block content
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA({
-					linkUrl: urls.Shop_Parts_Accessories,
-					graphicUrl: "wheel-hub.jpg",
-					graphicAlt: null,
-					graphicStyle: styles.rightColumnGraphic
+				+GraphicCTA(urls.Shop_Parts_Accessories, {}, {
+					relativeSrc: "wheel-hub.jpg",
+					alt: "",
+					width: 154,
+					height: 147,
+					style: styles.rightColumnGraphic
 				})
 		+spacer(tagAttribs.lineSpaceExtraSmall)
 		+content(tagAttribs.bodyCopy)
@@ -135,11 +141,12 @@ block content
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA({
-					linkUrl: urls.Shop_Apparel,
-					graphicUrl: "jacket.jpg",
-					graphicAlt: null,
-					graphicStyle: styles.rightColumnGraphic
+				+GraphicCTA(urls.Shop_Apparel, {}, {
+					relativeSrc: "jacket.jpg",
+					alt: "",
+					width: 151,
+					height: 176,
+					style: styles.rightColumnGraphic
 				})
 			+spacer(tagAttribs.lineSpaceExtraSmall)
 		+spacer(tagAttribs.lineSpaceExtraSmall)
@@ -153,10 +160,11 @@ block content
 
 	+spacer(tagAttribs.lineSpaceLarge)
 
-	+GraphicCTA({
-		linkUrl: urls.Explore_The_Nsx,
-		graphicUrl: "nsx-beauty-shot.png",
-		graphicAlt: null
+	+GraphicCTA(urls.Explore_The_Nsx, {}, {
+		relativeSrc: "nsx-beauty-shot.png",
+		alt: "",
+		width: 600,
+		height: 420
 	})
 	+spacer(tagAttribs.lineSpaceSmall)
 	+ContentContainer

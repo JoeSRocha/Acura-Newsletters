@@ -1,9 +1,6 @@
-mixin GraphicCTA(props)
-	- props = props ? props : {}
+mixin GraphicCTA(url, linkProps, graphicProps)
+	- linkProps = Rhythm.ExtendStyle({}, tagAttribs.graphicCtaLink, linkProps)
+	- graphicProps = Rhythm.ExtendStyle({}, tagAttribs.graphicCtaImage, graphicProps)
 	div.graphic-cta
-		+link(props.linkUrl, { style: { display: "block", "text-align": ((props && props.graphicStyle && props.graphicStyle["text-align"]) ? props.graphicStyle["text-align"] : "center") } })
-			+image({
-				relativeSrc: props.graphicUrl,
-				alt: props.graphicAlt,
-				style: Rhythm.ExtendStyle({ width: "100%" }, props.graphicStyle)
-			})
+		+link(url, linkProps)
+			+image(graphicProps)

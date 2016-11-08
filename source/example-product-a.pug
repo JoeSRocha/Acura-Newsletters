@@ -24,17 +24,20 @@ block head
 
 block content
 
-	+GraphicCTA({
-		linkUrl: urls.Explore_Tlx,
-		graphicUrl: "header-tlx-white.png",
-		graphicAlt: "ACURA | TLX"
+	+GraphicCTA(urls.Explore_Tlx, {}, {
+		relativeSrc: "header-tlx-white.png",
+		alt: "ACURA | TLX",
+		width: 600,
+		height: 85
 	})
 
-	+GraphicCTA({
-		linkUrl: urls.Explore_Tlx,
-		graphicUrl: "tlx-gt-hero-animation.gif",
-		graphicAlt: null
+	+GraphicCTA(urls.Explore_Tlx, {}, {
+		relativeSrc: "tlx-gt-hero-animation.gif",
+		alt: "",
+		width: 600,
+		height: 340
 	})
+
 	+ContentContainer
 		+spacer(tagAttribs.lineSpaceMedium)
 		+content(tagAttribs.header)
@@ -86,10 +89,11 @@ block content
 					+OfferCTA_Link({ url: urls.Build_Tlx })
 						| BUILD &amp; PRICE YOUR TLX
 
-	+GraphicCTA({
-		linkUrl: urls.See_Tlx_Gt_Package,
-		graphicUrl: "tlx-gt-red-sideview.jpg",
-		graphicAlt: null
+	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+		relativeSrc: "tlx-gt-red-sideview.jpg",
+		alt: "",
+		width: 600,
+		height: 312
 	})
 
 	+ContentContainer
@@ -114,10 +118,11 @@ block content
 		+content(tagAttribs.header)
 			| Born To Run
 
-	+GraphicCTA({
-		linkUrl: urls.Explore_Acura_Motorsports,
-		graphicUrl: "tlx-sport-on-racetrack.jpg",
-		graphicAlt: null
+	+GraphicCTA(urls.Explore_Acura_Motorsports, {}, {
+		relativeSrc: "tlx-sport-on-racetrack.jpg",
+		alt: "",
+		width: 600,
+		height: 383
 	})
 	
 	+ContentContainer
@@ -140,11 +145,12 @@ block content
 			+columnSpacer({ width: 10 })
 			+column({ width: 240, align: "right" , valign: "top"})
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA({
-					linkUrl: urls.Watch_Jalopnik_Video,
-					graphicUrl: "jalopnik-video-sample.png",
-					graphicAlt: null,
-					graphicStyle: styles.rightColumnGraphic
+				+GraphicCTA(urls.Watch_Jalopnik_Video, {}, {
+					relativeSrc: "jalopnik-video-sample.png",
+					alt: "",
+					width: 237,
+					height: 137,
+					style: styles.rightColumnGraphic
 				})
 
 	+spacer(tagAttribs.lineSpaceLarge)

@@ -4,10 +4,12 @@ mixin Footer(props)
 	+content(tagAttribs.Footer)
 		+spacer(tagAttribs.lineSpaceMedium)
 		+ContentContainer
-			+GraphicCTA({
-				graphicUrl: "acura-logo-white.png",
-				graphicAlt: "ACURA | PRECISION CRAFTED PERFORMANCE",
-				graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+			+GraphicCTA("http://www.acura.com/", {}, {
+				relativeSrc: "acura-logo-white.png",
+				alt: "ACURA | PRECISION CRAFTED PERFORMANCE",
+				width: 149,
+				height: 98,
+				style: { display: "inline-block", width: "auto", "text-align": "center" }
 			})
 		+spacer(tagAttribs.lineSpaceMedium)
 		+ContentContainer
@@ -15,39 +17,44 @@ mixin Footer(props)
 				+tableBody
 					+tableRow
 						+tableCell({ width: 80, align: "left" })
-							+GraphicCTA({
-								linkUrl: "https://www.facebook.com/Acura",
-								graphicUrl: "footer-icon-facebook.png",
-								graphicAlt: "Facebook",
-								graphicStyle: { display: "inline-block", width: "auto", "text-align": "left" }
+							+GraphicCTA("https://www.facebook.com/Acura", {}, {
+								relativeSrc: "footer-icon-facebook.png",
+								alt: "Facebook",
+								width: 55,
+								height: 55,
+								style: { display: "inline-block", width: "auto", "text-align": "left" }
 							})
 						+tableCell({ width: 120, align: "center" })
-							+GraphicCTA({
-								linkUrl: "https://twitter.com/Acura",
-								graphicUrl: "footer-icon-twitter.png",
-								graphicAlt: "Twitter",
-								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							+GraphicCTA("https://twitter.com/Acura", {}, {
+								relativeSrc: "footer-icon-twitter.png",
+								alt: "Twitter",
+								width: 55,
+								height: 55,
+								style: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 100, align: "center" })
-							+GraphicCTA({
-								linkUrl: "https://www.instagram.com/acura/",
-								graphicUrl: "footer-icon-instagram.png",
-								graphicAlt: "Instagram",
-								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							+GraphicCTA("https://www.instagram.com/acura/", {}, {
+								relativeSrc: "footer-icon-instagram.png",
+								alt: "Instagram",
+								width: 55,
+								height: 55,
+								style: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 120, align: "center" })
-							+GraphicCTA({
-								linkUrl: "https://www.pinterest.com/Acura/pins/follow/",
-								graphicUrl: "footer-icon-pinterest.png",
-								graphicAlt: "Pinterest",
-								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
+							+GraphicCTA("https://www.pinterest.com/Acura/pins/follow/", {}, {
+								relativeSrc: "footer-icon-pinterest.png",
+								alt: "Pinterest",
+								width: 55,
+								height: 55,
+								style: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 80, align: "right" })
-							+GraphicCTA({
-								linkUrl: "https://www.youtube.com/user/Acura",
-								graphicUrl: "footer-icon-youtube.png",
-								graphicAlt: "YouTube",
-								graphicStyle: { display: "inline-block", width: "auto", "text-align": "right" }
+							+GraphicCTA("https://www.youtube.com/user/Acura", {}, {
+								relativeSrc: "footer-icon-youtube.png",
+								alt: "YouTube",
+								width: 55,
+								height: 55,
+								style: { display: "inline-block", width: "auto", "text-align": "right" }
 							})
 		+spacer(tagAttribs.lineSpaceMedium)
 		+ContentContainer
