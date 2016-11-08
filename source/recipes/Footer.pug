@@ -6,7 +6,7 @@ mixin Footer(props)
 		+ContentContainer
 			+GraphicCTA({
 				graphicUrl: "acura-logo-white.png",
-				graphicAlt: null,
+				graphicAlt: "ACURA | PRECISION CRAFTED PERFORMANCE",
 				graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
 			})
 		+spacer(tagAttribs.lineSpaceMedium)
@@ -16,37 +16,37 @@ mixin Footer(props)
 					+tableRow
 						+tableCell({ width: 80, align: "left" })
 							+GraphicCTA({
-								linkUrl: "",
+								linkUrl: "https://www.facebook.com/Acura",
 								graphicUrl: "footer-icon-facebook.png",
-								graphicAlt: null,
+								graphicAlt: "Facebook",
 								graphicStyle: { display: "inline-block", width: "auto", "text-align": "left" }
 							})
 						+tableCell({ width: 120, align: "center" })
 							+GraphicCTA({
-								linkUrl: "",
+								linkUrl: "https://twitter.com/Acura",
 								graphicUrl: "footer-icon-twitter.png",
-								graphicAlt: null,
+								graphicAlt: "Twitter",
 								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 100, align: "center" })
 							+GraphicCTA({
-								linkUrl: "",
+								linkUrl: "https://www.instagram.com/acura/",
 								graphicUrl: "footer-icon-instagram.png",
-								graphicAlt: null,
+								graphicAlt: "Instagram",
 								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 120, align: "center" })
 							+GraphicCTA({
-								linkUrl: "",
+								linkUrl: "https://www.pinterest.com/Acura/pins/follow/",
 								graphicUrl: "footer-icon-pinterest.png",
-								graphicAlt: null,
+								graphicAlt: "Pinterest",
 								graphicStyle: { display: "inline-block", width: "auto", "text-align": "center" }
 							})
 						+tableCell({ width: 80, align: "right" })
 							+GraphicCTA({
-								linkUrl: "",
+								linkUrl: "https://www.youtube.com/user/Acura",
 								graphicUrl: "footer-icon-youtube.png",
-								graphicAlt: null,
+								graphicAlt: "YouTube",
 								graphicStyle: { display: "inline-block", width: "auto", "text-align": "right" }
 							})
 		+spacer(tagAttribs.lineSpaceMedium)
@@ -55,10 +55,10 @@ mixin Footer(props)
 				+tableBody
 					+tableRow
 						+tableCell({ width: 130, align: "left" })
-							+link("#", tagAttribs.FooterLink)
+							+link("http://www.acura.com/Privacy.aspx", tagAttribs.FooterLink)
 								| Privacy Policy
 						+tableCell({ width: 240, align: "center" })
-							+link("#", tagAttribs.FooterLink)
+							+link("http://www.acura.com/TermsConditions.aspx", tagAttribs.FooterLink)
 								| Terms and Conditions
 						+tableCell({ width: 130, align: "right" })
 							+link(null, tagAttribs.FooterLink)

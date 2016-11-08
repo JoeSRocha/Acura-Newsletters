@@ -1,10 +1,22 @@
 ﻿[
   {
-    "name": "Example Newsletter",
-    "path": "example-newsletter"
+    "name": "Example Newsletter A",
+    "path": "example-newsletter-a",
+    "subject": "A Sportier TLX, New NSX Video and the Annual Acura Gift Guide"
   },
   {
-    "name": "Example Product",
-    "path": "example-product"
+    "name": "Example Newsletter B",
+    "path": "example-newsletter-b",
+    "subject": "Acura TLX, NSX and the Best Gift Guide Ever"
+  },
+  {
+    "name": "Example Product A",
+    "path": "example-product-a",
+    "subject": "Cheers! Put a Sportier Acura TLX in Your Garage"
+  },
+  {
+    "name": "Example Product B",
+    "path": "example-product-b",
+    "subject": "The New Acura TLX GT Package is Here"
   }
 ]
