@@ -26,6 +26,6 @@ mixin OfferCTA_Details(props)
 mixin OfferCTA_Link(props)
 	if (!props)
 		- props = {}
-	+content
+	+content({ style: { "text-align":"center" } })
 		+AcuraButtonArrow(props.url, tagAttribs.OfferCtaLinkWrapper)
 			block
