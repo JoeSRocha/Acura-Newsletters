@@ -65,7 +65,10 @@ Rhythm.ImplyStyles = function (params) {
 
     if (params.width)
         params.style.width = params.width + (/^\d+$/.test(params.width) ? "px" : "");
-        
+
+    if (params.height)
+        params.style.height = params.height + (/^\d+$/.test(params.height) ? "px" : "");
+
     if (params.align)
         params.style["text-align"] = params.align;
 

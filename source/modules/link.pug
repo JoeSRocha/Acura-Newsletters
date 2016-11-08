@@ -3,6 +3,9 @@ mixin link(url, props)
 	- if (url)
 		a(href=url)&attributes(props)
 			block
+	- else if (props.style && props.style.display && props.style.display == "block")
+		div&attributes(props)
+			block
 	- else
 		span&attributes(props)
 			block

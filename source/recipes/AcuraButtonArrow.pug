@@ -1,7 +1,14 @@
 include ./AcuraButton.pug
+include ../modules/image.pug
 mixin AcuraButtonArrow(url, props)
+	- props = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonArrowLink, props);
 	+link(url, props)
-		+AcuraButton(null, tagAttribs.AcuraButtonArrow)
-			| &gt;
-		span&attributes(tagAttribs.AcuraButtonArrowText)
-			block
+		+table({ height: 34, style: { "text-decoration": "none !important" } })
+			+tableBody({ style: { "text-decoration": "none !important" } })
+				+tableRow({ height: 34, style: { "text-decoration": "none !important" } })
+					+tableCell({ height: 34, width: 30, valign: "top", style: { "text-decoration": "none !important" } })
+						+AcuraButton(null, tagAttribs.AcuraButtonArrowIcon)
+							+image({ relativeSrc: "link-arrow.png", width: 30, height: 30, style: { display: "block" } })
+					+tableCell({ height: 34, align: "left", valign: "top", style: { "text-decoration": "none !important" } })
+						div&attributes(tagAttribs.AcuraButtonArrowText)
+							block

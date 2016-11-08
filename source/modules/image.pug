@@ -1,3 +1,6 @@
 mixin image(props)
 	- props = Rhythm.ExtendAttributes({}, defaults.image, props);
+	if (props.relativeSrc)
+		- props.src = constants.ImagePath + props.relativeSrc
+		- props.relativeSrc = null
 	img&attributes(props)
