@@ -13,13 +13,13 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 		title #{pageTitle}
 		include ./stylesheet.pug
 		block head
-	body(bgcolor=constants.PrimaryBackgroundColor,style="min-width:100%;padding:0;margin:0;background-color:" + constants.PrimaryBackgroundColor + "-webkit-text-size-adjust:none;")
+	body(bgcolor=constants.OuterBackgroundColor,style="min-width:100%;padding:0;margin:0;background-color:" + constants.PrimaryBackgroundColor + "-webkit-text-size-adjust:none;")
 		if (defaults.preheaderContent)
 			+preheader= defaults.preheaderContent
 		+table({
 			"align": "center",
 			"width": "100%",
-			"style": "background-color:" + constants.PrimaryBackgroundColor + ";"
+			"style": "background-color:" + constants.OuterBackgroundColor + ";"
 		})
 			+tableBody
 				+tableRow
@@ -30,7 +30,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 							"class": "message-body-container",
 							"align": "center",
 							"width": constants.ContentWidth,
-							"style": "background-color:" + constants.PrimaryBackgroundColor + ";"
+							"style": "background-color:" + constants.ContentBackgroundColor + ";"
 						})
 							+tableBody
 								+tableRow

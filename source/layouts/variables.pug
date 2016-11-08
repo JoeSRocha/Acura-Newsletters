@@ -3,7 +3,8 @@
 - var constants = {}
 - constants.ContentWidth = 600
 - constants.ImagePath = "images/"
-- constants.PrimaryBackgroundColor = "#eaeaea"
+- constants.OuterBackgroundColor = "#eaeaea"
+- constants.ContentBackgroundColor = "#ffffff"
 - constants.PrimaryTextColor = "#000000"
 - constants.AcuraRed = "#e82c2a"
 - constants.DividerGray = "#afafaf"
@@ -128,7 +129,7 @@
 - tagAttribs.AcuraButtonOuter.align = "center"
 - tagAttribs.AcuraButtonOuter.class = "acura-button"
 - tagAttribs.AcuraButtonOuter.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.PrimaryBackgroundColor
+- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.ContentBackgroundColor
 - tagAttribs.AcuraButtonOuter.style["border-color"] = constants.AcuraRed
 - tagAttribs.AcuraButtonOuter.style["border-style"] = "solid"
 - tagAttribs.AcuraButtonOuter.style["border-left-width"] = "2px"
@@ -147,7 +148,7 @@
 - tagAttribs.AcuraButtonInner.align = "center"
 - tagAttribs.AcuraButtonInner.class = "acura-button-inner"
 - tagAttribs.AcuraButtonInner.style = Rhythm.ExtendStyle({}, tagAttribs.AcuraButtonOuter.style)
-- tagAttribs.AcuraButtonInner.style["border-color"] = constants.PrimaryBackgroundColor
+- tagAttribs.AcuraButtonInner.style["border-color"] = constants.ContentBackgroundColor
 - tagAttribs.AcuraButtonInner.style["border-left-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
 - tagAttribs.AcuraButtonInner.style["border-right-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
 - tagAttribs.AcuraButtonInner.style["border-top-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
@@ -168,7 +169,7 @@
 - tagAttribs.AcuraButtonArrowText = {}
 - tagAttribs.AcuraButtonArrowText.class = "acura-button-arrow-text"
 - tagAttribs.AcuraButtonArrowText.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AcuraButtonArrowText.style["border-color"] = constants.PrimaryBackgroundColor
+- tagAttribs.AcuraButtonArrowText.style["border-color"] = constants.ContentBackgroundColor
 - tagAttribs.AcuraButtonArrowText.style["border-style"] = "solid"
 - tagAttribs.AcuraButtonArrowText.style["border-left-width"] = "16px"
 - tagAttribs.AcuraButtonArrowText.style["border-right-width"] = "0"
@@ -232,7 +233,7 @@
 - tagAttribs.OfferCtaLinkContent = {}
 - tagAttribs.OfferCtaLinkContent.class = "offer-cta-link-content"
 - tagAttribs.OfferCtaLinkContent.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.OfferCtaLinkContent.style["border-color"] = constants.PrimaryBackgroundColor
+- tagAttribs.OfferCtaLinkContent.style["border-color"] = constants.ContentBackgroundColor
 - tagAttribs.OfferCtaLinkContent.style["border-style"] = "solid"
 - tagAttribs.OfferCtaLinkContent.style["border-left-width"] = "16px"
 - tagAttribs.OfferCtaLinkContent.style["border-right-width"] = "0"
