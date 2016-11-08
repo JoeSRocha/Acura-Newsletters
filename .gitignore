@@ -6,3 +6,5 @@ obj/
 /reference/
 
 compiled/*.html
+
+/review.web/[Ww]eb.config
