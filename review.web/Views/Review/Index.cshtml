@@ -2,11 +2,25 @@
 @{
     ViewBag.Title = "EmailFrame";
     var iframeSource = "/Content/Review/" + Model.path + ".html";
+    var scrollbarAllowance = 0;
+    if (Request.UserAgent.Contains("Windows")) { scrollbarAllowance = 21; }
+    var displayWidth = Model.width + scrollbarAllowance;
+    var displayHeight = Model.width * 1.6666666666666666666666666666667;
 }
 
-<h2>@Model.name</h2>
+@section head {
+    <style type="text/css">
+        .content-iframe-container { width: @(displayWidth)px; }
+        .content-iframe { height: @(displayHeight)px; }
+    </style>
+}
+
+<div class="container">
+    <h2>@Model.name</h2>
+    <h3>@Model.subject</h3>
+</div>
 
 <div class="content-iframe-container">
-    <a href="@iframeSource" target="_blank">view in separate window</a>
+    <div style="text-align: center"><a href="@iframeSource" target="_blank">view in separate window</a></div>
     <iframe class="content-iframe" src="@iframeSource"></iframe>
 </div>
