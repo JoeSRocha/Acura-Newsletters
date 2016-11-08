@@ -15,12 +15,68 @@
     </style>
 }
 
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#review_display_normal')
+                .on('click', function (e) {
+                    e.preventDefault();
+
+                    $(this)
+                        .addClass('btn-primary')
+                        .removeClass('btn-default');
+
+                    $('#review_display_no-images')
+                        .addClass('btn-default')
+                        .removeClass('btn-primary');
+
+                    $("#content-iframe").contents().find('img').each(function (index, element) {
+                        var $this = $(this);
+                        $this.attr('src', $this.data('image-source'));
+                    });
+                });
+
+            $('#review_display_no-images')
+                .on('click', function (e) {
+
+                    $(this)
+                        .addClass('btn-primary')
+                        .removeClass('btn-default');
+
+                    $('#review_display_normal')
+                        .addClass('btn-default')
+                        .removeClass('btn-primary');
+
+                    $("#content-iframe").contents().find('img').each(function (index, element) {
+                        var $this = $(this);
+                        $this
+                            .data('image-source', $this.attr('src'))
+                            .attr('src', '');
+                    });
+                })
+        });
+    </script>
+}
+
 <div class="container">
     <h2>@Model.name</h2>
     <h3>@Model.subject</h3>
 </div>
 
 <div class="content-iframe-container">
-    <div style="text-align: center"><a href="@iframeSource" target="_blank">view in separate window</a></div>
-    <iframe class="content-iframe" src="@iframeSource"></iframe>
+    <div style="text-align: center;">
+        <div style="display: inline-block;">
+            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button id="review_display_normal" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button id="review_display_no-images" type="button" class="btn btn-default"><span class="glyphicon glyphicon-eye-close"></span></button>
+                </div>
+                <div class="btn-group" role="group">
+                    <a id="review_new_window" class="btn btn-default" href="@iframeSource" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe id="content-iframe" class="content-iframe" src="@iframeSource"></iframe>
 </div>
