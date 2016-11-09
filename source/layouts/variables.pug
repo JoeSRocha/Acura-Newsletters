@@ -19,11 +19,22 @@
 - defaults.bullet = { "class":"bullet", bulletCharacter:"&bull;", bulletPaddingLeft: 10, bulletPaddingRight: 10 }
 - defaults.bulletedContent = { "class":"bulleted-content" }
 - defaults.content = { class: "content" }
-- defaults.image = { style: { "margin": "0 auto", "padding": "0", "border": "none", "display": "block", "text-align": "center", "vertical-align": "bottom" } }
 - defaults.link = { }
 - defaults.spacer = { "class": "spacer", "height": 1, "width": 1 }
 - defaults.sub = { style: { "vertical-align": "baseline", "position": "relative", "top": "0.4em" } }
 - defaults.sup = { style: { "vertical-align": "baseline", "position": "relative", "top": "-0.4em" } }
+
+- defaults.image = { style: {} }
+- defaults.image.style["margin"] = "0 auto"
+- defaults.image.style["padding"] = "0"
+- defaults.image.style["border"] = "0px none"
+- defaults.image.style["outline"] = "0px none"
+- defaults.image.style["display"] = "block"
+- defaults.image.style["text-align"] = "center"
+- defaults.image.style["vertical-align"] = "bottom"
+
+//- uncomment this to embed spacers as bas64 instead of referencing them - EXPERIMENTAL
+//- defaults.image.embed = true
 
 //- PREHEADER STYLES
 //- Recommended by a blog post from Email On Acid: https://www.emailonacid.com/blog/article/email-development/tips-for-coding-email-preheaders
