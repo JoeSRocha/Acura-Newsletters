@@ -1,17 +1,15 @@
 include ./image.pug
 mixin spacer(props)
 	- props = Rhythm.ExtendAttributes({}, defaults.spacer, props)
-	- var spacerSource = constants.ImagePath + "spacer.png"
+
 	if (props.embed)
-		- spacerSource = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-	+image({
-		"src": spacerSource,
-		"class": props.class,
-		"height": props.height,
-		"width": props.width,
-		"style": {
-			"height" : props.height + "px",
-			"width": props.width + "px",
-			"background-color": props.color ? props.color : null
-		}
-	})
+		- props.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+		- props.embed = null
+	else
+		- props.src = constants.ImagePath + "spacer.png"
+
+	if (props.color)
+		- props.style["background-color"] = props.color
+		- props.color = null
+
+	+image(props)

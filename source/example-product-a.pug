@@ -12,7 +12,7 @@ block vars
 	- tracking["utm_content"] = "content"
 
 	- var urls = {}
-	- urls.ExploreTlx = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: tracking })
+	- urls.Explore_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: tracking })
 	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "TLX" }, tracking ] })
 	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/tlx", query: tracking })
 	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ { test: "test" }, tracking ], fragment: "multi-feature-box-gt" })
@@ -48,7 +48,6 @@ block content
 		+content(tagAttribs.bodyCopy)
 			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
 		+spacer(tagAttribs.lineSpaceMedium)
-		div= urls.Explore_Tlx
 		+content({ align: "center" })
 			+AcuraButton(urls.Explore_Tlx, { class: "mobile-wide", sidePadding: "50px" })
 				| EXPLORE TLX
@@ -70,7 +69,7 @@ block content
 					+OfferCTA_Details
 						| For well qualified buyers and buyers that qualify#[br]for the Acura Graduate Program criteria.
 					+spacer({ height: 42 })
-					+OfferCTA_Link({ url: urls.Tlx_Offers })
+					+OfferCTA_Link(urls.Tlx_Offers, { "class": "mobile-small-text" })
 						| SEE TLX OFFERS
 
 			+columnRule({ width: 30, height: 470 }, { width: 1, height: 470, color: constants.DividerGray })
@@ -89,7 +88,7 @@ block content
 					+OfferCTA_Details
 						| Includes down payment with no security deposit. Excludes taxes, titles and either dealer fees or documentary service fee. For well-qualified lessees.
 					+spacer({ height: 30 })
-					+OfferCTA_Link({ url: urls.Build_Tlx })
+					+OfferCTA_Link(urls.Build_Tlx, { "class": "mobile-small-text" })
 						| BUILD &amp; PRICE YOUR TLX
 
 	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
@@ -113,6 +112,7 @@ block content
 				+AcuraButton(urls.See_Tlx_Gt_Package, { class: "mobile-wide", fontSize: "15px" })
 					| SEE THE TLX GT PACKAGE
 			+column({ align: "right", class: "mobile-center" })
+				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
 				+AcuraButton(urls.Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
 					| WATCH TLX GT PACKAGE VIDEO
 

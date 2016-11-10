@@ -20,7 +20,7 @@
 - defaults.bulletedContent = { "class":"bulleted-content" }
 - defaults.content = { class: "content" }
 - defaults.link = { }
-- defaults.spacer = { "class": "spacer", "height": 1, "width": 1 }
+- defaults.spacer = { "class": "spacer", "height": 1, "width": 1, "style": {} }
 - defaults.sub = { style: { "vertical-align": "baseline", "position": "relative", "top": "0.4em" } }
 - defaults.sup = { style: { "vertical-align": "baseline", "position": "relative", "top": "-0.4em" } }
 
@@ -70,7 +70,7 @@
 //- Font families are often very picky. Define them here to make sure they're the same everywhere.
 - var fonts = {}
 - fonts.normal = "'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
-- fonts.ultraLight = "'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+- fonts.ultraLight = "'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
 - fonts.bold = "'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
 
 //- STYLE DEFINITIONS
@@ -95,8 +95,8 @@
 - tagAttribs.header.class = "acura-header"
 - tagAttribs.header.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.header.style["font-family"] = fonts.ultraLight
-- tagAttribs.header.style["font-size"] = "34px"
-- tagAttribs.header.style["line-height"] = "34px"
+- tagAttribs.header.style["font-size"] = "36px"
+- tagAttribs.header.style["line-height"] = "36px"
 
 - tagAttribs.subheader = {}
 - tagAttribs.subheader.align = "left"

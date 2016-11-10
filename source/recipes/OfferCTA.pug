@@ -23,9 +23,8 @@ mixin OfferCTA_Stinger(props)
 mixin OfferCTA_Details(props)
 	+content(tagAttribs.OfferCtaDetails)
 		block
-mixin OfferCTA_Link(props)
-	if (!props)
-		- props = {}
+mixin OfferCTA_Link(url, buttonProps)
+	- buttonProps = Rhythm.ExtendAttributes({}, tagAttribs.OfferCtaLinkWrapper, buttonProps)
 	+content({ style: { "text-align":"center" } })
-		+AcuraButtonArrow(props.url, tagAttribs.OfferCtaLinkWrapper)
+		+AcuraButtonArrow(url, buttonProps)
 			block
