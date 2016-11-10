@@ -5,21 +5,21 @@ block vars
 	- defaults.preheaderContent = "[First Name], See the new TLX GT Package and find great seasonal savings."
 
 	- var tracking = {}
-	- tracking["utm_source"] = "source"
-	- tracking["utm_medium"] = "medium"
-	- tracking["utm_campaign"] = "campaign"
-	- tracking["utm_term"] = "term"
-	- tracking["utm_content"] = "content"
+	- tracking["utm_source"] = "newsletter"
+	- tracking["utm_medium"] = "email"
+	- tracking["utm_campaign"] = "at7886"
+	//- tracking["utm_term"] = ""
+	//- tracking["utm_content"] = ""
 
 	- var urls = {}
-	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: tracking, fragment: "multi-feature-box-gt" })
-	- urls.Watch_Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8nLd6C5O1HM" }, tracking ] })
-	- urls.See_Great_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: tracking })
-	- urls.Shop_Lifestyle_Collection = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: tracking })
-	- urls.Shop_Parts_Accessories = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: tracking })
-	- urls.Shop_Apparel = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: tracking })
-	- urls.Explore_The_Nsx = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: tracking })
-	- urls.Watch_Nsx_Come_To_Life = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8EteOAVppGU", feature: "youtu.be" }, tracking ] })
+	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+	- urls.Watch_Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8nLd6C5O1HM" }, tracking, { "utm_content":"tlx-accessory-video" } ] })
+	- urls.See_Great_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: [ tracking, { "utm_content":"gift-guide-current-offers" } ] })
+	- urls.Shop_Lifestyle_Collection = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: [ tracking, { "utm_content":"gift-guide-nsx-gear" } ] })
+	- urls.Shop_Parts_Accessories = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: [ tracking, { "utm_content":"gift-guide-acura-accessories" } ] })
+	- urls.Shop_Apparel = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"gift-guide-acura-merchandise" } ] })
+	- urls.Explore_The_Nsx = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"nsx-explore" } ] })
+	- urls.Watch_Nsx_Come_To_Life = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8EteOAVppGU", feature: "youtu.be" }, tracking, { "utm_content":"nsx-build-video" }  ] })
 	
 	//- urls. = Rhythm.BuildUrl({ url: "", query: tracking })
 
