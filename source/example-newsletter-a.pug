@@ -55,6 +55,7 @@ block content
 				+AcuraButton(urls.See_Tlx_Gt_Package, { class: "mobile-wide", fontSize: "15px" })
 					| SEE THE TLX GT PACKAGE
 			+column({ align: "right", class: "mobile-center" })
+				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
 				+AcuraButton(urls.Watch_Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
 					| WATCH TLX GT PACKAGE VIDEO
 
@@ -68,10 +69,10 @@ block content
 			height: 296,
 			style: { "line-height":"296px" }
 		})
-		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer({ height: 40 })
 		+content(tagAttribs.header)
 			| Oh What Fun Event
-		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer({ height: 23 })
 		+content(tagAttribs.bodyCopy)
 			| Ho ho hold the presses: The &ldquo;Oh What Fun&rdquo; sales event is here! With special offers on the popular TLX, ILX, RLX, RDX, and MDX, &rsquo;tis the season for Precision Crafted Performance. And by the way, it&rsquo;s perfectly OK to unwrap your presents early.
 		+spacer(tagAttribs.lineSpaceSmall)
@@ -108,6 +109,10 @@ block content
 			+column({ valign: "top" })
 				+content(tagAttribs.bodyCopy)
 					| When it comes to Acura gear for you and your car, we&rsquo;ve got you covered. The weather outside may be frightful, but your ride can always be delightful.
+				+spacer(tagAttribs.lineSpaceSmall)
+				+content(tagAttribs.bodyCopy)
+					+AcuraButtonArrow(urls.Shop_Parts_Accessories, { "class":"mobile-small-text" })
+						| SHOP PARTS &amp; ACCESSORIES
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
@@ -118,10 +123,6 @@ block content
 					height: 147,
 					style: styles.rightColumnGraphic,
 				})
-		+spacer(tagAttribs.lineSpaceExtraSmall)
-		+content(tagAttribs.bodyCopy)
-			+AcuraButtonArrow(urls.Shop_Parts_Accessories)
-				| SHOP PARTS &amp; ACCESSORIES
 
 		+spacer(tagAttribs.lineSpaceMedium)
 
@@ -129,6 +130,10 @@ block content
 			+column({ valign: "top" })
 				+content(tagAttribs.bodyCopy)
 					| And for the stylish on your shopping list? All-new Acura apparel and merchandise has arrived just in time for the holidays. Available now with FREE SHIPPING on all orders of $50 or more. Promo code: DECFREESHIP. Valid 12/xx through 12/xx.
+				+spacer(tagAttribs.lineSpaceSmall)
+				+content(tagAttribs.bodyCopy)
+					+AcuraButtonArrow(urls.Shop_Apparel)
+						| SHOP APPAREL
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
@@ -139,11 +144,6 @@ block content
 					height: 176,
 					style: styles.rightColumnGraphic
 				})
-			+spacer(tagAttribs.lineSpaceExtraSmall)
-		+spacer(tagAttribs.lineSpaceExtraSmall)
-		+content(tagAttribs.bodyCopy)
-			+AcuraButtonArrow(urls.Shop_Apparel)
-				| SHOP APPAREL
 
 	+spacer(tagAttribs.lineSpaceLarge)
 
