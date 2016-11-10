@@ -132,9 +132,9 @@
             </div>
             <form action="@Url.Action("Send", "Review", new { id = Model.path })" method="post">
                 <div class="modal-body">
-                    <p>Enter a list of email addresses, separated by semicolons.</p>
+                    <p>Enter a list of email addresses, separated by commas.</p>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="to">
+                        <input type="text" class="form-control" name="to">
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -12,8 +12,9 @@ namespace review.web {
     public static class Email {
 
         public static void SendSample(ReviewContentItem source, string to) {
-            MailMessage msg = new MailMessage(Reference.MailSender, to);
-
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(Reference.MailSenderAddress, Reference.MailSenderName);
+            msg.To.Add(to);
             msg.Subject = source.subject;
 
             // replace relative image urls with absolute ones

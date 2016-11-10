@@ -34,12 +34,21 @@ namespace review.web {
             }
         }
 
-        public static string MailSender {
+        public static string MailSenderName {
             get {
                 return
-                    String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:MailSender"]) ?
-                        "{ Mail Sender }" :
-                        ConfigurationManager.AppSettings["Reference:MailSender"];
+                    String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:MailSenderName"]) ?
+                        "{ Mail Sender Name }" :
+                        ConfigurationManager.AppSettings["Reference:MailSenderName"];
+            }
+        }
+
+        public static string MailSenderAddress {
+            get {
+                return
+                    String.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["Reference:MailSenderAddress"]) ?
+                        "{ Mail Sender Address }" :
+                        ConfigurationManager.AppSettings["Reference:MailSenderAddress"];
             }
         }
 
