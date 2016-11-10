@@ -35,5 +35,9 @@ namespace review.web {
             get { return GetFromConfigOrDefault("Reference:MailSourceDomain", "{ Mail Source Domain }"); }
         }
 
+        public static string StandardReviewAddress {
+            get { return GetFromConfigOrDefault("Reference:StandardReviewAddress", "{ Mail Autoprocess Address }"); }
+        }
+
     }
 }
