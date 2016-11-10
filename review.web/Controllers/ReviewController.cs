@@ -15,5 +15,20 @@ namespace review.web.Controllers {
             else return View(model);
         }
 
+        public ActionResult Send(string id, string to) {
+            if (String.IsNullOrWhiteSpace(id)) return HttpNotFound();
+            var model = ReviewContent.Get().FirstOrDefault(c => String.Equals(c.path, id));
+            if (model == null) return HttpNotFound();
+            else {
+                try {
+                    Email.SendSample(model, to);
+                    return Json(new { success = true });
+                }
+                catch (Exception ex) {
+                    return Json(new { success = false });
+                }
+            }
+        }
+
     }
 }

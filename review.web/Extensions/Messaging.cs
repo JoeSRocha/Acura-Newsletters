@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using review.web.Models;
 
 namespace review.web {
-    public static class MessagingExtensions {
+    public static class Messaging {
 
         public static void AddMessage(this Controller controller, MessageModel message) {
             if (controller.ViewBag.Messages == null)

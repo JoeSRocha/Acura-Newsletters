@@ -126,9 +126,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
-    <Compile Include="Extensions\MessagingExtensions.cs" />
+    <Compile Include="Extensions\Messaging.cs" />
     <Compile Include="Extensions\Reference.cs" />
     <Compile Include="Extensions\ReviewContent.cs" />
+    <Compile Include="Extensions\Email.cs" />
     <Compile Include="Extensions\Utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,7 +162,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
