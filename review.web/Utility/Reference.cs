@@ -39,5 +39,9 @@ namespace review.web {
             get { return GetFromConfigOrDefault("Reference:StandardReviewAddress", "{ Mail Autoprocess Address }"); }
         }
 
+        public static string UrlAuthenticationKey {
+            get { return GetFromConfigOrDefault("Reference:UrlAuthenticationKey", ""); }
+        }
+
     }
 }

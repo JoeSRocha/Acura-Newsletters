@@ -126,11 +126,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
-    <Compile Include="Extensions\Messaging.cs" />
-    <Compile Include="Extensions\Reference.cs" />
-    <Compile Include="Extensions\ReviewContent.cs" />
-    <Compile Include="Extensions\Email.cs" />
-    <Compile Include="Extensions\Utilities.cs" />
+    <Compile Include="Security\UnauthorizedAssetModule.cs" />
+    <Compile Include="Utility\Messaging.cs" />
+    <Compile Include="Utility\Reference.cs" />
+    <Compile Include="Security\RequireHttpsConditionallyAttribute.cs" />
+    <Compile Include="Utility\ReviewContent.cs" />
+    <Compile Include="Utility\Email.cs" />
+    <Compile Include="Security\UrlAuthenticationModule.cs" />
+    <Compile Include="Utility\PageExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,8 +142,10 @@
     <Compile Include="Models\ReviewContentItem.cs" />
     <Compile Include="Models\ReviewContentList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\UriExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\reviewer-groups.json" />
     <None Include="App_Data\review-content.json" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

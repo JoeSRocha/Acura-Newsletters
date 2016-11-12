@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 
 namespace review.web {
-    public static class Utilities {
+    public static class PageExtensions {
 
         public static bool IsLoginPage(this WebViewPage view) {
             return String.Equals(view.Context.Request.Url.AbsolutePath.ToLower(), FormsAuthentication.LoginUrl.ToLower());

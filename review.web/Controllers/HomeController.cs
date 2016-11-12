@@ -8,6 +8,7 @@ using System.Web.Security;
 using review.web.Models;
 
 namespace review.web.Controllers {
+    [RequireHttpsConditionally]
     public class HomeController : Controller {
 
         [Authorize]
@@ -29,7 +30,10 @@ namespace review.web.Controllers {
         public ActionResult LogIn(LoginModel model) {
             if (FormsAuthentication.Authenticate(model.Username, model.Password)) {
                 FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
-                return RedirectToAction("Index");
+                if (model.RememberMe)
+                    Response.Cookies[".ASPXAUTH"].Expires = DateTime.Now.AddDays(7.0);
+                var returnUrl = FormsAuthentication.GetRedirectUrl(model.Username, model.RememberMe);
+                return String.IsNullOrWhiteSpace(returnUrl) ? (ActionResult)RedirectToAction("Index") : (ActionResult)Redirect(returnUrl);
             } else {
                 return RedirectToAction("LogIn", new { result = "failed" });
             }

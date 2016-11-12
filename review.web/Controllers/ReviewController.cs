@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace review.web.Controllers {
+    [RequireHttpsConditionally]
     [Authorize]
     public class ReviewController : Controller {
 
