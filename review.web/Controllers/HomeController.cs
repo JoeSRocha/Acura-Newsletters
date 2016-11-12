@@ -22,7 +22,7 @@ namespace review.web.Controllers {
             if (result == "failed")
                 this.AddMessage(MessageModel.MessageCategories.danger, "Login failed");
 
-            ViewBag.LoginAttempt = new LoginModel();
+            ViewBag.LoginAttempt = new LoginModel() { ReturnUrl = Request.Params["ReturnUrl"] };
             return View();
         }
 
@@ -32,8 +32,11 @@ namespace review.web.Controllers {
                 FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
                 if (model.RememberMe)
                     Response.Cookies[".ASPXAUTH"].Expires = DateTime.Now.AddDays(7.0);
-                var returnUrl = FormsAuthentication.GetRedirectUrl(model.Username, model.RememberMe);
-                return String.IsNullOrWhiteSpace(returnUrl) ? (ActionResult)RedirectToAction("Index") : (ActionResult)Redirect(returnUrl);
+                var returnUrl = HttpUtility.UrlDecode(model.ReturnUrl);
+                return
+                    String.IsNullOrWhiteSpace(returnUrl) ?
+                    (ActionResult)RedirectToAction("Index") :
+                    (ActionResult)Redirect(returnUrl);
             } else {
                 return RedirectToAction("LogIn", new { result = "failed" });
             }

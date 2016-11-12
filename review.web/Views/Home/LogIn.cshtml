@@ -2,5 +2,5 @@
     ViewBag.Title = "Log In";
 }
 <div class="container">
-    @Html.Partial("_LoginForm")
+    @Html.Partial("_LoginForm", (review.web.Models.LoginModel)ViewBag.LoginAttempt)
 </div>

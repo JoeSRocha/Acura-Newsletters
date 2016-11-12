@@ -2,6 +2,7 @@
 <div class="login-container">
     <h2>Log in</h2>
     @using (Html.BeginForm("LogIn", "Home", FormMethod.Post, new { @class = "login-form" })) {
+        @Html.HiddenFor(model => model.ReturnUrl)
         <div class="form-group">
             <label>
                 @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "user name" })
