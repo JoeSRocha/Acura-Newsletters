@@ -27,9 +27,9 @@ Rhythm.BuildUrl = function (pieces) { // additional parameters handled by parsin
         }
 
         if (typeof query === "object") {
-            result += "?"
+            result += "?";
             for (var item in query) {
-                result += item + "=" + query[item] + "&"
+                result += item + "=" + query[item] + "&";
             }
             result = result.substring(0, result.length - 1);
         }
@@ -39,7 +39,7 @@ Rhythm.BuildUrl = function (pieces) { // additional parameters handled by parsin
         result += "#" + pieces.fragment;
 
     return result;
-}
+};
 
 /*  GetStyleObject
  *  Converts a style string into an object. Exits immediately if source parameter is already an object.
@@ -48,20 +48,20 @@ Rhythm.GetStyleObject = function (source) {
     if (typeof source === 'object') return source;
 
     var items = source.split(";");
-    var result = { };
+    var result = {};
     for (var item in items) {
         var itemPieces = items[item].split(":");
         if (itemPieces.length < 2) continue;
         result[itemPieces[0].trim()] = itemPieces[1].trim();
     }
     return result;
-}
+};
 
 /*  ImplyStyles
  *  Checks a tag parameters object to make sure that the styles sub-object exists and is an object. Also populates alternate style properties.
  */
 Rhythm.ImplyStyles = function (params) {
-    params.style = params.style ? Rhythm.GetStyleObject(params.style) : {}
+    params.style = params.style ? Rhythm.GetStyleObject(params.style) : {};
 
     if (params.width)
         params.style.width = params.width + (/^\d+$/.test(params.width) ? "px" : "");
@@ -76,7 +76,7 @@ Rhythm.ImplyStyles = function (params) {
         params.style["vertical-align"] = params.valign;
 
     return params;
-}
+};
 
 /*  ExtendStyle
  *  Extends a style object with one or more others. Calls GetStyleObject first to handle string inputs.
@@ -88,7 +88,7 @@ Rhythm.ExtendStyle = function (base) { // additional parameters handled by parsi
         result = extend(result, current);
     }
     return result;
-}
+};
 
 /*  ExtendAttributes
  *  Extends a tag parameters object with one or more others. Also calls ImplyStyles on each parameter before combining them, and merges the resulting styles objects.
@@ -105,6 +105,6 @@ Rhythm.ExtendAttributes = function (base) { // additional parameters handled by 
         result = Rhythm.ImplyStyles(result); // ... and imply styles on top of that pile
     }
     return result;
-}
+};
 
 module.exports = Rhythm;
