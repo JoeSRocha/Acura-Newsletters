@@ -12,19 +12,29 @@ block vars
 	//- tracking["utm_content"] = "content"
 
 	- var urls = {}
-	- urls.Explore_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"" } ] })
+
+	- urls.Explore_Tlx_Header = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"" } ] })
+	- urls.Explore_Tlx_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"" } ] })
+	- urls.Explore_Tlx_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"" } ] })
+
 	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "TLX" }, tracking, { "utm_content":"tlx-current-offers" } ] })
 	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/tlx", query: [ tracking, { "utm_content":"tlx-build-price" } ] })
-	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+
+	- urls.See_Tlx_Gt_Package_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+	- urls.See_Tlx_Gt_Package_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
 	- urls.Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch?v=8nLd6C5O1HM", query: [ { "v":"8nLd6C5O1HM" }, tracking, { "utm_content":"tlx-accessory-video" } ] })
-	- urls.Explore_Acura_Motorsports = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"acura-motorsports-video" } ] });
-	- urls.Watch_Jalopnik_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"eversley-jalopnik-video" } ] });
+
+	- urls.Explore_Acura_Motorsports_Graphic = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"acura-motorsports-video" } ] });
+	- urls.Explore_Acura_Motorsports_CTA = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"acura-motorsports-video" } ] });
+
+	- urls.Watch_Jalopnik_Video_Graphic = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"eversley-jalopnik-video" } ] });
+	- urls.Watch_Jalopnik_Video_CTA = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"eversley-jalopnik-video" } ] });
 
 block head
 
 block content
 
-	+GraphicCTA(urls.Explore_Tlx, {}, {
+	+GraphicCTA(urls.Explore_Tlx_Header, {}, {
 		relativeSrc: "header-tlx-white.png",
 		alt: "ACURA | TLX",
 		width: 600,
@@ -32,7 +42,7 @@ block content
 		style: { "background-color":"#ffffff", "line-height":"85px" }
 	})
 
-	+GraphicCTA(urls.Explore_Tlx, {}, {
+	+GraphicCTA(urls.Explore_Tlx_Graphic, {}, {
 		relativeSrc: "tlx-gt-hero-animation.gif",
 		alt: "{ ALT TEXT HERE }",
 		width: 600,
@@ -49,7 +59,7 @@ block content
 			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
 		+spacer(tagAttribs.lineSpaceMedium)
 		+content({ align: "center" })
-			+AcuraButton(urls.Explore_Tlx, { class: "mobile-wide", sidePadding: "50px" })
+			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", sidePadding: "50px" })
 				| EXPLORE TLX
 
 	+ContentContainer({ spacer: tagAttribs.colSpaceContentContainerWide })
@@ -91,7 +101,7 @@ block content
 					+OfferCTA_Link(urls.Build_Tlx, { "class": "mobile-small-text" })
 						| BUILD &amp; PRICE YOUR TLX
 
-	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+	+GraphicCTA(urls.See_Tlx_Gt_Package_Graphic, {}, {
 		relativeSrc: "tlx-gt-red-sideview.jpg",
 		alt: "{ ALT TEXT HERE }",
 		width: 600,
@@ -109,7 +119,7 @@ block content
 		+spacer(tagAttribs.lineSpaceMedium)
 		+columns({ class: "mobile-clear" })
 			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.See_Tlx_Gt_Package, { class: "mobile-wide", fontSize: "15px" })
+				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide", fontSize: "15px" })
 					| SEE THE TLX GT PACKAGE
 			+column({ align: "right", class: "mobile-center" })
 				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
@@ -122,7 +132,7 @@ block content
 		+content(tagAttribs.header)
 			| Born To Run
 
-	+GraphicCTA(urls.Explore_Acura_Motorsports, {}, {
+	+GraphicCTA(urls.Explore_Acura_Motorsports_Graphic, {}, {
 		relativeSrc: "tlx-sport-on-racetrack.png",
 		alt: "{ ALT TEXT HERE }",
 		width: 600,
@@ -136,7 +146,7 @@ block content
 			| The sleek and sporty style of the Acura TLX GT Package was inspired by the Acura TLX GT race car. For Acura, racing is a heightened expression of Precision Crafted Performance. Now you can experience a quarter century of Acura Motorsports history every time you take the wheel.
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
-			+AcuraButtonArrow(urls.Explore_Acura_Motorsports)
+			+AcuraButtonArrow(urls.Explore_Acura_Motorsports_CTA)
 				| EXPLORE ACURA MOTORSPORTS
 		+spacer(tagAttribs.lineSpaceMedium)
 		+columns
@@ -145,12 +155,12 @@ block content
 					| Watch Ryan Eversley test drive the Acura TLX GT race car on the Jalopnik series &lsquo;Neat Stuff In Cool Cars&rsquo;
 				+spacer(tagAttribs.lineSpaceSmall)
 				+content(tagAttribs.bodyCopy)
-					+AcuraButtonArrow(urls.Watch_Jalopnik_Video)
+					+AcuraButtonArrow(urls.Watch_Jalopnik_Video_Graphic)
 						| WATCH VIDEO
 			+columnSpacer({ width: 10 })
 			+column({ width: 240, align: "right" , valign: "top"})
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA(urls.Watch_Jalopnik_Video, {}, {
+				+GraphicCTA(urls.Watch_Jalopnik_Video_CTA, {}, {
 					relativeSrc: "jalopnik-video-sample.png",
 					alt: "",
 					width: 237,

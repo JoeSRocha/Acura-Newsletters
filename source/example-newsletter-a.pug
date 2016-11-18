@@ -12,13 +12,26 @@ block vars
 	//- tracking["utm_content"] = ""
 
 	- var urls = {}
-	- urls.See_Tlx_Gt_Package = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+
+	- urls.See_Tlx_Gt_Package_Header = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+	- urls.See_Tlx_Gt_Package_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
+	- urls.See_Tlx_Gt_Package_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
 	- urls.Watch_Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8nLd6C5O1HM" }, tracking, { "utm_content":"tlx-accessory-video" } ] })
-	- urls.See_Great_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: [ tracking, { "utm_content":"gift-guide-current-offers" } ] })
-	- urls.Shop_Lifestyle_Collection = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: [ tracking, { "utm_content":"gift-guide-nsx-gear" } ] })
-	- urls.Shop_Parts_Accessories = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: [ tracking, { "utm_content":"gift-guide-acura-accessories" } ] })
-	- urls.Shop_Apparel = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"gift-guide-acura-merchandise" } ] })
-	- urls.Explore_The_Nsx = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"nsx-explore" } ] })
+
+	- urls.See_Great_Offers_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: [ tracking, { "utm_content":"gift-guide-current-offers" } ] })
+	- urls.See_Great_Offers_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffersFinance.aspx", query: [ tracking, { "utm_content":"gift-guide-current-offers" } ] })
+
+	- urls.Shop_Lifestyle_Collection_Graphic = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: [ tracking, { "utm_content":"gift-guide-nsx-gear" } ] })
+	- urls.Shop_Lifestyle_Collection_CTA = Rhythm.BuildUrl({ url: "https://orders.corp-imaging.com/nsx/", query: [ tracking, { "utm_content":"gift-guide-nsx-gear" } ] })
+
+	- urls.Shop_Parts_Accessories_Graphic = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: [ tracking, { "utm_content":"gift-guide-acura-accessories" } ] })
+	- urls.Shop_Parts_Accessories_CTA = Rhythm.BuildUrl({ url: "http://estore.honda.com/acura/customer-home.asp", query: [ tracking, { "utm_content":"gift-guide-acura-accessories" } ] })
+
+	- urls.Shop_Apparel_Graphic = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"gift-guide-acura-merchandise" } ] })
+	- urls.Shop_Apparel_CTA = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"gift-guide-acura-merchandise" } ] })
+
+	- urls.Explore_The_Nsx_Graphic = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"nsx-explore" } ] })
+	- urls.Explore_The_Nsx_CTA = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"nsx-explore" } ] })
 	- urls.Watch_Nsx_Come_To_Life = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8EteOAVppGU", feature: "youtu.be" }, tracking, { "utm_content":"nsx-build-video" }  ] })
 	
 	//- urls. = Rhythm.BuildUrl({ url: "", query: tracking })
@@ -27,7 +40,7 @@ block head
 
 block content
 
-	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+	+GraphicCTA(urls.See_Tlx_Gt_Package_Header, {}, {
 		relativeSrc: "header-newsletter-black.png",
 		alt: "ACURA | Newsletter",
 		width: 600,
@@ -35,7 +48,7 @@ block content
 		style: { "color":"#ffffff", "background-color":"#000000", "line-height":"85px" }
 	})
 
-	+GraphicCTA(urls.See_Tlx_Gt_Package, {}, {
+	+GraphicCTA(urls.See_Tlx_Gt_Package_Graphic, {}, {
 		relativeSrc: "tlx-gt-red-sideview-faded-bottom.png",
 		alt: "ACURA TLX GT",
 		width: 600,
@@ -52,7 +65,7 @@ block content
 		+spacer(tagAttribs.lineSpaceSmall)
 		+columns({ class: "mobile-clear" })
 			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.See_Tlx_Gt_Package, { class: "mobile-wide", fontSize: "15px" })
+				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide", fontSize: "15px" })
 					| SEE THE TLX GT PACKAGE
 			+column({ align: "right", class: "mobile-center" })
 				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
@@ -62,7 +75,7 @@ block content
 	+spacer(tagAttribs.lineSpaceLarge)
 	
 	+ContentContainer
-		+GraphicCTA(urls.See_Great_Offers, {}, {
+		+GraphicCTA(urls.See_Great_Offers_Graphic, {}, {
 			relativeSrc: "acura-season-of-performance-event.jpg",
 			alt: "{ ALT TEXT HERE }",
 			width: 500,
@@ -77,13 +90,13 @@ block content
 			| Ho ho hold the presses: The &ldquo;Season of Performance&rdquo; sales event is here! With special offers on the popular TLX, ILX, RLX, RDX, and MDX, &rsquo;tis the season for Precision Crafted Performance. And by the way, it&rsquo;s perfectly OK to unwrap your presents early.
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
-			+AcuraButtonArrow(urls.See_Great_Offers)
+			+AcuraButtonArrow(urls.See_Great_Offers_CTA)
 				| SEE GREAT OFFERS
 
 	+spacer(tagAttribs.lineSpaceMedium)
 	//- smaller gap than normal because the next image is a slanted one
 	
-	+GraphicCTA(urls.Shop_Lifestyle_Collection, {}, {
+	+GraphicCTA(urls.Shop_Lifestyle_Collection_Graphic, {}, {
 		relativeSrc: "lifestyle-collection.png",
 		alt: "THE NSX LIFESTYLE COLLECTION",
 		width: 600,
@@ -96,7 +109,7 @@ block content
 			| From branded t-shirts and hats to coffee mugs and luggage, the NSX Lifestyle Collection has everything for the supercar enthusiast. The planet&rsquo;s best NSX gear is just a click away.
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
-			+AcuraButtonArrow(urls.Shop_Lifestyle_Collection)
+			+AcuraButtonArrow(urls.Shop_Lifestyle_Collection_CTA)
 				| SHOP THE NSX COLLECTION
 
 	+spacer(tagAttribs.lineSpaceLarge)
@@ -111,12 +124,12 @@ block content
 					| When it comes to Acura gear for you and your car, we&rsquo;ve got you covered. The weather outside may be frightful, but your ride can always be delightful.
 				+spacer(tagAttribs.lineSpaceSmall)
 				+content(tagAttribs.bodyCopy)
-					+AcuraButtonArrow(urls.Shop_Parts_Accessories, { "class":"mobile-small-text" })
+					+AcuraButtonArrow(urls.Shop_Parts_Accessories_CTA, { "class":"mobile-small-text" })
 						| SHOP PARTS &amp; ACCESSORIES
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA(urls.Shop_Parts_Accessories, {}, {
+				+GraphicCTA(urls.Shop_Parts_Accessories_Graphic, {}, {
 					relativeSrc: "wheel-hub.png",
 					alt: "",
 					width: 154,
@@ -132,12 +145,12 @@ block content
 					| And for the stylish on your shopping list? All-new Acura apparel and merchandise has arrived just in time for the holidays. Available now with FREE SHIPPING on all orders of $50 or more. Promo code: DECFREESHIP. Valid 12/xx through 12/xx.
 				+spacer(tagAttribs.lineSpaceSmall)
 				+content(tagAttribs.bodyCopy)
-					+AcuraButtonArrow(urls.Shop_Apparel)
+					+AcuraButtonArrow(urls.Shop_Apparel_CTA)
 						| SHOP APPAREL
 			+columnSpacer({ width: 30 })
 			+column({ width: 160, valign: "top" })
 				+spacer(tagAttribs.lineSpaceBodyCopyAlignment)
-				+GraphicCTA(urls.Shop_Apparel, {}, {
+				+GraphicCTA(urls.Shop_Apparel_Graphic, {}, {
 					relativeSrc: "jacket.png",
 					alt: "",
 					width: 151,
@@ -151,7 +164,7 @@ block content
 
 	+spacer(tagAttribs.lineSpaceLarge)
 
-	+GraphicCTA(urls.Explore_The_Nsx, {}, {
+	+GraphicCTA(urls.Explore_The_Nsx_Graphic, {}, {
 		relativeSrc: "nsx-beauty-shot.png",
 		alt: "NSX",
 		width: 600,
@@ -168,7 +181,7 @@ block content
 		+spacer(tagAttribs.lineSpaceSmall)
 		+columns({ class: "mobile-clear" })
 			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.Explore_The_Nsx,  { class: "mobile-wide", sidePadding: "46px" })
+				+AcuraButton(urls.Explore_The_Nsx_CTA,  { class: "mobile-wide", sidePadding: "46px" })
 					| EXPLORE THE NSX
 			+column({ align: "center", class: "mobile-center" })
 				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })

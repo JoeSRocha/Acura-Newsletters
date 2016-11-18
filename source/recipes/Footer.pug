@@ -1,10 +1,25 @@
 include ../modules/spacer.pug
 include ./ContentContainer.pug
 mixin Footer(props)
+	- var footerTracking = extend({}, tracking);
+
+	- var footerUrls = {}
+
+	- footerUrls.AcuraLogo = Rhythm.BuildUrl({ url: "http://www.acura.com/", query: [ footerTracking, { "utm_content":"" } ] })
+
+	- footerUrls.Facebook = Rhythm.BuildUrl({ url: "https://www.facebook.com/Acura", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.Twitter = Rhythm.BuildUrl({ url: "https://twitter.com/Acura", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.Instagram = Rhythm.BuildUrl({ url: "https://www.instagram.com/acura/", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.Pinterest = Rhythm.BuildUrl({ url: "https://www.pinterest.com/Acura/pins/follow/", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.YouTube = Rhythm.BuildUrl({ url: "https://www.youtube.com/user/Acura", query: [ footerTracking, { "utm_content":"" } ] })
+
+	- footerUrls.Privacy = Rhythm.BuildUrl({ url: "http://www.acura.com/Privacy.aspx", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.TermsAndConditions = Rhythm.BuildUrl({ url: "http://www.acura.com/TermsConditions.aspx", query: [ footerTracking, { "utm_content":"" } ] })
+
 	+content(tagAttribs.Footer)
 		+spacer(tagAttribs.lineSpaceMedium)
 		+ContentContainer
-			+GraphicCTA("http://www.acura.com/", {}, {
+			+GraphicCTA(footerUrls.AcuraLogo, {}, {
 				relativeSrc: "acura-logo-white.png",
 				alt: "ACURA precision crafted performance",
 				width: 149,
@@ -17,7 +32,7 @@ mixin Footer(props)
 				+tableBody
 					+tableRow
 						+tableCell({ width: 80, align: "left" })
-							+GraphicCTA("https://www.facebook.com/Acura", {}, {
+							+GraphicCTA(footerUrls.Facebook, {}, {
 								relativeSrc: "footer-icon-facebook.png",
 								alt: "Facebook",
 								width: 55,
@@ -25,7 +40,7 @@ mixin Footer(props)
 								style: { "text-align": "left", color: "#ffffff", "font-size":"12px", "line-height":"55px" }
 							})
 						+tableCell({ width: 120, align: "center" })
-							+GraphicCTA("https://twitter.com/Acura", {}, {
+							+GraphicCTA(footerUrls.Twitter, {}, {
 								relativeSrc: "footer-icon-twitter.png",
 								alt: "Twitter",
 								width: 55,
@@ -33,7 +48,7 @@ mixin Footer(props)
 								style: { "text-align": "center", color: "#ffffff", "font-size":"12px", "line-height":"55px" }
 							})
 						+tableCell({ width: 100, align: "center" })
-							+GraphicCTA("https://www.instagram.com/acura/", {}, {
+							+GraphicCTA(footerUrls.Instagram, {}, {
 								relativeSrc: "footer-icon-instagram.png",
 								alt: "Instagram",
 								width: 55,
@@ -41,7 +56,7 @@ mixin Footer(props)
 								style: { "text-align": "center", color: "#ffffff", "font-size":"12px", "line-height":"55px" }
 							})
 						+tableCell({ width: 120, align: "center" })
-							+GraphicCTA("https://www.pinterest.com/Acura/pins/follow/", {}, {
+							+GraphicCTA(footerUrls.Pinterest, {}, {
 								relativeSrc: "footer-icon-pinterest.png",
 								alt: "Pinterest",
 								width: 55,
@@ -49,7 +64,7 @@ mixin Footer(props)
 								style: { "text-align": "center", color: "#ffffff", "font-size":"12px", "line-height":"55px" }
 							})
 						+tableCell({ width: 80, align: "right" })
-							+GraphicCTA("https://www.youtube.com/user/Acura", {}, {
+							+GraphicCTA(footerUrls.YouTube, {}, {
 								relativeSrc: "footer-icon-youtube.png",
 								alt: "YouTube",
 								width: 55,
@@ -62,10 +77,10 @@ mixin Footer(props)
 				+tableBody
 					+tableRow
 						+tableCell({ width: 130, align: "left" })
-							+link("http://www.acura.com/Privacy.aspx", tagAttribs.FooterLink)
+							+link(footerUrls.Privacy, tagAttribs.FooterLink)
 								| Privacy Policy
 						+tableCell({ width: 240, align: "center" })
-							+link("http://www.acura.com/TermsConditions.aspx", tagAttribs.FooterLink)
+							+link(footerUrls.TermsAndConditions, tagAttribs.FooterLink)
 								| Terms and Conditions
 						+tableCell({ width: 130, align: "right" })
 							+link(null, tagAttribs.FooterLink)
