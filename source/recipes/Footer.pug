@@ -16,7 +16,7 @@ mixin Footer(props)
 	- footerUrls.Privacy = Rhythm.BuildUrl({ url: "http://www.acura.com/Privacy.aspx", query: [ footerTracking, { "utm_content":"" } ] })
 	- footerUrls.TermsAndConditions = Rhythm.BuildUrl({ url: "http://www.acura.com/TermsConditions.aspx", query: [ footerTracking, { "utm_content":"" } ] })
 
-	- footerUrls.Unsubscribe = Rhythm.BuildUrl({ url: "http://www.acura.com/VB/PreferenceCenter/UpdatePreference.aspx", query: [ footerTracking, { "utm_content":"" } ] })
+	- footerUrls.Unsubscribe = Rhythm.BuildUrl({ url: "http://www.acura.com/VB/PreferenceCenter/UpdatePreference.aspx", query: [ { "qs":"QWN1cmEmamVmZmVyMTg4MDJAZ21haWwuY29t" }, footerTracking, { "utm_content":"" } ] })
 
 	+content(tagAttribs.Footer)
 		+spacer(tagAttribs.lineSpaceMedium)

@@ -30,8 +30,8 @@ block vars
 	- urls.Shop_Apparel_Graphic = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"image-acura-merchandise" } ] })
 	- urls.Shop_Apparel_CTA = Rhythm.BuildUrl({ url: "http://acura.merchandisecollection.com/", query: [ tracking, { "utm_content":"gift-guide-acura-merchandise" } ] })
 
-	- urls.Explore_The_Nsx_Graphic = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"image-nsx-explore" } ] })
-	- urls.Explore_The_Nsx_CTA = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore", query: [ tracking, { "utm_content":"nsx-explore" } ] })
+	- urls.Explore_The_Nsx_Graphic = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore/nsx", query: [ tracking, { "utm_content":"image-nsx-explore" } ] })
+	- urls.Explore_The_Nsx_CTA = Rhythm.BuildUrl({ url: "http://nsx.acura.com/explore/nsx", query: [ tracking, { "utm_content":"nsx-explore" } ] })
 	- urls.Watch_Nsx_Come_To_Life = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { v: "8EteOAVppGU", feature: "youtu.be" }, tracking, { "utm_content":"nsx-build-video" }  ] })
 	
 	//- urls. = Rhythm.BuildUrl({ url: "", query: tracking })
@@ -193,7 +193,3 @@ block content
 	+Footer
 		+content(tagAttribs.FooterSmallPrint)
 			| #[+sup 1]SiriusXM#[sup &reg;] and all related marks and logos are trademarks of Sirius XM Radio Inc.
-		+spacer(tagAttribs.lineSpaceFooter)
-		+content(tagAttribs.FooterSmallPrint)
-			| Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please click here. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only. See our Privacy Policy.
-		+spacer(tagAttribs.lineSpaceFooter)

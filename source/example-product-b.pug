@@ -22,12 +22,12 @@ block vars
 
 	- urls.See_Tlx_Gt_Package_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"image-tlx-gt" } ], fragment: "multi-feature-box-gt" })
 	- urls.See_Tlx_Gt_Package_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/tlx/packages", query: [ tracking, { "utm_content":"tlx-package-page" } ], fragment: "multi-feature-box-gt" })
-	- urls.Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch?v=8nLd6C5O1HM", query: [ { "v":"8nLd6C5O1HM" }, tracking, { "utm_content":"tlx-accessory-video" } ] })
+	- urls.Tlx_Gt_Package_Video = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"8nLd6C5O1HM" }, tracking, { "utm_content":"tlx-accessory-video" } ] })
 
 	- urls.Explore_Acura_Motorsports_Graphic = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"image-born-to-run" } ] });
-	- urls.Explore_Acura_Motorsports_CTA = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"acura-motorsports-video" } ] });
+	- urls.Explore_Acura_Motorsports_CTA = Rhythm.BuildUrl({ url: "http://fv.acura.com/Motorsports", query: [ tracking, { "utm_content":"acura-motorsports" } ] });
 
-	- urls.Watch_Jalopnik_Video_Graphic = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"eversley-jalopnik-video" } ] });
+	- urls.Watch_Jalopnik_Video_Graphic = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"eversley-jalopnik-video-tlx" } ] });
 	- urls.Watch_Jalopnik_Video_CTA = Rhythm.BuildUrl({ url: "https://www.youtube.com/watch", query: [ { "v":"EcNtE6B5Yvs" }, tracking, { "utm_content":"image-jalopnik" } ] });
 
 block head
@@ -179,7 +179,3 @@ block content
 		+spacer(tagAttribs.lineSpaceFooter)
 		+content(tagAttribs.FooterSmallPrint)
 			| Special APR offer valid on new and unregistered 2017 TLX Models from #[+FooterBoldText November 1, 2016 through January 3, 2017], to well qualified buyers on approved credit by Acura Financial Services through participating dealers. Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText January 3, 2017]. Not all buyers may qualify. Higher rates apply for buyers with lower credit ratings. Example for 2017 TLX: 0.9% for 36 months financing at $28.16 a month for every $1,000.00 financed. Dealers set actual prices. See your Acura dealer for details.
-		+spacer(tagAttribs.lineSpaceFooter)
-		+content(tagAttribs.FooterSmallPrint)
-			| Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please click here. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only. See our Privacy Policy.
-		+spacer(tagAttribs.lineSpaceFooter)
