@@ -1,8 +1,8 @@
 include ./tables.pug
 include ./spacer.pug
 mixin bulletedContent(bulletProps, contentProps)
-	- bulletProps = Rhythm.ExtendAttributes({}, defaults.bullet, props)
-	- contentProps = Rhythm.ExtendAttributes({}, defaults.bulletedContent, props)
+	- bulletProps = Rhythm.ExtendAttributes({}, defaults.bullet, bulletProps)
+	- contentProps = Rhythm.ExtendAttributes({}, defaults.bulletedContent, contentProps)
 	+tableRow
 		if thisSpaceBeforeBullet
 			+tableCell
