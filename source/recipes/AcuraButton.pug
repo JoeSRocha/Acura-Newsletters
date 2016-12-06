@@ -1,41 +1,84 @@
 include ../modules/link.pug
-mixin AcuraButton(url, props)
-	- var outerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonOuter, props)
-	- var innerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner, props)
+mixin AcuraButton(url, outerProps, innerProps)
+	- outerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonOuter, outerProps)
+	- innerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner, innerProps)
 
-	if (props.borderColor)
-		- outerProps.style["border-color"] = props.borderColor
-		- outerProps.borderColor = null
-		- innerProps.borderColor = null
+	- outerCell = {  width:outerProps["data-border-width"], height:outerProps["data-border-width"], style: { "background-color":outerProps.style["background-color"] } }
+	- outerSpacer = { width:outerProps["data-border-width"], height:outerProps["data-border-width"] }
 
-	if (props.sidePadding)
-		- innerProps.style["border-left-width"] = props.sidePadding
-		- innerProps.style["border-right-width"] = props.sidePadding
-		- outerProps.borderColor = null
-		- innerProps.borderColor = null
+	- var hPadding = innerProps["data-horizonal-padding"]
+	- var vPadding = innerProps["data-vertical-padding"]
+	- innerCell = { style: { "background-color":innerProps.style["background-color"] } }
+	- innerSpacer = { width: hPadding > 0 ? hPadding : 1, height: vPadding > 0 ? vPadding : 1 }
 
-	if (props.verticalPadding)
-		- innerProps.style["border-top-width"] = props.verticalPadding
-		- innerProps.style["border-bottom-width"] = props.verticalPadding
-		- outerProps.verticalPadding = null
-		- innerProps.verticalPadding = null
+	+table(outerProps)
+		+tableRow
+			+tableCell(outerCell)
+				+spacer(outerSpacer)
+			+tableCell
+			+tableCell(outerCell)
+				+spacer(outerSpacer)
+		+tableRow
+			+tableCell
 
-	if (props.backgroundColor)
-		- innerProps.style["border-color"] = props.backgroundColor
-		- innerProps.style["background-color"] = props.backgroundColor
-		- outerProps.backgroundColor = null
-		- innerProps.backgroundColor = null
+			+tableCell
+				if (hPadding > 0 && vPadding > 0)
+					+table
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+link(url, innerProps)
+									block
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
 
-	if (props.textColor)
-		- innerProps.style["color"] = props.textColor
-		- outerProps.textColor = null
-		- innerProps.textColor = null
+				else if (hPadding > 0)
+					+table
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+							+tableCell(innerCell)
+								+link(url, innerProps)
+									block
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
 
-	if (props.fontSize)
-		- outerProps.style["font-size"] = props.fontSize
-		- innerProps.style["font-size"] = props.fontSize
-		- outerProps.fontSize = null
-		- innerProps.fontSize = null
-	+link(url, outerProps)
-		div&attributes(innerProps)
-			block
+				else if (vPadding > 0)
+					+table
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+						+tableRow
+							+tableCell(innerCell)
+								+link(url, innerProps)
+									block
+						+tableRow
+							+tableCell(innerCell)
+								+spacer(innerSpacer)
+
+				else
+					+link(url, innerProps)
+						block
+
+			+tableCell
+		+tableRow
+			+tableCell(outerCell)
+				+spacer(outerSpacer)
+			+tableCell
+			+tableCell(outerCell)
+				+spacer(outerSpacer)

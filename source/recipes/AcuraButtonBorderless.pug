@@ -1,0 +1,6 @@
+include ./AcuraButton.pug
+mixin AcuraButtonBorderless(url, outerProps, innerProps)
+	- outerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonBorderlessOuter, outerProps)
+	- innerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonBorderlessInner, innerProps)
+	+AcuraButton(url, outerProps, innerProps)
+		block

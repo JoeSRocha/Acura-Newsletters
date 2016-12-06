@@ -141,42 +141,44 @@
 - tagAttribs.AcuraButtonOuter.align = "center"
 - tagAttribs.AcuraButtonOuter.class = "acura-button"
 - tagAttribs.AcuraButtonOuter.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.ContentBackgroundColor
-- tagAttribs.AcuraButtonOuter.style["border-color"] = constants.AcuraRed
-- tagAttribs.AcuraButtonOuter.style["border-style"] = "solid"
-- tagAttribs.AcuraButtonOuter.style["border-left-width"] = "2px"
-- tagAttribs.AcuraButtonOuter.style["border-right-width"] = "2px"
-- tagAttribs.AcuraButtonOuter.style["border-top-width"] = "2px"
-- tagAttribs.AcuraButtonOuter.style["border-bottom-width"] = "2px"
-- tagAttribs.AcuraButtonOuter.style["color"] = constants.PrimaryTextColor + " !important"
-- tagAttribs.AcuraButtonOuter.style["display"] = "inline-block"
-- tagAttribs.AcuraButtonOuter.style["font-family"] = fonts.bold
-- tagAttribs.AcuraButtonOuter.style["font-size"] = "16px"
-- tagAttribs.AcuraButtonOuter.style["font-weight"] = "bold"
-- tagAttribs.AcuraButtonOuter.style["line-height"] = "16px"
-- tagAttribs.AcuraButtonOuter.style["text-decoration"] = "none"
+- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.AcuraRed
+- tagAttribs.AcuraButtonOuter["data-border-width"] = "2"
 
 - tagAttribs.AcuraButtonInner = {}
 - tagAttribs.AcuraButtonInner.align = "center"
 - tagAttribs.AcuraButtonInner.class = "acura-button-inner"
-- tagAttribs.AcuraButtonInner.style = Rhythm.ExtendStyle({}, tagAttribs.AcuraButtonOuter.style)
-- tagAttribs.AcuraButtonInner.style["border-color"] = constants.ContentBackgroundColor
-- tagAttribs.AcuraButtonInner.style["border-left-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
-- tagAttribs.AcuraButtonInner.style["border-right-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
-- tagAttribs.AcuraButtonInner.style["border-top-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
-- tagAttribs.AcuraButtonInner.style["border-bottom-width"] = tagAttribs.AcuraButtonOuter.style["font-size"]
+- tagAttribs.AcuraButtonInner.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.AcuraButtonInner.style["background-color"] = constants.ContentBackgroundColor
+- tagAttribs.AcuraButtonOuter.style["color"] = constants.PrimaryTextColor + " !important"
+- tagAttribs.AcuraButtonInner.style["display"] = "inline-block"
+- tagAttribs.AcuraButtonInner.style["font-family"] = fonts.bold
+- tagAttribs.AcuraButtonInner.style["font-size"] = "16px"
+- tagAttribs.AcuraButtonInner.style["font-weight"] = "bold"
+- tagAttribs.AcuraButtonInner.style["line-height"] = "16px"
+- tagAttribs.AcuraButtonInner.style["text-decoration"] = "none"
+- tagAttribs.AcuraButtonInner["data-vertical-padding"] = "16"
+- tagAttribs.AcuraButtonInner["data-horizonal-padding"] = "16"
+
+- tagAttribs.AcuraButtonBorderlessOuter = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonOuter)
+- tagAttribs.AcuraButtonBorderlessOuter.style["background-color"] = constants.ContentBackgroundColor
+
+- tagAttribs.AcuraButtonBorderlessInner = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner)
+- tagAttribs.AcuraButtonBorderlessInner.style["color"] = constants.AcuraRed + " !important"
 
 - tagAttribs.AcuraButtonArrowLink = {}
 - tagAttribs.AcuraButtonArrowLink.style = {}
 - tagAttribs.AcuraButtonArrowLink.style["display"] = "block"
 - tagAttribs.AcuraButtonArrowLink.style["text-decoration"] = "none !important"
 
-- tagAttribs.AcuraButtonArrowIcon = {}
-- tagAttribs.AcuraButtonArrowIcon.width = "30px"
-- tagAttribs.AcuraButtonArrowIcon.sidePadding = "0px"
-- tagAttribs.AcuraButtonArrowIcon.style = { "display":"block", "line-height":"1px" }
-- tagAttribs.AcuraButtonArrowIcon.verticalPadding = "0px"
-- tagAttribs.AcuraButtonArrowIcon.textColor = constants.AcuraRed
+- tagAttribs.AcuraButtonArrowIconOuter = {}
+- tagAttribs.AcuraButtonArrowIconOuter.width = "34px"
+- tagAttribs.AcuraButtonArrowIconOuter.style = { "display":"block", "line-height":"1px" }
+
+- tagAttribs.AcuraButtonArrowIconInner = {}
+- tagAttribs.AcuraButtonArrowIconInner.style = { }
+- tagAttribs.AcuraButtonArrowIconInner.style["color"] = constants.AcuraRed
+- tagAttribs.AcuraButtonArrowIconInner["data-vertical-padding"] = "0"
+- tagAttribs.AcuraButtonArrowIconInner["data-horizonal-padding"] = "0"
 
 - tagAttribs.AcuraButtonArrowText = {}
 - tagAttribs.AcuraButtonArrowText.class = "acura-button-arrow-text"
