@@ -1,14 +1,16 @@
 include ./AcuraButton.pug
 include ../modules/image.pug
 mixin AcuraButtonArrow(url, props)
-	- props = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonArrowLink, props);
-	+link(url, props)
-		+table({ height: 34, style: { "text-decoration": "none !important" } })
-			+tableBody({ style: { "text-decoration": "none !important" } })
-				+tableRow({ height: 34, style: { "text-decoration": "none !important" } })
-					+tableCell({ height: 34, width: 34, valign: "top", style: { "text-decoration": "none !important" } })
-						+AcuraButton(null, tagAttribs.AcuraButtonArrowIconOuter, tagAttribs.AcuraButtonArrowIconInner)
-							+image({ relativeSrc: "link-arrow-2x.png", alt: "&gt;", width: 30, height: 30, style: { display: "block", "line-height":"30px" } })
-					+tableCell({ height: 34, align: "left", valign: "top", style: { "text-decoration": "none !important" } })
-						div&attributes(tagAttribs.AcuraButtonArrowText)
+	- props = Rhythm.ExtendAttributes({ height: 34 }, tagAttribs.AcuraButtonArrowLink, props);
+	+table(props)
+		+tableBody()
+			+tableRow({ height: 34})
+				+tableCell({ width: 34, height: 34, valign: "top" })
+					+AcuraButton(url, tagAttribs.AcuraButtonArrowIconOuter, tagAttribs.AcuraButtonArrowIconInner)
+						+image({ relativeSrc: "link-arrow-2x.png", alt: "&gt;", width: 30, height: 30, style: { display: "block", "line-height":"30px" } })
+				+tableCell({ width: 16, height: 34, align: "left", valign: "middle" })
+					+spacer({ width: 16 })
+				+tableCell({ height: 34, align: "left", valign: "middle" })
+					div&attributes(tagAttribs.AcuraButtonArrowText)
+						+link(url, { style: { "text-decoration":"none", "color": tagAttribs.AcuraButtonArrowText.style.color ? tagAttribs.AcuraButtonArrowText.style.color : "inherit" } })
 							block
