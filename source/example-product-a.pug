@@ -59,10 +59,10 @@ block content
 			| You&rsquo;ve been good all year &ndash; maybe it&rsquo;s time to gift yourself with an eye-catching TLX. Here are a couple of ideas to spice up the holidays.
 		+spacer(tagAttribs.lineSpaceMedium)
 		+content({ align: "center" })
-			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", sidePadding: "50px" })
+			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
 				| EXPLORE TLX
 
-	+ContentContainer({ spacer: tagAttribs.colSpaceContentContainerWide })
+	+ContentContainer({}, {}, tagAttribs.ContentContainerSpacerWide)
 		+columns
 
 			+column({ width: 260 })
@@ -118,12 +118,13 @@ block content
 			| Who doesn&rsquo;t want to be more stylish and sporty? That&rsquo;s what the TLX GT Package is all about &ndash; from its spoilers and underbody kit to optional 19-inch diamond cut wheels. Available on all TLX models, the TLX GT Package makes a bold statement without saying a word.
 		+spacer(tagAttribs.lineSpaceMedium)
 		+columns({ class: "mobile-clear" })
+
 			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide", fontSize: "15px" })
+				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide" }, { style: { "font-size":"14px" } })
 					| SEE THE TLX GT PACKAGE
+
 			+column({ align: "right", class: "mobile-center" })
-				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
-				+AcuraButton(urls.Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
+				+AcuraButtonBorderless(urls.Tlx_Gt_Package_Video, { style: { "padding":"16px 1px" } }, { style: { "font-size":"14px" } })
 					| WATCH TLX GT PACKAGE VIDEO
 
 	+spacer(tagAttribs.lineSpaceLarge)

@@ -9,7 +9,12 @@ style(type="text/css").
 	img {outline:0;}
 	img[src=""] { border: 0px none !important; outline: 0px none !important; }
 	a img {border:none;}
+
 	@-ms-viewport{ width: device-width;}
+	a, a:link, a:visited, a:active, span.MsoHyperlink, span.MsoHyperlinkFollowed { mso-style-priority:99; color:inherit; }
+
+	@media only screen and (min-width: 600px) {
+	}
 
 	@media only screen and (max-width: 599px) {
 		.acura-body-copy { font-size: 24px !important; line-height: 40px !important; }
@@ -24,8 +29,13 @@ style(type="text/css").
 		.column-container.mobile-clear > tbody > tr > .column-spacer { display: none !important; }
 		.column-container.mobile-clear > tbody > tr > .column-rule { display: none !important; }
 
-		.acura-button.mobile-wide .acura-button-inner { border-left-width: 80px !important; border-right-width: 80px !important; }
+		.column-container.mobile-clear > tbody > tr > .column-cell + .column-cell { padding-top: 24px; }
+
+		.acura-button.mobile-wide .acura-button { border-left-width: 80px !important; border-right-width: 80px !important; }
 
 		.mobile-center { text-align: center !important; }
-		.mobile-show-block { display: block !important; }
 	}
+| <!--[if mso]>
+style(type="text/css").
+	body, table, td { font-family: Helvetica, Arial, sans-serif !important; }
+|<![endif]-->

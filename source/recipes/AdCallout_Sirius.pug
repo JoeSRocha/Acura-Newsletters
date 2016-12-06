@@ -1,15 +1,19 @@
 include ./AdCallout.pug
 include ../modules/break.pug
 include ../modules/content.pug
-+AdCallout({ url: Rhythm.BuildUrl({ url: "http://siriusxm.com/subscribenow", query: [ tracking, { "utm_content":"gift-guide-sirius" } ] }) })
-	+image({
-		relativeSrc: "sirius-logo.png",
-		alt: "Sirius XM Satellite Radio",
-		style: { width: "auto" }
-	})
+- var targetUrl = Rhythm.BuildUrl({ url: "http://siriusxm.com/subscribenow", query: [ tracking, { "utm_content":"gift-guide-sirius" } ] })
++AdCallout
+	+content({ style: { "text-align": "center" } })
+		+link(targetUrl)
+			+image({
+				relativeSrc: "sirius-logo.png",
+				alt: "Sirius XM Satellite Radio",
+				style: { width: "auto" }
+			})
 	+break({ height: 17 })
 	+content({ style: { "color": "#000000", "font-size": "16px", "text-align": "center" } })
 		| Over 150 channels, everywhere you go.
 	+break({ height: 23 })
 	+content({ style: { "color": "#e82c2a", "font-size": "16px", "font-weight": "bold", "text-align": "center" } })
-		| EXPLORE
+		+link(targetUrl, { style: { "color": "#e82c2a", "font-size": "16px", "font-weight": "bold", "text-align": "center", "text-decoration":"none" } })
+			| EXPLORE

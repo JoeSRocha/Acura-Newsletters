@@ -39,7 +39,7 @@
 //- PREHEADER STYLES
 //- Recommended by a blog post from Email On Acid: https://www.emailonacid.com/blog/article/email-development/tips-for-coding-email-preheaders
 - defaults.preheader = { style: { } }
-- defaults.preheader.style["display"] = "none !important"
+- defaults.preheader.style["display"] = "none"
 - defaults.preheader.style["visibility"] = "hidden"
 - defaults.preheader.style["mso-hide"] = "all"
 - defaults.preheader.style["font-size"] = "1px"
@@ -120,8 +120,10 @@
 - tagAttribs.lineSpaceFooter = { class: "line-space-footer", height: 20 }
 - tagAttribs.lineSpaceBodyCopyAlignment = { class: "line-space-body-copy-alignment", height: 7 }
 
-- tagAttribs.colSpaceContentContainer = { class: "col-space-content-container", width: 50 }
-- tagAttribs.colSpaceContentContainerWide = { class: "col-space-content-container-wide", width: 25 }
+- tagAttribs.ContentContainer = { class: "content-container" }
+- tagAttribs.ContentContainerCell = { class: "content-container-cell" }
+- tagAttribs.ContentContainerSpacer = { class: "col-space-content-container", width: 50 }
+- tagAttribs.ContentContainerSpacerWide = { class: "col-space-content-container-wide", width: 25 }
 
 - tagAttribs.graphicCtaLink = { style: {} }
 - tagAttribs.graphicCtaLink.style["display"] = "block"
@@ -141,44 +143,40 @@
 - tagAttribs.AcuraButtonOuter.align = "center"
 - tagAttribs.AcuraButtonOuter.class = "acura-button"
 - tagAttribs.AcuraButtonOuter.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.AcuraRed
-- tagAttribs.AcuraButtonOuter["data-border-width"] = "2"
+- tagAttribs.AcuraButtonOuter.style["background-color"] = constants.ContentBackgroundColor
+- tagAttribs.AcuraButtonOuter.style["border-color"] = constants.AcuraRed
+- tagAttribs.AcuraButtonOuter.style["border-style"] = "solid"
+- tagAttribs.AcuraButtonOuter.style["border-width"] = "2px"
+- tagAttribs.AcuraButtonOuter.style["padding"] = "16px"
 
 - tagAttribs.AcuraButtonInner = {}
 - tagAttribs.AcuraButtonInner.align = "center"
 - tagAttribs.AcuraButtonInner.class = "acura-button-inner"
 - tagAttribs.AcuraButtonInner.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AcuraButtonInner.style["background-color"] = constants.ContentBackgroundColor
-- tagAttribs.AcuraButtonOuter.style["color"] = constants.PrimaryTextColor + " !important"
+- tagAttribs.AcuraButtonOuter.style["color"] = constants.PrimaryTextColor
 - tagAttribs.AcuraButtonInner.style["display"] = "inline-block"
 - tagAttribs.AcuraButtonInner.style["font-family"] = fonts.bold
 - tagAttribs.AcuraButtonInner.style["font-size"] = "16px"
 - tagAttribs.AcuraButtonInner.style["font-weight"] = "bold"
 - tagAttribs.AcuraButtonInner.style["line-height"] = "16px"
 - tagAttribs.AcuraButtonInner.style["text-decoration"] = "none"
-- tagAttribs.AcuraButtonInner["data-vertical-padding"] = "16"
-- tagAttribs.AcuraButtonInner["data-horizonal-padding"] = "16"
 
 - tagAttribs.AcuraButtonBorderlessOuter = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonOuter)
-- tagAttribs.AcuraButtonBorderlessOuter.style["background-color"] = constants.ContentBackgroundColor
+- tagAttribs.AcuraButtonBorderlessOuter.style["border-color"] = constants.ContentBackgroundColor
 
 - tagAttribs.AcuraButtonBorderlessInner = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner)
-- tagAttribs.AcuraButtonBorderlessInner.style["color"] = constants.AcuraRed + " !important"
+- tagAttribs.AcuraButtonBorderlessInner.style["color"] = constants.AcuraRed
 
 - tagAttribs.AcuraButtonArrowLink = {}
 - tagAttribs.AcuraButtonArrowLink.style = {}
 - tagAttribs.AcuraButtonArrowLink.style["display"] = "block"
-- tagAttribs.AcuraButtonArrowLink.style["text-decoration"] = "none !important"
+- tagAttribs.AcuraButtonArrowLink.style["text-decoration"] = "none"
 
 - tagAttribs.AcuraButtonArrowIconOuter = {}
-- tagAttribs.AcuraButtonArrowIconOuter.width = "34px"
-- tagAttribs.AcuraButtonArrowIconOuter.style = { "display":"block", "line-height":"1px" }
+- tagAttribs.AcuraButtonArrowIconOuter.style = { "display":"inline-block", "line-height":"1px", "padding":"0" }
 
 - tagAttribs.AcuraButtonArrowIconInner = {}
-- tagAttribs.AcuraButtonArrowIconInner.style = { }
-- tagAttribs.AcuraButtonArrowIconInner.style["color"] = constants.AcuraRed
-- tagAttribs.AcuraButtonArrowIconInner["data-vertical-padding"] = "0"
-- tagAttribs.AcuraButtonArrowIconInner["data-horizonal-padding"] = "0"
+- tagAttribs.AcuraButtonArrowIconInner.style = { "color":constants.AcuraRed }
 
 - tagAttribs.AcuraButtonArrowText = {}
 - tagAttribs.AcuraButtonArrowText.class = "acura-button-arrow-text"
@@ -193,7 +191,7 @@
 - tagAttribs.AcuraButtonArrowText.style["font-size"] = "16px"
 - tagAttribs.AcuraButtonArrowText.style["font-weight"] = "bold"
 - tagAttribs.AcuraButtonArrowText.style["line-height"] = "16px"
-- tagAttribs.AcuraButtonArrowText.style["text-decoration"] = "none !important"
+- tagAttribs.AcuraButtonArrowText.style["text-decoration"] = "none"
 
 //- OFFER CTA
 
@@ -262,17 +260,12 @@
 
 //- AD CALLOUT
 
-- tagAttribs.AdCalloutOuter = {}
-- tagAttribs.AdCalloutOuter.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AdCalloutOuter.style["border-width"] = "2px"
-- tagAttribs.AdCalloutOuter.style["border-style"] = "solid"
-- tagAttribs.AdCalloutOuter.style["border-color"] = "#e1e1e1"
-
-- tagAttribs.AdCalloutInner = {}
-- tagAttribs.AdCalloutInner.style = Rhythm.ExtendStyle({}, styles.global)
-- tagAttribs.AdCalloutInner.style["border-width"] = "26px"
-- tagAttribs.AdCalloutInner.style["border-style"] = "solid"
-- tagAttribs.AdCalloutInner.style["border-color"] = "transparent"
+- tagAttribs.AdCallout = {}
+- tagAttribs.AdCallout.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.AdCallout.style["border-width"] = "2px"
+- tagAttribs.AdCallout.style["border-style"] = "solid"
+- tagAttribs.AdCallout.style["border-color"] = "#e1e1e1"
+- tagAttribs.AdCallout.style["padding"] = "26px"
 
 //- FOOTER
 
@@ -280,6 +273,11 @@
 - tagAttribs.Footer.style = Rhythm.ExtendStyle({}, styles.global)
 - tagAttribs.Footer.style["color"] = "#ffffff"
 - tagAttribs.Footer.style["background-color"] = "#000000"
+
+- tagAttribs.FooterContent = {}
+- tagAttribs.FooterContent.style = Rhythm.ExtendStyle({}, styles.global)
+- tagAttribs.FooterContent.style["color"] = "#ffffff"
+- tagAttribs.FooterContent.style["background-color"] = "#000000"
 
 - tagAttribs.FooterSmallPrint = {}
 - tagAttribs.FooterSmallPrint.class = "footer-small-print"
@@ -292,7 +290,7 @@
 - tagAttribs.FooterLink = {}
 - tagAttribs.FooterLink.class = "footer-small-print-link"
 - tagAttribs.FooterLink.style = Rhythm.ExtendStyle({}, tagAttribs.FooterSmallPrint.style)
-- tagAttribs.FooterLink.style["color"] = constants.FooterGray + " !important"
+- tagAttribs.FooterLink.style["color"] = constants.FooterGray
 
 - tagAttribs.FooterBoldText = {}
 - tagAttribs.FooterBoldText.style = Rhythm.ExtendStyle({}, styles.global)

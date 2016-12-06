@@ -2,7 +2,11 @@ mixin link(url, props)
 	- props = Rhythm.ExtendAttributes({}, defaults.link, props);
 	- if (url)
 		a(href=url)&attributes(props)
-			block
+			if (props.style.color)
+				font(color=props.style.color)
+					block
+			else
+				block
 	- else if (props.style && props.style.display && props.style.display == "block")
 		div&attributes(props)
 			block

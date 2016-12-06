@@ -64,12 +64,13 @@ block content
 			| The new TLX GT Package is the ultimate embodiment of track-proven performance. Available on all TLX models, this pulse-revving design package breaks the mold, not the bank. Ready to make a bold statement? You will with racing-inspired spoilers and optional 19-inch diamond cut wheels.
 		+spacer(tagAttribs.lineSpaceSmall)
 		+columns({ class: "mobile-clear" })
-			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide", fontSize: "15px" })
+
+			+column({ align: "left", class: "mobile-center", width: "48%" })
+				+AcuraButton(urls.See_Tlx_Gt_Package_CTA, { class: "mobile-wide", style: { "padding":"16px 24px", "font-size":"14px", "line-height":"14px" } }, { style: { "font-size":"14px", "line-height":"14px" } })
 					| SEE THE TLX GT PACKAGE
-			+column({ align: "right", class: "mobile-center" })
-				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
-				+AcuraButton(urls.Watch_Tlx_Gt_Package_Video, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, fontSize: "15px" })
+
+			+column({ align: "right", class: "mobile-center", width: "52%" })
+				+AcuraButtonBorderless(urls.Watch_Tlx_Gt_Package_Video, { style: { "padding":"16px 1px", "font-size":"14px", "line-height":"14px"  } }, { style: { "font-size":"14px", "line-height":"14px" } })
 					| WATCH TLX GT PACKAGE VIDEO
 
 	+spacer(tagAttribs.lineSpaceLarge)
@@ -181,11 +182,10 @@ block content
 		+spacer(tagAttribs.lineSpaceSmall)
 		+columns({ class: "mobile-clear" })
 			+column({ align: "left", class: "mobile-center" })
-				+AcuraButton(urls.Explore_The_Nsx_CTA,  { class: "mobile-wide", sidePadding: "46px" })
+				+AcuraButton(urls.Explore_The_Nsx_CTA,  { class: "mobile-wide", style: { padding:"16px 46px" } })
 					| EXPLORE THE NSX
 			+column({ align: "center", class: "mobile-center" })
-				+spacer({ class: "mobile-show-block", height: 24, style: { display: "none" } })
-				+AcuraButton(urls.Watch_Nsx_Come_To_Life, { sidePadding: "0px", borderColor: "transparent", backgroundColor: "transparent", textColor: constants.AcuraRed, sidePadding: "46px" })
+				+AcuraButtonBorderless(urls.Watch_Nsx_Come_To_Life, { style: { padding:"16px 46px" } })
 					| WATCH NSX VIDEO
 
 	+spacer(tagAttribs.lineSpaceLarge)

@@ -2,83 +2,10 @@ include ../modules/link.pug
 mixin AcuraButton(url, outerProps, innerProps)
 	- outerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonOuter, outerProps)
 	- innerProps = Rhythm.ExtendAttributes({}, tagAttribs.AcuraButtonInner, innerProps)
-
-	- outerCell = {  width:outerProps["data-border-width"], height:outerProps["data-border-width"], style: { "background-color":outerProps.style["background-color"] } }
-	- outerSpacer = { width:outerProps["data-border-width"], height:outerProps["data-border-width"] }
-
-	- var hPadding = innerProps["data-horizonal-padding"]
-	- var vPadding = innerProps["data-vertical-padding"]
-	- innerCell = { style: { "background-color":innerProps.style["background-color"] } }
-	- innerSpacer = { width: hPadding > 0 ? hPadding : 1, height: vPadding > 0 ? vPadding : 1 }
-
-	+table(outerProps)
+				
+	+table({ width: "auto", style: { "margin":"0 auto" } })
 		+tableRow
-			+tableCell(outerCell)
-				+spacer(outerSpacer)
-			+tableCell
-			+tableCell(outerCell)
-				+spacer(outerSpacer)
-		+tableRow
-			+tableCell
+			+tableCell(outerProps)
 
-			+tableCell
-				if (hPadding > 0 && vPadding > 0)
-					+table
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+link(url, innerProps)
-									block
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-
-				else if (hPadding > 0)
-					+table
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-							+tableCell(innerCell)
-								+link(url, innerProps)
-									block
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-
-				else if (vPadding > 0)
-					+table
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-						+tableRow
-							+tableCell(innerCell)
-								+link(url, innerProps)
-									block
-						+tableRow
-							+tableCell(innerCell)
-								+spacer(innerSpacer)
-
-				else
-					+link(url, innerProps)
-						block
-
-			+tableCell
-		+tableRow
-			+tableCell(outerCell)
-				+spacer(outerSpacer)
-			+tableCell
-			+tableCell(outerCell)
-				+spacer(outerSpacer)
+				+link(url, innerProps)
+					block

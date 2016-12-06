@@ -1,7 +1,7 @@
 include ./ContentContainer.pug
 mixin AdCallout(props)
 	+ContentContainer
-		+link(props.url, { style: { display: "block", "text-decoration": "none !important" } })
-			+content(tagAttribs.AdCalloutOuter)
-				+content(tagAttribs.AdCalloutInner)
+		+table
+			+tableRow
+				+tableCell(tagAttribs.AdCallout)
 					block
