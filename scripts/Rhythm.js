@@ -75,6 +75,9 @@ Rhythm.ImplyStyles = function (params) {
     if (params.valign)
         params.style["vertical-align"] = params.valign;
 
+    if (params.bgcolor)
+        params.style["background-color"] = params.bgcolor;
+
     return params;
 };
 
@@ -100,7 +103,7 @@ Rhythm.ExtendAttributes = function (base) { // additional parameters handled by 
         var combinedStyles = Rhythm.ExtendStyle({}, result.style, current.style); // extend doesn't do deep cloning; we need to get a merged version of the styles before we merge everything else
         var combinedClasses = result.class + (current.class ? " " + current.class : ""); // extend doesn't do deep cloning; we need to get a merged version of the styles before we merge everything else
         result = extend(result, current);
-        result.class = combinedClasses;
+        result.class = combinedClasses.replace(/ {2,}/, " ").trim();
         result.style = combinedStyles; // now drop in the extended styles
         result = Rhythm.ImplyStyles(result); // ... and imply styles on top of that pile
     }
