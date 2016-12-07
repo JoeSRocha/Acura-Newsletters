@@ -1,4 +1,10 @@
-mixin sup(props)
-	- props = Rhythm.ExtendAttributes({}, defaults.sup, props)
+mixin sup(height, offset)
+	- props = Rhythm.ExtendAttributes({}, defaults.sup)
+	if (!height)
+		- height = 16
+	if (!offset)
+		- offset = 1.0
+	- props.style["font-size"] = Math.round(height * 0.6666666666) + "px"
+	- props.style["vertical-align"] = Math.round(height * 0.3333333333 * offset) + "px"
 	sup&attributes(props)
 		block
