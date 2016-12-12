@@ -19,7 +19,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 		+table({
 			"align": "center",
 			"width": "100%",
-			"style": { "background-color":constants.OuterBackgroundColor, "margin":"0 auto" }
+			"style": { "background-color":constants.OuterBackgroundColor, "margin":"0 auto", "min-width":"100%" }
 		})
 			+tableBody
 				+tableRow
@@ -30,7 +30,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 							"class": "message-body-container",
 							"align": "center",
 							"width": constants.ContentWidth,
-							"style": { "background-color":constants.ContentBackgroundColor, "margin":"0 auto" }
+							"style": { "background-color":constants.ContentBackgroundColor, "margin":"0 auto", "min-width":constants.ContentWidth }
 						})
 							+tableBody
 								+tableRow
@@ -39,3 +39,4 @@ html(xmlns="http://www.w3.org/1999/xhtml")
 										"style" : styles.global
 									})
 										block content
+		//- +GmailLayoutFixer

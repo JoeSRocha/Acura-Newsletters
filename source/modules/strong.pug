@@ -1,0 +1,4 @@
+mixin strong(props)
+	- props = Rhythm.ExtendAttributes({ style: { "font-weight":"bold" } }, props)
+	font&attributes(props)
+		block

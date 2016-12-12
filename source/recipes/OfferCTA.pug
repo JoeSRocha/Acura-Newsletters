@@ -3,28 +3,31 @@ include ./AcuraButtonArrow.pug
 mixin OfferCTA(props)
 	+content(tagAttribs.OfferCtaWrapper)
 		block
-mixin OfferCTA_Header(props)
-	+content(tagAttribs.OfferCtaHeader)
-		block
-mixin OfferCTA_Subheader(props)
-	+content(tagAttribs.OfferCtaSubheader)
-		block
-mixin OfferCTA_Stinger(props)
+mixin OfferCTA_Header(url, props)
+	+content(tagAttribs.OfferCtaContentWrapper)
+		+link(url, tagAttribs.OfferCtaHeader)
+			block
+mixin OfferCTA_Subheader(url, props)
+	+content(tagAttribs.OfferCtaContentWrapper)
+		+link(url, tagAttribs.OfferCtaSubheader)
+			block
+mixin OfferCTA_Stinger(url, props)
 	+table({ width: "", style: { width: "auto", "margin-left": "auto", "margin-right": "auto" } })
 		+tableBody
 			+tableRow
 				+tableCell
-					+content(tagAttribs.OfferCtaStingerBigText)= props.bigText
+					+link(url, tagAttribs.OfferCtaStingerBigText)= props.bigText
 				+tableCell({ width: 10 })
 					+spacer({ width: 10 })
 				+tableCell
-					+content(tagAttribs.OfferCtaStingerContent)
+					+link(url, tagAttribs.OfferCtaStingerContent)
 						block
-mixin OfferCTA_Details(props)
-	+content(tagAttribs.OfferCtaDetails)
-		block
+mixin OfferCTA_Details(url, props)
+	+content(tagAttribs.OfferCtaContentWrapper)
+		+link(url, tagAttribs.OfferCtaDetails)
+			block
 mixin OfferCTA_Link(url, buttonProps)
 	- buttonProps = Rhythm.ExtendAttributes({}, tagAttribs.OfferCtaLinkWrapper, buttonProps)
-	+content({ style: { "text-align":"center" } })
+	+content(tagAttribs.OfferCtaContentWrapper)
 		+AcuraButtonArrow(url, buttonProps)
 			block

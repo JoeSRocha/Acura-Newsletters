@@ -67,18 +67,18 @@ block content
 
 			+column({ width: 260 })
 				+OfferCTA
-					+OfferCTA_Header
+					+OfferCTA_Header(urls.Tlx_Offers)
 						| Featured APR Offer#[+sup(24) 1]
-					+spacer({ height: 18 })
-					+OfferCTA_Subheader
-						| 2017 TLX Special APR
-					+spacer({ height: 25 })
-					+OfferCTA_Stinger({ bigText: "0.9%" })
+					+spacer({ height: 20 })
+					+OfferCTA_Subheader(urls.Tlx_Offers)
+						| 2017 TLX Special APR#[br]&nbsp;
+					+spacer({ height: 12 })
+					+OfferCTA_Stinger(urls.Tlx_Offers, { bigText: "0.9%" })
 						| APR for 24-36 months or#[br]1.9% APR for 37-72 months
 					+spacer({ height: 12 })
-					+OfferCTA_Details
-						| For well qualified buyers and buyers that qualify#[br]for the Acura Graduate Program criteria.
-					+spacer({ height: 42 })
+					+OfferCTA_Details(urls.Tlx_Offers)
+						| For well qualified buyers and buyers that qualify#[br]for the Acura Graduate Program criteria.#[br]#[+strong Offer ends Janurary 3, 2017]
+					+spacer({ height: 58 })
 					+OfferCTA_Link(urls.Tlx_Offers, { "class": "mobile-small-text", "width":"auto" })
 						| SEE TLX OFFERS
 
@@ -88,17 +88,17 @@ block content
 
 			+column({ width: 260 })
 				+OfferCTA
-					+OfferCTA_Header
+					+OfferCTA_Header(urls.Tlx_Offers)
 						| Featured Lease Offer#[+sup(24) 2]
-					+spacer({ height: 18 })
-					+OfferCTA_Subheader
+					+spacer({ height: 20 })
+					+OfferCTA_Subheader(urls.Tlx_Offers)
 						| 2017 TLX 8 Speed Dual-Clutch P-AWS#[br]Featured Special Lease
-					+spacer({ height: 8 })
-					+OfferCTA_Stinger({ bigText: "$289" })
+					+spacer({ height: 12 })
+					+OfferCTA_Stinger(urls.Tlx_Offers, { bigText: "$289" })
 						| per month for 39 months#[br]$2,799 total due at signing
 					+spacer({ height: 12 })
-					+OfferCTA_Details
-						| Includes down payment with no security deposit. Excludes taxes, titles and either dealer fees or documentary service fee. For well-qualified lessees.
+					+OfferCTA_Details(urls.Tlx_Offers)
+						| Includes down payment with no security deposit.#[br]Excludes taxes, titles and either dealer fees#[br]or documentary service fee.#[br]For well-qualified lessees.#[br]#[+strong Offer ends Janurary 3, 2017]
 					+spacer({ height: 30 })
 					+OfferCTA_Link(urls.Build_Tlx, { "class": "mobile-small-text", "width":"auto" })
 						| BUILD &amp; PRICE YOUR TLX
