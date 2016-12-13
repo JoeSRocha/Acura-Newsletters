@@ -1,19 +1,19 @@
 ﻿[
   {
-    "name": "Example Newsletter A",
-    "path": "example-newsletter-a",
+    "name": "Newsletter, December 2016, version A",
+    "path": "newsletter-2016-12-version-a",
     "subject": "A Sportier TLX, New NSX Video and the Annual Acura Gift Guide",
     "width":  600
   },
   {
-    "name": "Example Newsletter B",
-    "path": "example-newsletter-b",
+    "name": "Newsletter, December 2016, version B",
+    "path": "newsletter-2016-12-version-b",
     "subject": "Acura TLX, NSX and the Best Gift Guide Ever",
     "width": 600
   },
   {
-    "name": "TLX Product Email 2016-12-26",
-    "path": "tlx-product-email-2016-12-27",
+    "name": "Product message, TLX, December 2016",
+    "path": "product-message-tlx-2016-12",
     "subject": "Cheers! Put a Sportier Acura TLX in Your Garage by January 3rd",
     "width": 600
   }
