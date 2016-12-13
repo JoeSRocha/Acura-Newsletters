@@ -183,10 +183,7 @@
     <Content Include="Views\Shared\_TopNavBar.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Review\example-newsletter\" />
-    <Folder Include="Content\Review\example-product\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
