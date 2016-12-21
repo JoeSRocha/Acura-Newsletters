@@ -17,8 +17,8 @@ block vars
 	- urls.Explore_Ilx_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/ILX", query: [ tracking, { "utm_content":"main-image" } ] })
 	- urls.Explore_Ilx_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/ILX", query: [ tracking, { "utm_content":"explore-ilx" } ] })
 
-	- urls.Ilx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "ILX" }, tracking, { "utm_content":"tlx-current-offers" } ] })
-	- urls.Build_Ilx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/ilx", query: [ tracking, { "utm_content":"tlx-build-price" } ] })
+	- urls.Ilx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "ILX" }, tracking, { "utm_content":"ilx-current-offers" } ] })
+	- urls.Build_Ilx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/ilx", query: [ tracking, { "utm_content":"ilx-build-price" } ] })
 
 block head
 
@@ -66,10 +66,8 @@ block content
 					+spacer({ height: 12 })
 					+OfferCTA_Stinger(urls.Ilx_Offers, { bigText: "0.9%", bigTextWidth: 70, totalWidth: 200 })
 						| APR#[br]for 24-36 months
-					+spacer({ height: 10 })
-					+OfferCTA_Stinger(urls.Ilx_Offers, { bigText: "", bigTextWidth: 70, totalWidth: 200 })
+					+OfferCTA_Stinger(urls.Ilx_Offers, { bigText: "", bigTextWidth: 70, totalWidth: 200, totalHeight: 36 })
 						| or
-					+spacer({ height: 10 })
 					+OfferCTA_Stinger(urls.Ilx_Offers, { bigText: "1.9%", bigTextWidth: 70, totalWidth: 200 })
 						| APR#[br]for 37-72 months
 					+spacer({ height: 12 })
@@ -102,7 +100,7 @@ block content
 
 			+column({ width: 260, valign: "top" })
 					+OfferCTA_Link(urls.Ilx_Offers, { "class": "mobile-small-text", "width":"auto" })
-						| SEE TLX OFFERS
+						| SEE ILX OFFERS
 
 			+columnSpacer({ width: 14 }, { width: 14 })
 			+columnRule({ width: 1, height: 50, bgcolor: constants.DividerGray }, { width: 1, height: 50, color: constants.DividerGray })
@@ -111,10 +109,10 @@ block content
 			+column({ width: 260, valign: "top" })
 				+OfferCTA
 					+OfferCTA_Link(urls.Build_Ilx, { "class": "mobile-small-text", "width":"auto" })
-						| BUILD &amp; PRICE YOUR TLX
+						| BUILD &amp; PRICE YOUR ILX
 
 
-	+GraphicCTA(urls.See_Tlx_Gt_Package_Graphic, {}, {
+	+GraphicCTA("", {}, {
 		relativeSrc: "ilx-front-side.png",
 		alt: "",
 		width: 600,

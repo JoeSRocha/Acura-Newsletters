@@ -12,21 +12,24 @@ mixin OfferCTA_Subheader(url, props)
 		+link(url, tagAttribs.OfferCtaSubheader)
 			block
 mixin OfferCTA_Stinger(url, props)
-	- var tableProps = { width: "", style: { width: "auto", "margin-left": "auto", "margin-right": "auto" } }
+	- var tableProps = { width: "", style: { width: "auto", "margin-left": "auto", "margin-right": "auto", "text-align":"center" } }
 	if (props && props.totalWidth)
 		- tableProps.width = props.totalWidth
 		- tableProps.style.width = null
-	- var bigTextCellProps = {}
+	if (props && props.totalHeight)
+		- tableProps.height = props.totalHeight
+	- var bigTextCellProps = { align:"right" }
 	if (props && props.bigTextWidth)
 		- bigTextCellProps.width = props.bigTextWidth
-	+table(tableProps)
-		+tableBody
+	- var smallTextCellProps = { align:"left" }
+	+content({ align:"center" })
+		+table(tableProps)
 			+tableRow
 				+tableCell(bigTextCellProps)
 					+link(url, tagAttribs.OfferCtaStingerBigText)= props.bigText
 				+tableCell({ width: 10 })
-					+spacer({ width: 10 })
-				+tableCell
+					+spacer({ width: 10, height: props && props.totalHeight ? props.totalHeight : 1 })
+				+tableCell(smallTextCellProps)
 					+link(url, tagAttribs.OfferCtaStingerContent)
 						block
 mixin OfferCTA_Details(url, props)
