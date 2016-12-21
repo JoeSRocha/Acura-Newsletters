@@ -3,7 +3,7 @@
     "name": "Newsletter, December 2016, version A",
     "path": "newsletter-2016-12-version-a",
     "subject": "A Sportier TLX, New NSX Video and the Annual Acura Gift Guide",
-    "width":  600
+    "width": 600
   },
   {
     "name": "Newsletter, December 2016, version B",
@@ -15,6 +15,12 @@
     "name": "Product message, TLX, December 2016",
     "path": "product-message-tlx-2016-12",
     "subject": "Cheers! Put a Sportier Acura TLX in Your Garage by January 3rd",
+    "width": 600
+  },
+  {
+    "name": "Product message, ILX, December 2016",
+    "path": "product-message-ilx-2016-12",
+    "subject": "New Year, New Acura ILX! – limited time offer ends January 3rd",
     "width": 600
   }
 ]
