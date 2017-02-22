@@ -22,5 +22,23 @@
     "path": "product-message-ilx-2016-12",
     "subject": "New Year, New Acura ILX! – limited time offer ends January 3rd",
     "width": 600
+  },
+  {
+    "name": "Product, MDX, February 2017",
+    "path": "product-mdx-2017-02",
+    "subject": "Hurry, Acura MDX Limited Time Offers End February 28th!",
+    "width": 600
+  },
+  {
+    "name": "Product, RDX, February 2017",
+    "path": "product-rdx-2017-02",
+    "subject": "Hurry, Acura RDX Limited Time Offers End February 28th!",
+    "width": 600
+  },
+  {
+    "name": "Product, TLX, February 2017",
+    "path": "product-tlx-2017-02",
+    "subject": "Hurry, Acura TLX Limited Time Offers End February 28th!",
+    "width": 600
   }
 ]

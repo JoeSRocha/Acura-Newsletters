@@ -1,0 +1,202 @@
+extends ./layouts/default.pug
+
+block vars
+	- constants.ImagePath = "product-rdx-2017-02/"
+	- pageTitle = "Hurry, Acura RDX Limited Time Offers End February 28th!"
+	- defaults.preheaderContent = "Now's your chance to drive home a new Acura RDX for less"
+
+	- var tracking = {}
+	- tracking["utm_source"] = "product"
+	- tracking["utm_medium"] = "email"
+	- tracking["utm_campaign"] = "at7944"
+	//- tracking["utm_term"] = "term"
+	//- tracking["utm_content"] = "content"
+
+	// Overrside styles
+	- tagAttribs.header.style["font-size"] = "40px"
+	- tagAttribs.header.style["line-height"] = "48px"
+
+	- tagAttribs.bodyCopyCenter = {}
+	- tagAttribs.bodyCopyCenter.align = "center"
+	- tagAttribs.bodyCopyCenter.class = "acura-body-copy"
+	- tagAttribs.bodyCopyCenter.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.bodyCopyCenter.style["line-height"] = "30px"
+
+	// Offers
+	- tagAttribs.OfferCtaHeader.style["font-size"] = "38px"
+	- tagAttribs.OfferCtaHeader.style["line-height"] = "38px"
+
+	- tagAttribs.OfferCtaSubheader.style["font-size"] = "18px"
+	- tagAttribs.OfferCtaSubheader.style["line-height"] = "18px"
+
+	- tagAttribs.OfferCtaStingerContent.style["font-size"] = "16px"
+	- tagAttribs.OfferCtaStingerContent.style["line-height"] = "20px"
+
+	- tagAttribs.OfferCtaStingerBigText.style["font-size"] = "42px"
+	- tagAttribs.OfferCtaStingerBigText.style["line-height"] = "32px"
+
+	- tagAttribs.OfferCtaDetails.style["font-size"] = "16px"
+	- tagAttribs.OfferCtaDetails.style["line-height"] = "20px"
+
+	- var urls = {}
+
+	- urls.Explore_Tlx_Header = Rhythm.BuildUrl({ url: "http://www.acura.com/RDX", query: [ tracking, { "utm_content":"email-header" } ] })
+	- urls.Explore_Tlx_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/RDX", query: [ tracking, { "utm_content":"main-image" } ] })
+	- urls.Explore_Tlx_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/RDX", query: [ tracking, { "utm_content":"explore-rdx" } ] })
+
+	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "RDX" }, tracking, { "utm_content":"rdx-current-offers" } ] })
+	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/rdx", query: [ tracking, { "utm_content":"rdx-build-price" } ] })
+
+
+block head
+
+block content
+
+	+GraphicCTA(urls.Explore_Tlx_Header, {}, {
+		relativeSrc: "header-rdx-white.png",
+		alt: "ACURA | RDX",
+		width: 600,
+		height: 85,
+		style: { "background-color":"#ffffff", "line-height":"85px" }
+	})
+
+	+GraphicCTA(urls.Explore_Tlx_Graphic, {}, {
+		relativeSrc: "rdx-hero.jpg",
+		alt: "",
+		width: 600,
+		height: 340,
+		style: { "line-height":"340px" }
+	})
+
+	+ContentContainer
+		+spacer(tagAttribs.lineSpaceMedium)
+		+content(tagAttribs.header)
+			| Extraordinary Ride, Extraordinary Savings
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			| Powerful and agile, the Acura RDX is one extraordinary ride. And with the extraordinary finance and lease offers currently available, now&rsquo;s your chance to drive one home for less. But you&rsquo;d better step on it &mdash; the savings end on February 28th!
+		+spacer(tagAttribs.lineSpaceMedium)
+		+content({ align: "center" })
+			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
+				| EXPLORE RDX
+
+	+table
+		+tableRow
+			+tableCell({ width:"259" })
+			+tableCell({ width:"1", height:"50", bgcolor:"#000000" })
+			+tableCell({ width:"260" })
+
+	+spacer({ height: 25 })
+
+	+ContentContainer({}, {}, tagAttribs.ContentContainerSpacerWide)
+		+OfferCTA
+			+OfferCTA_Header(urls.Tlx_Offers)
+				| Featured APR Offer#[+sup(34) 1]
+			+spacer({ height: 15 })
+			+OfferCTA_Subheader(urls.Tlx_Offers)
+				| 2017 RDX Special APR
+			+spacer({ height: 12 })
+			+OfferCTA_Stinger(urls.Tlx_Offers, { bigText: "1.9%" })
+				| APR#[br]for 36 months
+			+spacer({ height: 12 })
+			+OfferCTA_Details(urls.Tlx_Offers)
+				| For well-qualified buyers and buyers that qualify for the#[br]Acura Graduate Program criteria.#[br]#[+strong Offer ends February 28, 2017]
+
+	+spacer({ height: 25 })
+
+	+table
+		+tableRow
+			+tableCell({ width:"259" })
+			+tableCell({ width:"1", height:"25", bgcolor:"#000000" })
+			+tableCell({ width:"260" })
+
+	+spacer(tagAttribs.lineSpaceSmall)
+
+
+	+ContentContainer({}, {}, tagAttribs.ContentContainerSpacerWide)
+		+OfferCTA
+			+OfferCTA_Header(urls.Tlx_Offers)
+				| Featured Lease Offer#[+sup(34) 2]
+			+spacer({ height: 15 })
+			+OfferCTA_Subheader(urls.Tlx_Offers)
+				| 2017 RDX 6 Speed Automatic AWD Featured#[br]Loyalty/Conquest Special Lease
+			+spacer({ height: 12 })
+			+OfferCTA_Stinger(urls.Tlx_Offers, { bigText: "$299" })
+				| per month for 36 months#[br]$2999 total due at signing
+			+spacer({ height: 12 })
+			+OfferCTA_Details(urls.Tlx_Offers)
+				| Includes down payment with no security deposit. Excludes#[br]taxes, titles and either dealer fees or documentary service#[br]fee. For well-qualified lessees.#[br]#[+strong Offer ends February 28, 2017]
+
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+table
+		+tableRow
+			+tableCell({ width:"259" })
+			+tableCell({ width:"1", height:"25", bgcolor:"#000000" })
+			+tableCell({ width:"260" })
+
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+ContentContainer({}, {}, tagAttribs.ContentContainerSpacerWide)
+		+OfferCTA
+			+OfferCTA_Header(urls.Tlx_Offers)
+				| Featured Loyalty Cash Offer#[+sup(34) 3]
+			+spacer({ height: 15 })
+			+OfferCTA_Subheader(urls.Tlx_Offers)
+				| 2017 RDX $750 Conquest &amp; Loyalty Offer
+			+spacer({ height: 12 })
+			+OfferCTA_Details(urls.Tlx_Offers)
+				| Toward the lease or purchase of a new 2017 RDX, available to#[br]current owners of a 2007 or newer Acura or qualifying#[br]competitive vehicle.
+
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+table
+		+tableRow
+			+tableCell({ width:"259" })
+			+tableCell({ width:"1", height:"50", bgcolor:"#000000" })
+			+tableCell({ width:"260" })
+
+	+spacer({ height: 35 })
+
+	+ContentContainer
+		+content(tagAttribs.bodyCopyCenter)
+			| Check out Some other great RDX Offers
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content({ align: "center" })
+			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
+				| EXPLORE ALL RDX OFFERS
+		+spacer(tagAttribs.lineSpaceSmall)
+
+		div(style="text-align: center")
+			a(href=urls.Build_Tlx, style="text-decoration: none; line-height: 16px; font-weight: bold; display: inline-block; font-family: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 20px; text-align: center; color: #e82c2a;")
+				| BUILD &amp; PRICE YOUR RDX &nbsp;
+				span(style="font-size:24px;")
+					| &gt;
+
+	+spacer({ height: 85 })
+
+	+GraphicCTA(urls.See_Tlx_Gt_Package_Graphic, {}, {
+		relativeSrc: "rdx-hero-footer.jpg",
+		alt: "",
+		width: 600,
+		height: 277,
+		style: { "line-height":"277px" }
+	})
+
+	+Footer
+		+content(tagAttribs.FooterSmallPrint)
+			| #[+FooterBoldText 1)] Special APR offer valid on new and unregistered 2017 RDX Models from #[+FooterBoldText January 4, 2017 through February 28, 2017,] to well qualified buyers on approved credit by Acura Financial Services through participating dealers. Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText February 28, 2017.] Not all buyers may qualify. Higher rates apply for buyers with lower credit ratings. Example for 2017 RDX: 1.9% for 36 months financing at $28.60 a month for every $1,000.00 financed. Dealers set actual prices. See your Acura dealer for details.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| #[+FooterBoldText 2)] Closed-end lease for 2017 RDX 6 Speed Automatic vehicles (TB3H3HJNW) available from #[+FooterBoldText January 4, 2017 through February 28, 2017,] available to well-qualified lessees approved by Acura Financial Services. Not all lessees will qualify. Higher lease rates apply for lessees with lower credit ratings. MSRP $36,645.00 (includes destination, excludes tax, license, title fee, registration, documentation fee, options, insurance and the like). Actual net capitalized cost $31,987.13. Net capitalized cost includes $595 acquisition fee. Dealer contribution may vary and could affect actual lease payment. Total monthly payments $10,764.00. Option to purchase at lease end $22,719.90.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText February 28, 2017.] Lessee responsible for maintenance, excessive wear/tear and 15&cent;/mile over 10,000 miles/year for vehicles with MSRP less than $30,000, and 20&cent;/mile over 10,000 miles/year for vehicles with MSRP of $30,000 or more. Loyalty/Conquest offer available to current qualified owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infiniti, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, and Volkswagen vehicle. Not all customers qualify for Loyalty/Conquest offer. See your Acura Dealer for complete details.
+		+spacer(tagAttribs.lineSpaceFooter)
+		+content(tagAttribs.FooterSmallPrint)
+			| #[+FooterBoldText 3] Offer eligible #[+FooterBoldText January 4, 2017, through February 28, 2017.] The 2017 RDX Conquest/Loyalty Program provides $750 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2017 RDX, to qualified current owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infinity, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, or Volkswagen vehicle. Must provide proof of ownership of eligible vehicle in the form of a current vehicle registration or proof of valid auto insurance. Not compatible with Zero Due at Lease Signing leases. Fleet sales and Acura Courtesy Car Program vehicles are NOT eligible. No trade-in required. Offer excludes recent purchases and is transferable among members of the same household when the retail delivery registration address matches the current address on the proof of ownership document. Not redeemable for cash. Incentive paid to dealer and requires dealer participation. Not all customers qualify. See your participating Acura dealer for additional details.
+
+
+
+
+
