@@ -74,7 +74,7 @@ block content
 			| Drive Home Happy
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
-			| Ready to own the road and look good doing it? With fantastic finance and lease offers currently available on the racing-inspired TLX, now&rsquo;s the perfect time to drive home happy from your local Acura dealer. But you&rsquo;d better step on it &mdash; the savings end on February 28th!
+			| Ready to own the road and look good doing it? With fantastic finance and lease offers currently available on the racing-inspired TLX, now&rsquo;s the perfect time to drive one home. But you&rsquo;d better step on it &mdash; the savings end on February 28th!
 		+spacer(tagAttribs.lineSpaceMedium)
 		+content({ align: "center" })
 			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
@@ -160,18 +160,18 @@ block content
 
 	+ContentContainer
 		+content(tagAttribs.bodyCopyCenter)
-			| Check out Some other great TLX Offers
+			| Check out some other great TLX offers
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content({ align: "center" })
-			+AcuraButton(urls.Explore_Tlx_CTA, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
+			+AcuraButton(urls.Tlx_Offers, { class: "mobile-wide", style: { "padding":"16px 50px" } }, {})
 				| EXPLORE ALL TLX OFFERS
 		+spacer(tagAttribs.lineSpaceSmall)
 
-		div(style="text-align: center")
-			a(href=urls.Build_Tlx, style="text-decoration: none; line-height: 16px; font-weight: bold; display: inline-block; font-family: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 20px; text-align: center; color: #e82c2a;")
-				| BUILD &amp; PRICE YOUR TLX &nbsp;
-				span(style="font-size:24px;")
-					| &gt;
+		+table
+			+tableRow
+				+tableCell({ align: "center" })
+					+AcuraButtonArrow(urls.Build_Tlx, { width: "auto", align: "center", style: { display: "inline-block" } })
+						| BUILD &amp; PRICE YOUR TLX &nbsp;
 
 	+spacer({ height: 85 })
 
@@ -194,7 +194,7 @@ block content
 			| Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText February 28, 2017.] Lessee responsible for maintenance, excessive wear/tear and 15&cent;/mile over 10,000 miles/year for vehicles with MSRP less than $30,000, and 20&cent;/mile over 10,000 miles/year for vehicles with MSRP of $30,000 or more. Loyalty/Conquest offer available to current qualified owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infiniti, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, and Volkswagen vehicle. Not all customers qualify for Loyalty/Conquest offer. See your Acura Dealer for complete details.
 		+spacer(tagAttribs.lineSpaceFooter)
 		+content(tagAttribs.FooterSmallPrint)
-			| #[+FooterBoldText 3] Offer eligible January 4, 2017, through #[+FooterBoldText February 28, 2017.] The 2017 TLX Conquest/Loyalty Program provides $750 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2017 TLX, to qualified current owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infinity, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, or Volkswagen vehicle. Must provide proof of ownership of eligible vehicle in the form of a current vehicle registration or proof of valid auto insurance. Not compatible with Zero Due at Lease Signing leases. Fleet sales and Acura Courtesy Car Program vehicles are NOT eligible. No trade-in required. Offer excludes recent purchases and is transferable among members of the same household when the retail delivery registration address matches the current address on the proof of ownership document. Not redeemable for cash. Incentive paid to dealer and requires dealer participation. Not all customers qualify. See your participating Acura dealer for additional details.
+			| #[+FooterBoldText 3)] Offer eligible January 4, 2017, through #[+FooterBoldText February 28, 2017.] The 2017 TLX Conquest/Loyalty Program provides $750 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2017 TLX, to qualified current owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infinity, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, or Volkswagen vehicle. Must provide proof of ownership of eligible vehicle in the form of a current vehicle registration or proof of valid auto insurance. Not compatible with Zero Due at Lease Signing leases. Fleet sales and Acura Courtesy Car Program vehicles are NOT eligible. No trade-in required. Offer excludes recent purchases and is transferable among members of the same household when the retail delivery registration address matches the current address on the proof of ownership document. Not redeemable for cash. Incentive paid to dealer and requires dealer participation. Not all customers qualify. See your participating Acura dealer for additional details.
 
 
 
