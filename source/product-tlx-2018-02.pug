@@ -2,8 +2,8 @@ extends ./layouts/default.pug
 
 block vars
 	- constants.ImagePath = "product-tlx-2018-02/"
-	- pageTitle = "Hurry, Acura TLX Limited Time Offers End February 28th!"
-	- defaults.preheaderContent = "Now's your chance to drive home a new Acura TLX for less"
+	- pageTitle = "The New TLX is in Your Inbox!"
+	- defaults.preheaderContent = "Here's your first look at our next-level performance sedan!"
 
 	- var tracking = {}
 	- tracking["utm_source"] = "product"
@@ -12,9 +12,24 @@ block vars
 	//- tracking["utm_term"] = "term"
 	//- tracking["utm_content"] = "content"
 
-	// Overrside styles
-	- tagAttribs.header.style["font-size"] = "40px"
-	- tagAttribs.header.style["line-height"] = "48px"
+	- tagAttribs.header.style["font-size"] = "36px"
+	- tagAttribs.header.style["line-height"] = "36px"
+
+	- tagAttribs.headerCenter = {}
+	- tagAttribs.headerCenter.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.headerCenter.style["font-size"] = "36px"
+	- tagAttribs.headerCenter.style["font-weight"] = "100"
+	- tagAttribs.headerCenter.style["text-align"] = "center"
+	- tagAttribs.headerCenter.style["line-height"] = "36px"
+
+	- tagAttribs.headerCustom = {}
+	- tagAttribs.headerCustom.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.headerCustom.style["font-size"] = "36px"
+	- tagAttribs.headerCustom.style["font-weight"] = "100"
+	- tagAttribs.headerCustom.style["text-align"] = "left"
+	- tagAttribs.headerCustom.style["line-height"] = "36px"
+	- tagAttribs.headerCustom.style["width"] = "345px"
+	- tagAttribs.headerCustom.style["height"] = "97px"
 
 	- tagAttribs.bodyCopyCenter = {}
 	- tagAttribs.bodyCopyCenter.align = "center"
@@ -22,22 +37,23 @@ block vars
 	- tagAttribs.bodyCopyCenter.style = Rhythm.ExtendStyle({}, styles.global)
 	- tagAttribs.bodyCopyCenter.style["line-height"] = "30px"
 
-	// Offers
+	- tagAttribs.bodyCopyWhite = {}
+	- tagAttribs.bodyCopyWhite.class = "acura-body-copy"
+	- tagAttribs.bodyCopyWhite.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.bodyCopyWhite.style["line-height"] = "30px"
+	- tagAttribs.bodyCopyWhite.style["font-weight"] = "200"
+	- tagAttribs.bodyCopyWhite.style["color"] = "#fff"
+
 	- tagAttribs.OfferCtaHeader.style["font-size"] = "36px"
-	- tagAttribs.OfferCtaHeader.style["font-weight"] = "200"
+	- tagAttribs.OfferCtaHeader.style["font-weight"] = "100"
 	- tagAttribs.OfferCtaHeader.style["line-height"] = "36px"
 
-	- tagAttribs.OfferCtaSubheader.style["font-size"] = "18px"
-	- tagAttribs.OfferCtaSubheader.style["line-height"] = "18px"
-
-	- tagAttribs.OfferCtaStingerContent.style["font-size"] = "16px"
-	- tagAttribs.OfferCtaStingerContent.style["line-height"] = "20px"
-
-	- tagAttribs.OfferCtaStingerBigText.style["font-size"] = "42px"
-	- tagAttribs.OfferCtaStingerBigText.style["line-height"] = "32px"
-
-	- tagAttribs.OfferCtaDetails.style["font-size"] = "16px"
-	- tagAttribs.OfferCtaDetails.style["line-height"] = "20px"
+	- tagAttribs.OfferCtaHeaderWhite = {}
+	- tagAttribs.OfferCtaHeaderWhite.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.OfferCtaHeaderWhite.style["font-size"] = "36px"
+	- tagAttribs.OfferCtaHeaderWhite.style["line-height"] = "36px"
+	- tagAttribs.OfferCtaHeaderWhite.style["font-weight"] = "100"
+	- tagAttribs.OfferCtaHeaderWhite.style["color"] = "#fff"
 
 	- var urls = {}
 
@@ -79,28 +95,36 @@ block content
 		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
 			p Now onto the good stuff! Check out some of the awesome exterior enhancements on the new 2018 TLX below. We’ll highlight new interior features in your next exclusive email!
+		+spacer(tagAttribs.lineSpaceMedium)
 		+spacer(tagAttribs.lineSpaceSmall)
 
-	+table
+	+table({ width: 600, "border-collapse":collapse })
 		+tableRow
-			+tableCell({ width: "50px" })
-			+tableCell(tagAttribs.header, { align: "left", width: "250px" })
-				| Refreshed Fascia and Grille
-			+tableCell({ width: "50px" })
-				+image({ relativeSrc: "tlx-fascia-grill-top.jpg", alt: "Refreshed Fascia and Grille Top", width: 206, height: 96, style: { display: "block", "line-height":"82px", align: "right" } })
+			+tableCell
+				+table({ width: 600, "border-collapse":collapse })
+					+tableRow
+						+tableCell({ width: "50px" })
+						+tableCell(tagAttribs.headerCustom, { width: "344px" })
+							| Refreshed Fascia 
+							br
+							| and Grille
+						+tableCell({ width: "206px", align: "right", style: {"vertical-align": "bottom"} })
+							+image({ relativeSrc: "tlx-fascia-grill-top.jpg", width: 206, height: 82, style: { display: "block", align: "right" } })
 		+tableRow
 			+tableCell({ width: "600px", colspan: "3" })
-				+image({ relativeSrc: "tlx-fascia-grill.png", alt: "Refreshed Fascia and Grille", width: 600, height: 420, style: { display: "block", "line-height":"420px" } })
+				+image({ relativeSrc: "tlx-fascia-grill.png", alt: "Refreshed Fascia and Grille", width: 600, height: 420, style: { display: "block", width: "100%" } })
 
 	+ContentContainer()
 		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.bodyCopy)
 			p Let’s face it, the face matters. With a boldly refreshed front and new diamond pentagon grille, you’ll always drive in style – whether it’s around town or on your next adventure.
-			
+
 	+ContentContainer
 		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.header)
-			| Jewel Eye&reg; LEDs
+			| Jewel Eye<sup style="font-size:22px;">&reg;</sup> LEDs
 
 	+image({ relativeSrc: "tlx-jewel-eye-leds.png", alt: "Jewel Eye&reg; LEDs", width: 600, height: 383, style: { display: "block", "line-height":"383px" } })
 
@@ -111,29 +135,36 @@ block content
 
 	+spacer(tagAttribs.lineSpaceLarge)
 
-	+table
+	+table({ width: 600 })
 		+tableRow
-			+tableCell({ width: "600px", colspan: "3" })
-				+image({ relativeSrc: "tlx-cta-gray-top.png",  width: 600, height: 96, style: { display: "block", "line-height":"96px" } })
-		+tableRow({ bgcolor: "#343434" })
-			+tableCell({ width: "50px" })
-			+tableCell(tagAttribs.header, { width: "500px"})
-				p(style="color:#fff;") Hot Wheels
-			+tableCell({ width: "50px" })
+			+tableCell
+				+image({ relativeSrc: "tlx-cta-gray-top.png",  width: 600, height: 96, style: { display: "block" } })
 		+tableRow
-			+tableCell({ width: "600px", colspan: "3" })
-				+image({ relativeSrc: "tlx-wheels.gif", alt: "TLX Wheels",  width: 600, height: 440, style: { display: "block", "line-height":"440px" } })
-		+tableRow({ bgcolor: "#343434" })
-			+tableCell({ width: "50px" })
-			+tableCell(tagAttribs.bodyCopy, { width: "500px" })
-				p(style="color:#fff;") Everyone rolls a little differently, so a bunch of exciting new alloy wheel styles and sizes are available. You gotta be you, right?
-			+tableCell({ width: "50px" })
-		+tableRow
-			+tableCell({ width: "600px", colspan: "3" })
-				+image({ relativeSrc: "tlx-cta-gray-bottom.png", width: 600, height: 80, style: { display: "block", "line-height":"80px" } })
+			+tableCell({ bgcolor: "#343434", width: "600px" })
+				+table({ bgcolor: "#343434", width: 600 })
+					+tableRow({ bgcolor: "#343434", width: "600px" })
+						+tableCell({ width: "50px" })
+						+tableCell(tagAttribs.OfferCtaHeaderWhite, { width: "500px"})
+							| Hot Wheels
+						+tableCell({ width: "50px" })
+		+tableRow({ style: {"background-color": "#343434"}, width: "600px" })
+			+tableCell({ style:{"background-color": "#343434"}, width: "600px" })
+				+image({ relativeSrc: "tlx-wheels.gif", alt: "TLX Wheels",  height: 440, style: { display: "block", "width": "100%", "background-color": "#343434" } })
+		+tableRow({ style: {"background-color": "#343434"}, width: "600px" })
+			+tableCell( { style: { "background-color": "#343434" }, width: "600px" })
+				+table({ style: {"background-color": "#343434" }, width: 600 })
+					+tableRow({ style: {"background-color": "#343434" }, width: "600px" })
+						+tableCell({ width: "50px", style: {"background-color": "#343434"} })
+						+tableCell(tagAttribs.bodyCopyWhite, { width: "500px", style: {"background-color": "#343434"} })
+							| Everyone rolls a little differently, so a bunch of exciting new alloy wheel styles and sizes are available. You gotta be you, right?
+						+tableCell({ width: "50px", style: {"background-color": "#343434"} })
+		+tableRow({ bgcolor: "#343434", width: "600px" })
+			+tableCell({ width: "600px" })
+				+image({ relativeSrc: "tlx-cta-gray-bottom.png", width: 600, height: 80, style: { display: "block" } })
 
 	+ContentContainer()
-		+spacer(tagAttribs.lineSpaceLarge)
+		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer(tagAttribs.lineSpaceSmall)
 		+content(tagAttribs.header)
 			| Chrome Dual Exhaust
 	
@@ -144,15 +175,27 @@ block content
 		+content(tagAttribs.bodyCopy)
 			p Embodying the spirit of Precision Crafted Performance, sleek exhaust pipes make a bold statement to all the drivers you’ll pass.
 
+	+spacer(tagAttribs.lineSpaceMedium)
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+ContentContainer()
+		+ContentContainer({style: {"border": "solid 1px #979797", "padding":"15px 0"}})
+			+spacer(tagAttribs.lineSpaceSmall)
+			+content(tagAttribs.headerCenter)
+				| Next Up...
+			+spacer(tagAttribs.lineSpaceSmall)
+			+content(tagAttribs.bodyCopyCenter)
+				| That’s it for now, but more info is coming down the road 
+				| soon! Avoid any withdrawals by checking out 2018 TLX
+				| updates from the New York Auto Show.
+			+spacer(tagAttribs.lineSpaceSmall)
+			+AcuraButton(urls.Tlx_Offers, { class: "mobile-wide", style: { "padding":"14px 30px" } }, {})
+				| READ ABOUT TLX AT THE NY AUTO SHOW
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+
+	+spacer(tagAttribs.lineSpaceMedium)
+	+spacer(tagAttribs.lineSpaceSmall)
+
 	+Footer
-		+content(tagAttribs.FooterSmallPrint)
-			| #[+FooterBoldText 1)] Special APR offer valid on new and unregistered 2017 TLX Models from #[+FooterBoldText January 4, 2017 through February 28, 2017,] to well qualified buyers on approved credit by Acura Financial Services through participating dealers. Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText February 28, 2017.] Not all buyers may qualify. Standard Tier financing available. Higher rates apply for buyers with lower credit ratings. Example for 2017 TLX: 0.9% for 36 months financing at $28.16 a month for every $1,000.00 financed. Dealers set actual prices. See your Acura dealer for details.
-		+spacer(tagAttribs.lineSpaceFooter)
-		+content(tagAttribs.FooterSmallPrint)
-			| #[+FooterBoldText 2)] Closed-end lease for 2017 TLX 8 Speed Dual-Clutch P-AWS vehicles (UB1F3HJW) available from #[+FooterBoldText January 4, 2017 through February 28, 2017,] available to well-qualified lessees approved by Acura Financial Services. Not all lessees will qualify. Higher lease rates apply for lessees with lower credit ratings. MSRP $32,950.00 (includes destination, excludes tax, license, title fee, registration, documentation fee, options, insurance and the like). Actual net capitalized cost $27,765.74. Net capitalized cost includes $595 acquisition fee. Dealer contribution may vary and could affect actual lease payment. Total monthly payments $10,491.00. Option to purchase at lease end $18,781.50.
-		+spacer(tagAttribs.lineSpaceFooter)
-		+content(tagAttribs.FooterSmallPrint)
-			| Must take new retail delivery on vehicle from dealer stock by #[+FooterBoldText February 28, 2017.] Lessee responsible for maintenance, excessive wear/tear and 15&cent;/mile over 10,000 miles/year for vehicles with MSRP less than $30,000, and 20&cent;/mile over 10,000 miles/year for vehicles with MSRP of $30,000 or more. Loyalty/Conquest offer available to current qualified owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infiniti, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, and Volkswagen vehicle. Not all customers qualify for Loyalty/Conquest offer. See your Acura Dealer for complete details.
-		+spacer(tagAttribs.lineSpaceFooter)
-		+content(tagAttribs.FooterSmallPrint)
-			| #[+FooterBoldText 3)] Offer eligible January 4, 2017, through #[+FooterBoldText February 28, 2017.] The 2017 TLX Conquest/Loyalty Program provides $750 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2017 TLX, to qualified current owners of any 2007 or newer Acura, Audi, BMW, Buick, Cadillac, Lexus, Honda, Hyundai (Genesis only), Infinity, Jaguar, Lincoln, Mercedes-Benz, Mini, Nissan, Subaru, Toyota, Volvo, or Volkswagen vehicle. Must provide proof of ownership of eligible vehicle in the form of a current vehicle registration or proof of valid auto insurance. Not compatible with Zero Due at Lease Signing leases. Fleet sales and Acura Courtesy Car Program vehicles are NOT eligible. No trade-in required. Offer excludes recent purchases and is transferable among members of the same household when the retail delivery registration address matches the current address on the proof of ownership document. Not redeemable for cash. Incentive paid to dealer and requires dealer participation. Not all customers qualify. See your participating Acura dealer for additional details.

@@ -40,5 +40,17 @@
     "path": "product-tlx-2017-02",
     "subject": "Hurry, Acura TLX Limited Time Offers End February 28th!",
     "width": 600
+  },
+    {
+    "name": "Product, TLX, Invite March 2018",
+    "path": "product-tlx-2018-01",
+    "subject": "The New 2018 Acura TLX Is Coming Soon!",
+    "width": 600
+  },
+  {
+    "name": "Product, TLX, March 2018",
+    "path": "product-tlx-2018-02",
+    "subject": "The New TLX is in Your Inbox!",
+    "width": 600
   }
 ]

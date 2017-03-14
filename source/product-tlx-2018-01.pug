@@ -1,0 +1,62 @@
+extends ./layouts/default.pug
+
+block vars
+	- constants.ImagePath = "product-tlx-2018-01/"
+	- pageTitle = "The New 2018 Acura TLX Is Coming Soon!"
+	- defaults.preheaderContent = "Here's your chance to see it first!"
+
+	- var tracking = {}
+	- tracking["utm_source"] = "product"
+	- tracking["utm_medium"] = "email"
+	- tracking["utm_campaign"] = "at7944"
+	//- tracking["utm_term"] = "term"
+	//- tracking["utm_content"] = "content"
+
+	// Overrside styles
+	- tagAttribs.header.style["font-size"] = "36px"
+	- tagAttribs.header.style["line-height"] = "36px"
+
+	- tagAttribs.bodyCopyCenter = {}
+	- tagAttribs.bodyCopyCenter.align = "center"
+	- tagAttribs.bodyCopyCenter.class = "acura-body-copy"
+	- tagAttribs.bodyCopyCenter.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.bodyCopyCenter.style["line-height"] = "30px"
+
+	- var urls = {}
+
+	- urls.Explore_Tlx_Header = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"email-header" } ] })
+	- urls.Explore_Tlx_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"main-image" } ] })
+	- urls.Explore_Tlx_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"explore-tlx" } ] })
+
+	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "TLX" }, tracking, { "utm_content":"tlx-current-offers" } ] })
+	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/tlx", query: [ tracking, { "utm_content":"tlx-build-price" } ] })
+
+
+block head
+
+block content
+
+	+GraphicCTA(urls.Explore_Tlx_Graphic, {}, {
+		relativeSrc: "tlx-hero.gif",
+		alt: "",
+		width: 600,
+		height: 450,
+		style: { "line-height":"340px" }
+	})
+
+	+ContentContainer
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| The New 2018 TLX
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.bodyCopy)
+			p Acura’s performance revolution continues with the all new TLX – aggressively restyled from the inside out. Want to catch more than a glimpse? It’s super easy! Just get on the list for an exclusive series of emails with all the good stuff (don’t worry, we won’t flood your inbox!). 
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			p Now’s your chance to see the new TLX before it’s unveiled to the world at the New York Auto Show in April. But you’d better step on it – the exclusive 2018 TLX emails are starting soon!
+		+spacer(tagAttribs.lineSpaceSmall)
+		+AcuraButton(urls.Tlx_Offers, { class: "mobile-wide", style: { "padding":"14px 55px" } }, {})
+			| GET ON THE LIST
+		+spacer(tagAttribs.lineSpaceMedium)
+
+	+Footer
