@@ -28,7 +28,10 @@ mixin Footer(props)
 				height: 98,
 				style: { color:"#ffffff", "font-size": "20px" }
 			})
-		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
 		+ContentContainer(tagAttribs.FooterContent, {}, {})
 			+table
 				+tableBody
@@ -73,7 +76,9 @@ mixin Footer(props)
 								height: 55,
 								style: { "text-align": "right", color: "#ffffff", "font-size":"12px", "line-height":"55px" }
 							})
-		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
 		+ContentContainer(tagAttribs.FooterContent, {}, {})
 			+table
 				+tableBody
@@ -87,7 +92,7 @@ mixin Footer(props)
 						+tableCell({ width: 130, align: "right" })
 							+link(null, tagAttribs.FooterLink)
 								| &copy;2017 Acura
-		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceExtraSmall)
 		+ContentContainer(tagAttribs.FooterContent, {}, {})
 			block
 			+spacer(tagAttribs.lineSpaceFooter)

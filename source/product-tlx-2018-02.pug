@@ -1,0 +1,201 @@
+extends ./layouts/default.pug
+
+block vars
+	- constants.ImagePath = "product-tlx-2018-02/"
+	- pageTitle = "The New TLX is in Your Inbox!"
+	- defaults.preheaderContent = "Here's your first look at our next-level performance sedan!"
+
+	- var tracking = {}
+	- tracking["utm_source"] = "product"
+	- tracking["utm_medium"] = "email"
+	- tracking["utm_campaign"] = "at7944"
+	//- tracking["utm_term"] = "term"
+	//- tracking["utm_content"] = "content"
+
+	- tagAttribs.header.style["font-size"] = "36px"
+	- tagAttribs.header.style["line-height"] = "36px"
+
+	- tagAttribs.headerCenter = {}
+	- tagAttribs.headerCenter.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.headerCenter.style["font-size"] = "36px"
+	- tagAttribs.headerCenter.style["font-weight"] = "100"
+	- tagAttribs.headerCenter.style["text-align"] = "center"
+	- tagAttribs.headerCenter.style["line-height"] = "36px"
+
+	- tagAttribs.headerCustom = {}
+	- tagAttribs.headerCustom.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.headerCustom.style["font-size"] = "36px"
+	- tagAttribs.headerCustom.style["font-weight"] = "100"
+	- tagAttribs.headerCustom.style["text-align"] = "left"
+	- tagAttribs.headerCustom.style["line-height"] = "36px"
+	- tagAttribs.headerCustom.style["width"] = "345px"
+	- tagAttribs.headerCustom.style["height"] = "97px"
+
+	- tagAttribs.bodyCopyCenter = {}
+	- tagAttribs.bodyCopyCenter.align = "center"
+	- tagAttribs.bodyCopyCenter.class = "acura-body-copy"
+	- tagAttribs.bodyCopyCenter.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.bodyCopyCenter.style["line-height"] = "30px"
+
+	- tagAttribs.bodyCopyWhite = {}
+	- tagAttribs.bodyCopyWhite.class = "acura-body-copy"
+	- tagAttribs.bodyCopyWhite.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.bodyCopyWhite.style["line-height"] = "30px"
+	- tagAttribs.bodyCopyWhite.style["font-weight"] = "200"
+	- tagAttribs.bodyCopyWhite.style["color"] = "#fff"
+
+	- tagAttribs.OfferCtaHeader.style["font-size"] = "36px"
+	- tagAttribs.OfferCtaHeader.style["font-weight"] = "100"
+	- tagAttribs.OfferCtaHeader.style["line-height"] = "36px"
+
+	- tagAttribs.OfferCtaHeaderWhite = {}
+	- tagAttribs.OfferCtaHeaderWhite.style = Rhythm.ExtendStyle({}, styles.global)
+	- tagAttribs.OfferCtaHeaderWhite.style["font-size"] = "36px"
+	- tagAttribs.OfferCtaHeaderWhite.style["line-height"] = "36px"
+	- tagAttribs.OfferCtaHeaderWhite.style["font-weight"] = "100"
+	- tagAttribs.OfferCtaHeaderWhite.style["color"] = "#fff"
+
+	- var urls = {}
+
+	- urls.Explore_Tlx_Header = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"email-header" } ] })
+	- urls.Explore_Tlx_Graphic = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"main-image" } ] })
+	- urls.Explore_Tlx_CTA = Rhythm.BuildUrl({ url: "http://www.acura.com/TLX", query: [ tracking, { "utm_content":"explore-tlx" } ] })
+
+	- urls.Tlx_Offers = Rhythm.BuildUrl({ url: "http://www.acura.com/tools/shopping/CurrentOffers.aspx", query: [ { model: "TLX" }, tracking, { "utm_content":"tlx-current-offers" } ] })
+	- urls.Build_Tlx = Rhythm.BuildUrl({ url: "http://www.acura.com/build-price/tlx", query: [ tracking, { "utm_content":"tlx-build-price" } ] })
+
+
+block head
+
+block content
+
+	+GraphicCTA(urls.Explore_Tlx_Header, {}, {
+		relativeSrc: "header-tlx-white.png",
+		alt: "ACURA | TLX",
+		width: 600,
+		height: 85,
+		style: { "background-color":"#ffffff", "line-height":"85px" }
+	})
+
+	+GraphicCTA(urls.Explore_Tlx_Graphic, {}, {
+		relativeSrc: "tlx-hero.png",
+		alt: "",
+		width: 600,
+		height: 365,
+		style: { "line-height":"340px" }
+	})
+
+	+ContentContainer
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| The New 2018 TLX
+		+spacer(tagAttribs.lineSpaceExtraSmall)
+		+content(tagAttribs.bodyCopy)
+			p As promised, we’re thrilled to give you an exclusive first look at our next-level performance sedan, revealed just today at the New York Auto Show! Inspired by the aggressive and alluring look of the Acura Precision Concept, the new 2018 TLX is the future of luxury performance — and it’s well within your reach. 
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			p Now onto the good stuff! Check out some of the awesome exterior enhancements on the new 2018 TLX below. We’ll highlight new interior features in your next exclusive email!
+		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceSmall)
+
+	+table({ width: 600, "border-collapse":collapse })
+		+tableRow
+			+tableCell
+				+table({ width: 600, "border-collapse":collapse })
+					+tableRow
+						+tableCell({ width: "50px" })
+						+tableCell(tagAttribs.headerCustom, { width: "344px" })
+							| Refreshed Fascia 
+							br
+							| and Grille
+						+tableCell({ width: "206px", align: "right", style: {"vertical-align": "bottom"} })
+							+image({ relativeSrc: "tlx-fascia-grill-top.jpg", width: 206, height: 82, style: { display: "block", align: "right" } })
+		+tableRow
+			+tableCell({ width: "600px", colspan: "3" })
+				+image({ relativeSrc: "tlx-fascia-grill.png", alt: "Refreshed Fascia and Grille", width: 600, height: 420, style: { display: "block", width: "100%" } })
+
+	+ContentContainer()
+		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			p Let’s face it, the face matters. With a boldly refreshed front and new diamond pentagon grille, you’ll always drive in style – whether it’s around town or on your next adventure.
+
+	+ContentContainer
+		+spacer(tagAttribs.lineSpaceMedium)
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| Jewel Eye<sup style="font-size:22px;">&reg;</sup> LEDs
+
+	+image({ relativeSrc: "tlx-jewel-eye-leds.png", alt: "Jewel Eye&reg; LEDs", width: 600, height: 383, style: { display: "block", "line-height":"383px" } })
+
+	+ContentContainer()
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			p Beyond beautiful, these babies burn whiter, brighter and longer than traditional headlights. Say hello to sexy looks – and goodbye to night fatigue on those long road trips.
+
+	+spacer(tagAttribs.lineSpaceLarge)
+
+	+table({ width: 600 })
+		+tableRow
+			+tableCell
+				+image({ relativeSrc: "tlx-cta-gray-top.png",  width: 600, height: 96, style: { display: "block" } })
+		+tableRow
+			+tableCell({ bgcolor: "#343434", width: "600px" })
+				+table({ bgcolor: "#343434", width: 600 })
+					+tableRow({ bgcolor: "#343434", width: "600px" })
+						+tableCell({ width: "50px" })
+						+tableCell(tagAttribs.OfferCtaHeaderWhite, { width: "500px"})
+							| Hot Wheels
+						+tableCell({ width: "50px" })
+		+tableRow({ style: {"background-color": "#343434"}, width: "600px" })
+			+tableCell({ style:{"background-color": "#343434"}, width: "600px" })
+				+image({ relativeSrc: "tlx-wheels.gif", alt: "TLX Wheels",  height: 440, style: { display: "block", "width": "100%", "background-color": "#343434" } })
+		+tableRow({ style: {"background-color": "#343434"}, width: "600px" })
+			+tableCell( { style: { "background-color": "#343434" }, width: "600px" })
+				+table({ style: {"background-color": "#343434" }, width: 600 })
+					+tableRow({ style: {"background-color": "#343434" }, width: "600px" })
+						+tableCell({ width: "50px", style: {"background-color": "#343434"} })
+						+tableCell(tagAttribs.bodyCopyWhite, { width: "500px", style: {"background-color": "#343434"} })
+							| Everyone rolls a little differently, so a bunch of exciting new alloy wheel styles and sizes are available. You gotta be you, right?
+						+tableCell({ width: "50px", style: {"background-color": "#343434"} })
+		+tableRow({ bgcolor: "#343434", width: "600px" })
+			+tableCell({ width: "600px" })
+				+image({ relativeSrc: "tlx-cta-gray-bottom.png", width: 600, height: 80, style: { display: "block" } })
+
+	+ContentContainer()
+		+spacer(tagAttribs.lineSpaceSmall)
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.header)
+			| Chrome Dual Exhaust
+	
+	+image({ relativeSrc: "tlx-chrome-dual-exhaust.png", width: 600, height: 383, style: { display: "block", "line-height":"383px" } })
+
+	+ContentContainer()
+		+spacer(tagAttribs.lineSpaceSmall)
+		+content(tagAttribs.bodyCopy)
+			p Embodying the spirit of Precision Crafted Performance, sleek exhaust pipes make a bold statement to all the drivers you’ll pass.
+
+	+spacer(tagAttribs.lineSpaceMedium)
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+ContentContainer()
+		+ContentContainer({style: {"border": "solid 1px #979797", "padding":"15px 0"}})
+			+spacer(tagAttribs.lineSpaceSmall)
+			+content(tagAttribs.headerCenter)
+				| Next Up...
+			+spacer(tagAttribs.lineSpaceSmall)
+			+content(tagAttribs.bodyCopyCenter)
+				| That’s it for now, but more info is coming down the road 
+				| soon! Avoid any withdrawals by checking out 2018 TLX
+				| updates from the New York Auto Show.
+			+spacer(tagAttribs.lineSpaceSmall)
+			+AcuraButton(urls.Tlx_Offers, { class: "mobile-wide", style: { "padding":"14px 30px" } }, {})
+				| READ ABOUT TLX AT THE NY AUTO SHOW
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+			+spacer(tagAttribs.lineSpaceExtraSmall)
+
+	+spacer(tagAttribs.lineSpaceMedium)
+	+spacer(tagAttribs.lineSpaceSmall)
+
+	+Footer
