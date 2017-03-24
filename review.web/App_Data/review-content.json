@@ -52,5 +52,11 @@
     "path": "product-tlx-2018-02",
     "subject": "The New TLX is in Your Inbox",
     "width": 600
+  },
+  {
+    "name": "2017-03-MDX",
+    "path": "2017-03-mdx",
+    "subject": "Ready For a Roat Trip?",
+    "width": 600
   }
 ]
