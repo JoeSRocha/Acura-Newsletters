@@ -70,5 +70,17 @@
     "path": "2018-tlx-gotl-03",
     "subject": "The 2018 Acura TLX - New Look, New Praise",
     "width": 600
+  },
+  {
+    "name": "Product RDX - 2017-05",
+    "path": "product-rdx-2017-05",
+    "subject": "Acura - RDX",
+    "width": 600
+  },
+  {
+    "name": "Product MDX - 2017-05",
+    "path": "product-mdx-2017-05",
+    "subject": "Acura - MDX",
+    "width": 600
   }
 ]
