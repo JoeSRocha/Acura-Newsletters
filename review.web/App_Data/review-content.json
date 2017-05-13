@@ -88,5 +88,11 @@
     "path": "newsletter-2017-q2",
     "subject": "The New TLX, Acura Design Story, Ben Folds and More",
     "width": 600
-  }
+  },
+  {
+    "name": "2018-tlx-gotl-04",
+    "path": "2018-tlx-gotl-04_assets",
+    "subject": "TLX GOTL 4",
+    "width": 600
+  },
 ]
