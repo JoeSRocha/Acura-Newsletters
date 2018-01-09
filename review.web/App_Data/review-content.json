@@ -168,9 +168,15 @@
     "width": 600
   },
   {
-    "name": "rdx-gotl-01_detroit-invite_assets",
-    "path": "rdx-gotl-01_detroit-invite_assets",
+    "name": "RDX-Detroit-Auto-Show-GOTL-01_assets",
+    "path": "RDX-Detroit-Auto-Show-GOTL-01_assets",
     "subject": "Acura RDX GOTL 01-  Detroit Auto Show Reveal",
+    "width": 600
+  },
+  {
+    "name": "RDX-Detroit-Auto-Show-OPT-IN-01_assets",
+    "path": "RDX-Detroit-Auto-Show-OPT-IN-01_assets",
+    "subject": "Acura RDX OPTIN (INVITE) 01 -  Detroit Auto Show Reveal",
     "width": 600
   }
 ]
