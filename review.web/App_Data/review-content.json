@@ -184,5 +184,11 @@
     "path": "2018-rlx-post-launch-em-02_assets",
     "subject": "Explore the New 2018 Acura RLX with SH-AWD",
     "width": 600
+  },
+  {
+    "name": "tlx-vs-accord",
+    "path": "tlx-vs-accord",
+    "subject": "TBD",
+    "width": 600
   }
 ]
