@@ -194,7 +194,13 @@
   {
     "name": "tlx-post-launch_em-03",
     "path": "tlx-post-launch_em-03",
-    "subject": "Power Up with the Acura TLX",
+    "subject": "Option A: Power Up with the Acura TLX",
+    "width": 600
+  },
+  {
+    "name": "tlx-post-launch_em-03_b",
+    "path": "tlx-post-launch_em-03_B",
+    "subject": "Option B: Power Up with the Acura TLX",
     "width": 600
   }
 ]
