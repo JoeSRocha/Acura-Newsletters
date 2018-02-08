@@ -199,8 +199,14 @@
   },
   {
     "name": "tlx-post-launch_em-03_b",
-    "path": "tlx-post-launch_em-03_B",
+    "path": "tlx-post-launch_em-03_b",
     "subject": "Option B: Power Up with the Acura TLX",
+    "width": 600
+  },
+  {
+    "name": "rdx-presidents-day_20180208",
+    "path": "rdx-presidents-day_20180208",
+    "subject": "TBD",
     "width": 600
   }
 ]
