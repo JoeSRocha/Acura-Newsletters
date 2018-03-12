@@ -232,5 +232,11 @@
     "path": "2018-rdx-gotl-3_opt-in",
     "subject": "TBD",
     "width": 600
+  },
+  {
+    "name": "2018-rdx-gotl-3_already-opted-in",
+    "path": "2018-rdx-gotl-3_already-opted-in",
+    "subject": "TBD",
+    "width": 600
   }
 ]
