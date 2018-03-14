@@ -228,14 +228,14 @@
     "width": 600
   },
   {
-    "name": "2018-rdx-gotl-3_opt-in",
-    "path": "2018-rdx-gotl-3_opt-in",
+    "name": "rdx-gotl-3_opt-in_assets",
+    "path": "rdx-gotl-3_opt-in_assets",
     "subject": "TBD",
     "width": 600
   },
   {
-    "name": "2018-rdx-gotl-3_already-opted-in",
-    "path": "2018-rdx-gotl-3_already-opted-in",
+    "name": "rdx-gotl-3_gotl_assets",
+    "path": "rdx-gotl-3_gotl_assets",
     "subject": "TBD",
     "width": 600
   }
