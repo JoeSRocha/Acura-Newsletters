@@ -250,5 +250,11 @@
     "path": "rdx-new-2019_20180403_v2_assets",
     "subject": "New Acura RDX Makes Worldwide Debut",
     "width": 600
+  },
+  {
+    "name": "rdx-gotl-05_assets",
+    "path": "rdx-gotl-05_assets",
+    "subject": "The New Acura RDX Is Coming Soon",
+    "width": 600
   }
 ]
