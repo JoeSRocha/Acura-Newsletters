@@ -274,5 +274,17 @@
     "path": "rdx-on-sale_assets_gotl",
     "subject": "The All-New 2019 Acura RDX Is Here",
     "width": 600
+  },
+  {
+    "name": "2018-june-newsletter-versionA",
+    "path": "2018-june-newsletter-versionA",
+    "subject": "TBD",
+    "width": 600
+  },
+  {
+    "name": "2018-june-newsletter-versionB",
+    "path": "2018-june-newsletter-versionB",
+    "subject": "TBD",
+    "width": 600
   }
 ]
