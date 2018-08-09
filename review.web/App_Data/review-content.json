@@ -292,5 +292,11 @@
     "path": "rdx-post-launch-01_gotl_assets",
     "subject": "TBD",
     "width": 600
+  },
+  {
+    "name": "2019-mdx-launch",
+    "path": "2019-mdx-launch",
+    "subject": "TBD",
+    "width": 600
   }
 ]
