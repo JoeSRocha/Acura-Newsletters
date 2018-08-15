@@ -295,8 +295,14 @@
   },
   {
     "name": "2019-mdx-launch",
-    "path": "2019-mdx-launch",
+    "path": "2019-mdx-launch_assets",
     "subject": "TBD",
+    "width": 600
+  }
+  {
+    "name": "2019-nsx-launch",
+    "path": "2019-nsx-launch_assets",
+    "subject": "The 2019 Acura NSX Has Arrived",
     "width": 600
   }
 ]
