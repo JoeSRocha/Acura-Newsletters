@@ -304,5 +304,11 @@
     "path": "2019-nsx-launch_assets",
     "subject": "The 2019 Acura NSX Has Arrived",
     "width": 600
+  },
+  {
+    "name": "2019-ilx-signup_assets",
+    "path": "2019-ilx-signup_assets",
+    "subject": "The New 2019 Acura ILX Is Coming",
+    "width": 600
   }
 ]
