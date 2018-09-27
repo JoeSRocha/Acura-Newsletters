@@ -342,8 +342,14 @@
     "width": 600
   },
   {
-    "name": "2019-october-newsletter_A",
-    "path": "2019-october-newsletter_A",
+    "name": "2019-october-newsletter_a",
+    "path": "2019-october-newsletter_a",
+    "subject": "TBD",
+    "width": 600
+  },
+  {
+    "name": "2019-october-newsletter_b",
+    "path": "2019-october-newsletter_b",
     "subject": "TBD",
     "width": 600
   }
