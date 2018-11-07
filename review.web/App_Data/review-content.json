@@ -376,5 +376,11 @@
     "path": "2019-motorsport_assets",
     "subject": "2019 Motorsports - 2018 Season Recap",
     "width": 600
+  },
+  {
+    "name": "2019-november-newsletter_assets",
+    "path": "2019-november-newsletter_assets",
+    "subject": "The 2019 MDX is here",
+    "width": 600
   }
 ]
