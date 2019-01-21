@@ -388,5 +388,11 @@
     "path": "2019-rdx-award_assets",
     "subject": "2019 Acura RDX Wins Big",
     "width": 600
-  }
+  },
+  {
+    "name": "Acura-Motorsports-2019-Daytona_assets",
+    "path": "Acura-Motorsports-2019-Daytona_assets",
+    "subject": "Acura Motorsports 2019 Daytona",
+    "width": 600
+  } 
 ]
