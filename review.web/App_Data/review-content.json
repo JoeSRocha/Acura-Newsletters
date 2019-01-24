@@ -394,5 +394,11 @@
     "path": "Acura-Motorsports-2019-Daytona_assets",
     "subject": "Acura Motorsports 2019 Daytona",
     "width": 600
-  } 
+  },
+  {
+    "name": "2019-motorsport-race-win_assets",
+    "path": "2019-motorsport-race-win_assets",
+    "subject": "Acura Wins",
+    "width": 600
+  }
 ]
