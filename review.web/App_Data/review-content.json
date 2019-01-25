@@ -400,5 +400,11 @@
     "path": "2019-motorsport-race-win_assets",
     "subject": "Acura Wins",
     "width": 600
+  },
+  {
+    "name": "2019-tlx-offer_assets",
+    "path": "2019-tlx-offer_assets",
+    "subject": "Power Up with The Acura TLX",
+    "width": 600
   }
 ]
