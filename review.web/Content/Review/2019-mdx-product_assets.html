@@ -1,0 +1,1029 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<meta name="x-apple-disable-message-reformatting" />
+<title>Take Command with MDX</title>
+<style type="text/css">
+  .ReadMsgBody{ width: 100%;}
+  .ExternalClass {width: 100%;}
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+  body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important; padding:0 !important;}
+  p { margin: 0 !important; padding:0;}
+  table td { border-collapse: collapse;}
+  img {outline:0;}
+  img[src=""] { border: 0px none !important; outline: 0px none !important; }
+  a img {border:none;}
+  .acura-body-copy {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+  .acura-header {
+  font-family:'HelveticaNeue', 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+  font-weight: 100;
+  }
+  .x_o_fix {margin-bottom: -2px !important;}
+  [class*="o365button"] {display: block !important;}
+  [office365] button,
+  button {display: block !important;}
+  [owa] .x_o_fix,
+  [owa] .x_o_fix div,
+  [owa] .x_o_fix button {display: block !important;}
+  [owa] .o_fix,
+  [owa] .o_fix div,
+  [owa] .o_fix button {display: block !important;}
+  [owa] div {display: block !important;}
+  a, a:link, a:visited, a:active, span.MsoHyperlink, span.MsoHyperlinkFollowed { mso-style-priority:99; color:inherit; }
+  .zoom__out {min-width: 35px !important;}
+  @media only screen and (max-width: 599px) {
+  sup { line-height: 0; font-size: 0.666666666em !important; vertical-align: 0.5em !important; }
+  sub { line-height: 0; font-size: 0.666666666em !important; vertical-align: -0.25em !important; }
+  .acura-body-copy { font-size: 22px !important; line-height: 1.45 !important; }
+  /* .acura-button-inner-white {font-size: 20px !important;} */
+  .footer-small-print, .footer-small-print-link { font-size: 18px !important; line-height: 30px !important; }
+  .acura-button-inner, .acura-button-arrow-text { font-size: 18px !important; line-height: 18px !important; }
+  .mobile-small-text .acura-button-inner, .mobile-small-text .acura-button-arrow-text { font-size: 16px !important; line-height: 16px !important; }
+  .column-container.mobile-clear { display: block !important; }
+  .column-container.mobile-clear > tbody { display: block !important; }
+  .column-container.mobile-clear > tbody > tr { display: block !important; }
+  .column-container.mobile-clear > tbody > tr > .column-cell { display: block !important; width: 100% !important; }
+  .column-container.mobile-clear > tbody > tr > .column-spacer { display: none !important; }
+  .column-container.mobile-clear > tbody > tr > .column-rule { display: none !important; }
+  .column-container.mobile-clear > tbody > tr > .column-cell + .column-cell { padding-top: 24px; }
+  .acura-button.mobile-wide .acura-button { border-left-width: 80px !important; border-right-width: 80px !important; }
+  a.acura-button-inner {display:inline-block;}
+  .mobile-center { text-align: center !important; }
+  .zoom__out {min-width: 20px !important;}
+  }
+</style>
+<!--[if gt mso 11]>
+<style type="text/css">
+  table, tr, td {border-collapse: collapse !important;}
+  tr { font-size:0px; line-height:0px; border-collapse: collapse !important; }
+  body, table, td, body *, table *, td *, * { font-family: Arial, sans-serif !important; }
+  table.offset-right, .offset-right {margin: 0 20px 0 auto !important;}
+  a.acura-button-inner {color: #000000 !important; font-family: Arial, sans-serif !important; font-weight: bold !important;}
+  a.acura-button-inner-white {color: #FFFFFF !important; font-family: Arial, sans-serif !important; font-weight: bold !important;}
+  a.acura-button-inner-red {color: #E82C2A !important; font-family: Arial, sans-serif !important; font-weight: bold !important;}
+  .outlook-font-stack {font-family: Arial, sans-serif !important; font-weight: bold !important;}
+  a.offer-cta-header,
+  a.offer-cta-header font,
+  a.offer-cta-subheader,
+  a.offer-cta-subheader font,
+  a.offer-cta-stinger-big-text,
+  a.offer-cta-stinger-big-text font,
+  a.offer-cta-stinger,
+  a.offer-cta-stinger font,
+  a.offer-cta-details,
+  a.offer-cta-details font {
+  font-family: Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+  }
+  #outlook-footer .content,
+  #outlook-footer .content strong,
+  #outlook-footer strong,
+  #outlook-footer a,
+  #outlook-footer font,
+  .content-container-cell div {
+  font-family: Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+  }
+  .outlook__spacer {margin-bottom: 20px !important;}
+  a.acura-button-inner-red {
+  color: #e82c2a !important;
+  font-family: Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+  }
+  a.acura-button-inner-white {
+  color: white !important;
+  font-family: Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+  }
+  table,
+  tbody,
+  tr,
+  td,
+  div,
+  img {overflow:hidden;}
+  a.footer-small-print {color:#9b9b9b !important;}
+  a.footer-small-print-link {text-decoration:underline !important; color:#9b9b9b !important;}
+  }
+</style>
+<![endif]-->
+</head>
+<body bgcolor="#f2f2f2" style="padding:0;margin:0;-webkit-text-size-adjust:none; background-color:#f2f2f2;">
+<div style="display:none;visibility:hidden !important;mso-hide:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden !important;">Own the road in 2019 and beyond.</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f2f2f2" style="min-width:600px !important; max-width: 600px !important">
+  <tbody><tr><td align="center" valign="top">
+    <table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+      <tbody>
+
+      <!-- logo -->
+      <tr bgcolor="#000000"><td valign="bottom">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td>
+              <a target="_blank" href="https://www.acura.com/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%" style="margin:0;padding:0; border:none;text-decoration:none;text-align:center;font-size:36px;color:#ffffff;display:block;"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;color:white;background-color:black; font-family:'HelveticaNeue', 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;line-height:80px; max-width: 600px; width: 100%;" alt="ACURA" width="327" height="85" src="2019-mdx-product_assets/header-acura.jpg" /></a>
+            </td>
+            <td>
+              <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%" style="margin:0;padding:0; border:none;text-decoration:none;text-align:center;font-size:36px;color:#ffffff;display:block;"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;color:white;background-color:black; font-family:'HelveticaNeue', 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;line-height:80px; max-width: 600px; width: 100%;" alt="MDX" width="273" height="85" src="2019-mdx-product_assets/header-mdx.jpg" /></a>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+
+      <!-- Image | Hero -->
+      <tr><td valign="top" align="center">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+            <tbody><tr><td valign="top">
+              <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tbody>
+                <tr><td>
+                  <a style="margin:0;padding:0; border:none;text-decoration:none;text-align:center;" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" target="_blank"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center; font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; color:#FFFFFF; font-size:40px; max-width: 600px;" width="600" height="338" alt="2019 Acura MDX in White Diamond Pearl" src="2019-mdx-product_assets/2019-mdx-hero.gif" /></a>
+                </td></tr>
+              </tbody></table>
+            </td></tr>
+          </tbody></table>
+      </td></tr>
+
+      <!-- Spacing -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="40" width="1" />
+      </td></tr>
+
+      <!-- Image Header | DESIGNED TO DELIGHT -->
+      <tr bgcolor="#ffffff" style="background-color:#ffffff; border: none;" align="right"><td style="background-color:#ffffff; border: none;" valign="top">
+        <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#ffffff; border: none;">
+            <tbody style="background-color:#ffffff; border: none;">
+                <tr align="right" style="background-color:#ffffff; border: none;">
+                  <td width="56"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                  </td>
+                  <td width="487" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#ffffff; border:none;">
+                      <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;">
+                      <img width="487" height="60" alt="DESIGNED TO DELIGHT" src="2019-mdx-product_assets/2019-mdx-title.jpg" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:60px; font-family:Helvetica, Arial;font-size:22px;background-color:#ffffff;">
+                      </a>
+                  </td>
+                  <td width="57"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+      </td></tr>
+
+      <!-- Spacing -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="25" width="1" />
+      </td></tr>
+
+      <!-- Copy | The best-selling... -->
+      <tr><td valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="min-width:600px;">
+              <tbody><tr>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+
+              <td width="520" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                  <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:center;color:#000000;" align="center">The best-selling third-row luxury SUV of all time is better than ever. Loaded with thoughtful new features and born to perform, it’s the ultimate ride for 2019 and beyond.</div>
+              </td>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              </tr>
+          </tbody></table>
+      </td></tr>
+
+      <!-- Spacing 40px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="40" width="1" />
+      </td></tr>
+
+      <!-- CTA & Sub CTA-->
+      <tr>
+        <td align="center" valign="top">
+          <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50"></td>
+                <td>
+                  <!-- CTA -->
+                  <table class="content-container" width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tbody>
+                      <tr>
+                        <td style="vertical-align:middle;text-align:center;" valign="middle" align="center">
+                          <table style="margin: 0 auto !important; width:auto;text-align:center;height:34px;text-decoration:none;display:table;"
+                            width="auto" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tbody>
+                              <tr>
+                                <td valign="top" align="center" style="color:#000000 !important; vertical-align:middle;padding:20px 63px;border-width:2px;border-style:solid;border-color:#e82c2a;background-color:#ffffff;font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:center;">
+                                  <a class="acura-button-inner" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%"
+                                    target="_blank" style="color:#000000 !important; text-decoration:none;border:none;font-weight:bold !important;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:center;"
+                                    align="center">&nbsp;&nbsp;EXPLORE THE 2019 MDX&nbsp;&nbsp;</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50"></td>
+              </tr>
+
+              <tr>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+                </td>
+                <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                    src="2019-mdx-product_assets/spacer.png" height="30" width="1">
+                </td>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+                </td>
+              </tr>
+
+      <!-- CTA | Explore the 2019 MDX -->
+      <tr>
+        <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+            src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+        </td>
+        <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td valign="top">
+                  <table class="content-container" width="100%" cellpadding="0" cellspacing="0" border="0" style="color:#e82c2a; font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight:bold; text-align:center;"
+                    align="center">
+                    <tbody>
+                      <tr>
+                        <td style="vertical-align:middle;text-align:center;" valign="middle" align="center">
+                          <table style="margin: 0 auto !important; width:auto;text-align:center;height:34px;text-decoration:none;display:table;"
+                            width="auto" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tbody>
+                              <tr>
+                                <td style="vertical-align:top;width:34px;height:34px;" valign="top" height="34" width="34">
+                                  <table style="width:auto;margin:0 auto;" width="auto" cellpadding="0" cellspacing="0"
+                                    border="0">
+                                    <tbody>
+                                      <tr>
+                                        <td class="acura-button" style="vertical-align:middle;display:inline-block;line-height:1px;padding:0;border-width:2px;border-style:solid;border-color:#e82c2a;background-color:#ffffff;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:center;color:#000000;"
+                                          valign="middle" align="center"><a class="acura-button-inner" href="https://www.acura.com/build-price/mdx?modelyear=2019&SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%"
+                                            target="_blank" style="text-decoration:none;line-height:16px;font-weight:bold;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:center;color:#e82c2a;"
+                                            align="center">
+                                            <font color="#e82c2a"><img style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;line-height:30px;width:30px;height:30px;"
+                                                height="30" width="30" alt="" src="2019-mdx-product_assets/link-arrow-2x.png"
+                                                data-original-source="2019-mdx-product_assets/link-arrow-2x.png"></font>
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <td style="vertical-align:middle;width:16px;height:34px;text-align:left;" valign="middle"
+                                  align="left" height="34" width="16"><img class="spacer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:16px;height:1px;"
+                                    src="2019-mdx-product_assets/spacer.png" height="1" width="16">
+                                </td>
+                                <td style="vertical-align:middle;height:34px;text-align:left;" valign="middle" align="left"
+                                  height="34">
+                                  <div class="acura-button-arrow-text" style="color:#e82c2a;text-align:left;font-size:20px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-weight:bold;line-height:15px;text-decoration:none;"><a
+                                      class="acura-button-inner-red" href="https://www.acura.com/build-price/mdx?modelyear=2019&SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%"
+                                      target="_blank" style="color:#e82c2a !important; text-decoration:none;border:none;font-weight:bold !important;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:20px;text-align:center;"
+                                      align="center">BUILD &amp; PRICE YOUR MDX</a>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+            src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+        </td>
+      </tr>
+      </tbody>
+      </table>
+      </td>
+      </tr>
+
+      <!-- Spacing 28px -->
+      <tr><td valign="top">
+        <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="28" width="1" />
+      </td></tr>
+
+      <!-- IMG | Next Level Luxury - brown background -->
+      <tr bgcolor="#2d160f">
+        <td valign="top" align="center">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td>
+                <a style="margin:0;padding:0; border:none;text-decoration:none;text-align:center;" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%"
+                  target="_blank"><img style="margin:0 auto; margin-top: -1px; padding:0;border:none !important;outline:none !important;display:block;text-align:center; font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; color:#FFFFFF; font-size:40px; max-width: 600px;"
+                    width="600" height="441" alt="2019 MDX Natural Wood Center Console - Next Level Luxury" src="2019-mdx-product_assets/2019-mdx-next-level-luxury.jpg" /></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                  src="2019-mdx-product_assets/spacer.png" height="25" width="1">
+              </td>
+            </tr>
+
+            <!-- Copy | The 2019 MDX takes -->
+            <tr>
+              <td align="center" valign="top">
+                <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                      </td>
+                      <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                        <table width="520" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                                <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color: #ffffff;"
+                                  align="left">
+                                  The 2019 MDX takes luxury to the next level. Standard leather seats, a premium interior trimmed in handcrafted natural wood, and front row seating with 4-way power lumbar adjustments are just a few of the cockpit enhancements you’ll enjoy.
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <!-- Spacing 40px -->
+              <tr><td valign="top">
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="40" width="1" />
+              </td></tr>
+            </tr>
+
+
+            <!-- Image Header | Leather Interior -->
+            <tr style="background-color:#2d160f; border: none;" align="right"><td style="background-color:#2d160f; border: none;" valign="top">
+                <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#2d160f; border: none;">
+                    <tbody style="background-color:#2d160f; border: none;">
+                        <tr align="right" style="background-color:#2d160f; border: none;">
+
+                          <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                          </td>
+
+                          <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#2d160f; border:none;">
+                              <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#2d160f;">
+                              <img width="520" height="292" alt="2019 MDX - Standard Leather Seats" src="2019-mdx-product_assets/2019-mdx-interior-leather-seats.jpg" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:292px; font-family:Helvetica, Arial;font-size:22px;background-color:#2d160f;">
+                              </a>
+                          </td>
+
+                          <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                          </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </td></tr>
+
+            <!-- Spacing | 20px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                    src="2019-mdx-product_assets/spacer.png" height="20" width="1">
+                </td>
+            </tr>
+
+            <!-- Copy | A new second-row... -->
+            <tr>
+              <td align="center" valign="top">
+                <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                      </td>
+                      <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                        <table width="520" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                                <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color: #ffffff;"
+                                  align="left">
+                                  A new second-row seat configuration is also available, giving your passengers easy access to the third row.
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Spacing | 30px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                    src="2019-mdx-product_assets/spacer.png" height="30" width="1">
+                </td>
+            </tr>
+
+            <!-- Image Header | Cargo Animation -->
+            <tr style="background-color:#2d160f; border: none;" align="right"><td style="background-color:#2d160f; border: none;" valign="top">
+                <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#2d160f; border: none;">
+                    <tbody style="background-color:#2d160f; border: none;">
+                        <tr align="right" style="background-color:#2d160f; border: none;">
+                          <td width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+                          </td>
+                          <td width="500" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#2d160f; border:none;">
+                              <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#2d160f;">
+                              <img width="500" height="280" alt="2019 MDX - Third Row Seats Folding Down" src="2019-mdx-product_assets/2019-mdx-cargo-space-animation.gif" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:280px; font-family:Helvetica, Arial;font-size:22px;background-color:#2d160f;">
+                              </a>
+                          </td>
+                          <td width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td></tr>
+
+            <!-- Spacing | 25px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                    src="2019-mdx-product_assets/spacer.png" height="25" width="1">
+                </td>
+            </tr>
+
+            <!-- Copy | With over 90... -->
+            <tr>
+                <td align="center" valign="top">
+                  <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                      <tr>
+                        <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                            src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                        </td>
+                        <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                          <table width="520" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                              <tr>
+                                <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                                  <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color: #ffffff;"
+                                    align="left">
+                                    With over 90 cubic feet<sup style="line-height:0;font-size:10px;vertical-align:8px;">1</sup> of available cargo space, there’s plenty of room for groceries and gear. Second&ndash; and third&ndash;row seats can also be easily configured to meet a variety of passenger and storage needs.
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                            src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+            </tr>
+
+            <!-- Spacing | 40px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+                    src="2019-mdx-product_assets/spacer.png" height="40" width="1">
+                </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+
+      <!-- Spacing | 37px -->
+      <tr><td valign="top">
+        <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="37" width="1" />
+      </td></tr>
+
+      <!-- Image | Tech that Connects -->
+      <tr bgcolor="#ffffff" style="background-color:#ffffff; border: none;" align="right"><td style="background-color:#ffffff; border: none;" valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#ffffff; border: none;">
+              <tbody style="background-color:#ffffff; border: none;">
+                  <tr align="right" style="background-color:#ffffff; border: none;">
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                    <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#ffffff; border:none;">
+                        <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;">
+                        <img width="520" height="386" alt="2019 MDX Infotainment System - Tech that Connects" src="2019-mdx-product_assets/2019-mdx-tech-that-connects.jpg" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:386px; font-family:Helvetica, Arial;font-size:22px;background-color:#ffffff;">
+                        </a>
+                    </td>
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+      </td></tr>
+
+      <!-- Spacing | 20px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1" />
+      </td></tr>
+
+      <!-- Copy | Apple CarPlay... -->
+      <tr><td valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="min-width:600px;">
+              <tbody><tr>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+
+              <td width="520" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                  <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color:#000000;" align="left"><span style="display:inline-block;">Apple CarPlay<sup style="font-size:10px;">&trade;</sup></span> and <span style="display:inline-block;">Android Auto<sup style="font-size:10px;">&trade;</sup></span> Integration is standard on all MDX models, keeping you connected to texts, emails and music. And with up to seven USB ports available throughout the SUV, passengers in every row can charge electronic devices.</div>
+              </td>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              </tr>
+          </tbody></table>
+      </td></tr>
+
+      <!-- Spacing | 20px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1" />
+      </td></tr>
+
+      <!-- Image Header | Driving in Snow -->
+      <tr bgcolor="#ffffff" style="background-color:#ffffff; border: none;" align="right"><td style="background-color:#ffffff; border: none;" valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#ffffff; border: none;">
+              <tbody style="background-color:#ffffff; border: none;">
+                  <tr align="right" style="background-color:#ffffff; border: none;">
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                    <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#ffffff; border:none;">
+                        <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;">
+                        <img width="520" height="392" alt="2019 MDX in Modern Steel Metallic - Commanding Performance" src="2019-mdx-product_assets/2019-mdx-commanding-performance.jpg" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:392; font-family:Helvetica, Arial;font-size:22px;background-color:#ffffff;">
+                        </a>
+                    </td>
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+      </td></tr>
+
+      <!-- Spacing | 20px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1" />
+      </td></tr>
+
+      <!-- Copy | An impresive 290... -->
+      <tr><td valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="min-width:600px;">
+              <tbody><tr>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              <td width="520" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                  <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color:#000000;" align="left">An impressive <span style="display:inline-block;">290-HP i-VTEC<sup style="font-size:10px;">&reg;</sup> V-6</span> gives the MDX plenty of passing power without sacrificing fuel economy. <span style="display:inline-block;">Super Handling All-Wheel Drive<sup style="font-size:10px;">&trade;</sup> (SH-AWD<sup style="font-size:10px;">&reg;</sup>)</span> with innovative torque vectoring is also available for even greater handling and control.</div>
+              </td>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              </tr>
+          </tbody></table>
+      </td></tr>
+
+      <!-- Spacing | 50px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="50" width="1" />
+      </td></tr>
+
+      <!-- Image Header | Safety for All -->
+      <tr><td>
+          <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr><td valign="middle">
+                <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;"><img style="margin:0 auto; padding:0;border:none !important;outline:none !important;display:block;text-align:center;color:black;width:100%;max-width: 600px;" height="305" width="600" alt="2019 AcuraWatch - Safety for All" src="2019-mdx-product_assets/2019-mdx-safety-for-all.jpg" /></a>
+              </td></tr>
+            </tbody>
+          </table>
+      </td></tr>
+
+      <!-- Spacing | 20px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1" />
+      </td></tr>
+
+      <!-- Copy | A-Spec Styling... -->
+      <tr><td valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="min-width:600px;">
+              <tbody><tr>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              <td width="520" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                  <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color:#000000;" align="left">Our philosophy is simple &ndash; help protect everyone. That’s why <span style="display:inline-block;">AcuraWatch<sup style="font-size:10px">&trade;</sup></span> comes standard on every MDX. Our suite of innovative safety and driver assistance technologies &ndash; from <span style="display:inline-block;">Collision Mitigation Braking</span> to <span style="display:inline-block;">Lane Keeping Assist</span> &ndash; brings added peace of mind to your daily drive.</div>
+              </td>
+              <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+              </td>
+              </tr>
+              <!-- Spacing 30px -->
+              <tr><td valign="top">
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="30" width="1" />
+              </td></tr>
+          </tbody></table>
+      </td></tr>
+
+
+     <!-- Black Background Section -->
+      <tr bgcolor="#000000"><td>
+        <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+             <!-- Image | A-Spec Styling -->
+            <tr><td valign="middle">
+              <img class="spacer line-space-medium" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center; margin-bottom:-21px;" src="2019-ilx-on-sale_assets_b/spacer.png" height="20" width="1" />
+              <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#000000;"><img style="margin:0 auto; padding:0;border:none !important;outline:none !important;display:block;text-align:center;color:black;width:100%;max-width: 600px;" height="338" width="600" alt="Red Leather Seat - A-Spec Styling" src="2019-mdx-product_assets/2019-mdx-a-spec.jpg" /></a>
+            </td></tr>
+
+            <!-- Spacing | 10px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="10" width="1">
+                </td>
+            </tr>
+
+            <!-- Copy | Ready to really... -->
+            <tr><td valign="top">
+                <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#000000" style="min-width:600px;">
+                  <tbody><tr>
+                    <td width="40">
+                      <img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                    </td>
+                    <td width="520" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                        <div class="content acura-body-copy" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:left;color:#ffffff;" align="left">Ready to really stand out? The <span style="display:inline-block;">MDX A-Spec<sup style="font-size:10px;">&reg;</sup></span> features head-turning touches like  <span style="display:inline-block;">20-inch Shark Grey</span> alloy wheels, chrome dual exhaust outlets, and sport seats trimmed in rich red or black leather. </div>
+                    </td>
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40" />
+                    </td>
+                  </tr></tbody>
+                </table>
+            </td></tr>
+
+            <!-- Spacing | 24px -->
+            <tr>
+                <td>
+                  <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="24" width="1">
+                </td>
+            </tr>
+
+            <!-- CTA | LEARN MORE -->
+            <tr>
+              <td>
+                <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:left;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="50" data-original-source="2019-mdx-product_assets/spacer.png">
+                      </td>
+                      <td class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tbody>
+                            <tr>
+                              <td valign="top">
+                                <table class="content-container" width="100%" cellpadding="0" cellspacing="0" border="0" style="color:#e82c2a; font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight:bold; text-align:center;"
+                                  align="left">
+                                  <tbody>
+                                    <tr>
+                                      <td style="vertical-align:middle;text-align:left;" valign="middle" align="center">
+                                        <table style="margin: 0 auto !important; width:auto;text-align:center;height:34px;text-decoration:none;display:table;"
+                                          width="auto" cellpadding="0" cellspacing="0" border="0" align="left">
+                                          <tbody>
+                                            <tr>
+                                              <td style="vertical-align:top;width:34px;height:34px;" valign="top" height="34" width="34">
+                                                <table style="width:auto;margin:0 auto;" width="auto" cellpadding="0" cellspacing="0"
+                                                  border="0">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td class="acura-button" style="vertical-align:middle;display:inline-block;line-height:1px;padding:0;border-width:2px;border-style:solid;border-color:#ffffff;background-color:#000000;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:left;color:#000000;"
+                                                        valign="middle" align="left">
+                                                        <a class="acura-button-inner" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%"
+                                                          target="_blank" style="text-decoration:none;line-height:16px;font-weight:bold;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:left;color:#e82c2a;"
+                                                          align="left">
+                                                          <font color="#e82c2a"><img style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:left;vertical-align:bottom;line-height:30px;width:30px;height:30px;"
+                                                              height="30" width="30" alt="" src="2019-mdx-product_assets/link-arrow-2x_black.gif"
+                                                              data-original-source="2019-mdx-product_assets/acura-button-arrow-text"></font>
+                                                        </a>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                              <td style="vertical-align:middle;width:16px;height:34px;text-align:left;" valign="middle"
+                                                align="left" height="34" width="16"><img class="spacer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:16px;height:1px;"
+                                                  src="2019-mdx-product_assets/spacer.png" height="1" width="16"
+                                                  data-original-source="2019-mdx-product_assets/spacer.png">
+                                              </td>
+                                              <td style="vertical-align:middle;height:34px;text-align:left;" valign="middle" align="left"
+                                                height="34">
+                                                <div class="acura-button-arrow-text" style="color:#ffffff;text-align:left;font-size:15px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-weight:bold;line-height:15px;text-decoration:none;">
+                                                  <a class="acura-button-inner" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%"
+                                                    target="_blank" style="color:#ffffff !important; text-decoration:none;border:none;font-weight:bold !important;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:20px;text-align:left;text-transform:uppercase;"
+                                                    align="left">LEARN MORE</a>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                          src="2019-mdx-product_assets/spacer.png" height="1" width="50" data-original-source="2019-mdx-product_assets/spacer.png">
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="3" width="1">
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Image | A-Spec Apex Blue -->
+            <tr><td valign="middle">
+              <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#000000;"><img style="margin:0 auto; padding:0;border:none !important;outline:none !important;display:block;text-align:center;color:black;width:100%;max-width: 600px;" height="379" width="600" alt="2019 MDX in Apex Blue Pearl" src="2019-mdx-product_assets/2019-mdx-a-spec-apex-blue.jpg" /></a>
+            </td></tr>
+
+          </tbody>
+        </table>
+      </td></tr>
+
+      <!-- Image Header | Acura Loyalty/Conquest Offer -->
+      <tr bgcolor="#ffffff" style="background-color:#ffffff; border: none;" align="right"><td style="background-color:#ffffff; border: none;" valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#ffffff; border: none;">
+              <tbody style="background-color:#ffffff; border: none;">
+
+                  <tr align="right" style="background-color:#ffffff; border: none;">
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40"></td>
+                    <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#ffffff; border:none;">
+                        <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;">
+                          <img width="520" height="37" alt="Acura Loyalty/Conquest Offer" src="2019-mdx-product_assets/acura_loyalty_cash.png" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:37; font-family:Helvetica, Arial;font-size:22px;background-color:#ffffff;">
+                        </a>
+                    </td>
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+      </td></tr>
+
+      <!-- Spacing | 15px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="15" width="1" />
+      </td></tr>
+
+      <tr><td valign="top">
+        <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+            <tr>
+              <td style="vertical-align:middle;width:25px;" valign="middle" width="25"><img class="spacer col-space-content-container col-space-content-container-wide" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:25px;height:1px;" src="product-rdx-2017-02/spacer.png" height="1" width="25" data-original-source="product-rdx-2017-02/spacer.png">
+              </td>
+              <td class="content-container-cell" style="vertical-align:middle;" valign="middle">
+                <div class="content offer-cta" style="font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:left;color:#000000;">
+                  <img class="spacer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:1px;height:15px;" src="product-rdx-2017-02/spacer.png" height="15" width="1" data-original-source="product-rdx-2017-02/spacer.png">
+                  <div class="content" style="line-height:8px;text-align:center;"><a class="offer-cta-subheader" href="http://www.acura.com/tools/shopping/CurrentOffers.aspx?model=RDX&amp;utm_campaign=at7944&amp;utm_medium=email&amp;utm_source=product&amp;utm_content=rdx-current-offers" style="text-decoration:none;line-height:18px;font-weight:bold;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:18px;text-align:center;color:#000000;"><font color="#000000">2019 MDX $1,000 Conquest &amp; Loyalty Offer</font></a>
+                  </div><img class="spacer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:1px;height:12px;" src="product-rdx-2017-02/spacer.png" height="12" width="1" data-original-source="product-rdx-2017-02/spacer.png">
+                  <div class="content" style="line-height:8px;text-align:center;"><a class="offer-cta-details" href="http://www.acura.com/tools/shopping/CurrentOffers.aspx?model=RDX&amp;utm_campaign=at7944&amp;utm_medium=email&amp;utm_source=product&amp;utm_content=rdx-current-offers" style="text-decoration:none;line-height:20px;display:inline-block;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:center;color:#000000;"><font color="#000000">The 2019 MDX Loyalty/Conquest Offer provides $1,000 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2019 MDX, available to current owners of a 2009 or newer Acura, Audi, BMW, Buick, Cadillac, Infiniti, Lexus, Lincoln or Mercedes Benz vehicles.</font></a>
+                  </div>
+                </div>
+              </td>
+              <td style="vertical-align:middle;width:25px;" valign="middle" width="25"><img class="spacer col-space-content-container col-space-content-container-wide" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:25px;height:1px;" src="product-rdx-2017-02/spacer.png" height="1" width="25" data-original-source="product-rdx-2017-02/spacer.png">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td></tr>
+
+      <!-- Spacing | 35px -->
+      <tr><td valign="top">
+          <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;" src="2019-mdx-product_assets/spacer.png" height="35" width="1" />
+      </td></tr>
+
+      <!-- Image Header | Side-view -->
+      <tr bgcolor="#ffffff" style="background-color:#ffffff; border: none;" align="right"><td style="background-color:#ffffff; border: none;" valign="top">
+          <table class="content-container" width="600" cellpadding="0" cellspacing="0" border="0" align="right" style="min-width:600px; background-color:#ffffff; border: none;">
+              <tbody style="background-color:#ffffff; border: none;">
+                  <tr align="right" style="background-color:#ffffff; border: none;">
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                    <td width="520" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif; background-color:#ffffff; border:none;">
+                        <a target="_blank" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;font-size:36px;color:#ffffff;display:block; background-color:#ffffff;">
+                        <img width="520" height="189" alt="2019 MDX Side-view" src="2019-mdx-product_assets/2019-mdx-side-view.jpg" style="text-align:center; margin:0 !important; padding:0;border:none !important;outline:none !important;display:block;color:#000000; width:520; height:392; font-family:Helvetica, Arial;font-size:22px;background-color:#ffffff;">
+                        </a>
+                    </td>
+                    <td width="40"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="40">
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+      </td></tr>
+
+      <!-- Spacing | 30px -->
+      <tr>
+          <td valign="top">
+            <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+              src="2019-mdx-product_assets/spacer.png" height="30" width="1">
+          </td>
+      </tr>
+
+      <!-- CTA | View Offer -->
+      <tr>
+        <td align="center" valign="top">
+          <table class="content-container" style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50"></td>
+                <td>
+                  <!-- CTA -->
+                  <table class="content-container" width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tbody>
+                      <tr>
+                        <td style="vertical-align:middle;text-align:center;" valign="middle" align="center">
+                          <table style="margin: 0 auto !important; width:auto;text-align:center;height:34px;text-decoration:none;display:table;"
+                            width="auto" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tbody>
+                              <tr>
+                                <td valign="top" align="center" style="color:#000000 !important; vertical-align:middle;padding:20px 104px;border-width:2px;border-style:solid;border-color:#e82c2a;background-color:#ffffff;font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:center;">
+                                  <a class="acura-button-inner" href="https://www.acura.com/mdx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%"
+                                    target="_blank" style="color:#000000 !important; text-decoration:none;border:none;font-weight:bold !important;display:inline-block;font-family:'HelveticaNeue-Bold', 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:16px;text-align:center;"
+                                    align="center">&nbsp;&nbsp;VIEW OFFER&nbsp;&nbsp;</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;"
+                    src="2019-mdx-product_assets/spacer.png" height="1" width="50"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Spacing | 68px -->
+      <tr>
+          <td valign="top">
+            <img class="spacer line-space-large" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;width:1px;"
+              src="2019-mdx-product_assets/spacer.png" height="68" width="1">
+          </td>
+      </tr>
+
+  <!-- Footer -->
+  <tr bgcolor="#000000"><td valign="top">
+    <div class="content" style="background-color:#000000;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:16px;text-align:left;color:#ffffff;"><img class="spacer line-space-medium" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="50" width="1" />
+      <table class="content-container" style="width:100%;color:#ffffff;text-align:left;font-size:16px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;background-color:#000000;" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td width="225.5"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50" />
+            </td>
+            <td width="149" class="content-container-cell" style="text-align:center;" align="center">
+              <div class="graphic-cta" style="text-align:center;">
+                <a target="_blank" href="http://www.acura.com/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="margin:0;padding:0; border:none;text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;font-size:20px;color:#ffffff;" alt="ACURA" width="149" height="98" src="2019-mdx-product_assets/acura-logo-footer.png" /></a>
+              </div>
+            </td>
+            <td width="225.5"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50" />
+            </td>
+          </tr>
+        </tbody>
+      </table><img class="spacer line-space-extra-small" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="10" width="1" /><img class="spacer line-space-extra-small" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="10" width="1" /><table class="content-container" style="width:100%;color:#ffffff;text-align:left;font-size:16px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;background-color:#000000;" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50" />
+          </td>
+          <td class="content-container-cell">
+            <table style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                <tr>
+                  <td style="width:80px;text-align:left;" align="left" width="80">
+                    <div class="graphic-cta"><a target="_blank" href="https://www.facebook.com/Acura/" style="text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><font color="#000000"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:left;line-height:55px;font-size:12px;color:#ffffff;" alt="Facebook" width="55" height="55" src="2019-mdx-product_assets/facebook.png" /></font></a>
+                  </div>
+                </td>
+                <td style="width:120px;text-align:center;" align="center" width="120">
+                  <div class="graphic-cta"><a target="_blank" href="https://twitter.com/Acura/" style="text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><font color="#000000"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;font-size:12px;color:#ffffff;" alt="Twitter" width="55" height="55" src="2019-mdx-product_assets/twitter.png" /></font></a>
+                </div>
+              </td>
+              <td style="width:100px;text-align:center;" align="center" width="100">
+                <div class="graphic-cta"><a target="_blank" href="https://www.instagram.com/acura/" style="text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><font color="#000000"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;font-size:12px;color:#ffffff;" alt="Instagram" width="55" height="55" src="2019-mdx-product_assets/instagram.png" /></font></a>
+              </div>
+            </td>
+            <td style="width:120px;text-align:center;" align="center" width="120">
+              <div class="graphic-cta"><a target="_blank" href="https://www.pinterest.com/Acura/pins/follow/" style="text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><font color="#000000"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;font-size:12px;color:#ffffff;" alt="Pinterest" width="55" height="55" src="2019-mdx-product_assets/pinterest.png" /></font></a>
+            </div>
+          </td>
+          <td style="width:80px;text-align:right;" align="right" width="80">
+            <div class="graphic-cta"><a target="_blank" href="https://www.youtube.com/user/Acura/" style="text-decoration:none;text-align:center;font-size:36px;color:#000000;display:block;"><font color="#000000"><img style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:right;font-size:12px;color:#ffffff;" alt="YouTube" width="55" height="55" src="2019-mdx-product_assets/youtube.png" /></font></a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</td>
+<td width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50" />
+</td>
+</tr>
+</tbody>
+</table>
+<table class="content-container" style="width:100%;color:#ffffff;text-align:left;font-size:16px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;background-color:#000000;" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr>
+      <td colspan="3">
+        <img class="spacer" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="40" width="1">
+      </td>
+    </tr>
+    <tr>
+      <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+      </td>
+      <td class="content-container-cell">
+        <table style="width:100%;" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tbody>
+            <tr>
+              <td style="width:130px;color:#9b9b9b;font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;text-align:left;" align="left" width="130">
+                <a class="footer-small-print-link" target="_blank" href="http://www.acura.com/privacy-policy/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="color:#9b9b9b;text-align:left;font-size:13px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;line-height:22px;text-decoration: underline !important;">
+                  Privacy Policy
+                </a>
+              </td>
+              <td style="color:#9b9b9b;width:240px;font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;text-align:center;" align="center" width="240">
+                <a class="footer-small-print-link" target="_blank" href="http://www.acura.com/TermsConditions.aspx/?SP_RID=%%RECIPIENT_ID%%&SP_MID=%%MAILING_ID%%&PROGRAMID=%%PROGID%%&CAMPAIGNCODE=%%CAMPAIGNCODE%%&OFFERCODE=%%OFFERCODE%%&CELLCODE=%%CELL%%&PID=%%PID%%&LINKNAME=%%LINK_NAME%%&CID=%%CID%%" style="color:#9b9b9b;text-align:left;font-size:13px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;line-height:22px;text-decoration: underline !important;">
+                  Terms and Conditions
+                </a>
+              </td>
+              <td style="width:130px;text-align:right;font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;" align="right" width="130"><span class="footer-small-print" style="color:#9b9b9b;text-align:left;font-size:13px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;line-height:22px;">&copy;2019 Acura</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td style="width:50px;" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <img class="spacer" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="30" width="1">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table id="outlook-footer" class="content-container" style="width:100%;color:#ffffff;text-align:left;font-size:13px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;background-color:#000000;" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr>
+      <td style="vertical-align:middle;width:50px;" valign="middle" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;width:50px;height:1px;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+      </td>
+      <td width="500" class="content-container-cell" style="font-family:Helvetica, Arial, 'Lucida Grande', sans-serif;vertical-align:middle;" valign="middle">
+        <div class="content footer-small-print" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:13px;text-align:left;color:#9b9b9b;"><sup style="font-size:10px;">1</sup> Based on SAE J1100 cargo volume measurement standard plus floor space between first and second seats and front seats moved forward. This figure compares more accurately with most competitive measurements.</div>
+        <img class="spacer line-space-footer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:1px;height:20px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1">
+        <div class="content footer-small-print" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:13px;text-align:left;color:#9b9b9b;"><sup style="font-size:10px;">2</sup> The 2019 MDX Loyalty/Conquest Offer provides $1,000 towards Cap Cost Reduction or Down Payment Assistance with the lease or purchase of a new and not previously reported sold 2019 MDX to qualified current owners of 2009 or newer Acura, Audi, BMW, Buick, Cadillac, Infiniti, Lexus, Lincoln or Mercedes Benz vehicles. Must provide proof of ownership of eligible vehicle in the form of a current vehicle registration or proof of valid auto insurance. Not compatible with other Loyalty/Conquest offers. Offer not valid on Used ,Acura Certified Used Car, Fleet or Acura Courtesy Car Program vehicles. No trade-in required. Offer excludes recent purchase and is transferable among members of the same household when the retail delivery registration address matches the current address on the proof of ownership participation. Not redeemable for cash. Incentive paid to dealer and requires dealer participation. Not all customers qualify. See your participating Acura dealer for additional details.<br>Only one $1,000 2019 MDX Loyalty/Conquest offer per eligible new vehicle. Offer not valid on Used, Acura Certified Used Car, Fleet or Acura Courtesy Car Program vehicles and may be terminated at any time.</div>
+        <img class="spacer line-space-footer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:1px;height:20px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1">
+        <div class="content footer-small-print" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:13px;text-align:left;color:#9b9b9b;">
+          Please do not reply to this email. You have received this email because you signed up to receive information from Acura. To opt out of future promotional email communications and to update your preferences, please <a class="footer-small-print-link" target="_blank" href="http://www.acura.com/VB/PreferenceCenter/UpdatePreference.aspx?emailid=%%LinkURL6%%&fullsite=true&Businessentity=Acura&CID=%%CID%%" style="color:#9b9b9b !important;text-align:left;font-size:13px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;line-height:30px; text-decoration: underline;">click here</a>. If you are using a mobile device and are unable to opt out, please open this email on a desktop computer and click on the opt-out link from there. All information contained herein applies to U.S. vehicles only.
+        </div><img class="spacer line-space-footer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;width:1px;height:20px;" src="2019-mdx-product_assets/spacer.png" height="20" width="1">
+        <div class="content footer-small-print" style="line-height:30px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;font-size:13px;text-align:left;color:#9b9b9b;">Acura, 1919 Torrance Blvd., Torrance, CA 90501
+        </div>
+        <img class="spacer line-space-footer" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;width:1px;height:20px;" src="2019-mdx-product_assets/spacer.png" height="30" width="1">
+        <div class="content footer-small-print" style="line-height:24px;font-family:'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;font-size:13px;text-align:left;color:#9b9b9b;">Reference: %%CAMPAIGNCODE%%-%%OFFERCODE%%</div>
+      </td>
+      <td style="vertical-align:middle;width:50px;" valign="middle" width="50"><img class="spacer col-space-content-container" style="margin:0 auto;padding:0;border:0px none;outline:0px none;display:block;text-align:center;vertical-align:bottom;width:50px;height:1px;" src="2019-mdx-product_assets/spacer.png" height="1" width="50">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<img class="spacer line-space-medium" style="margin:0 auto;padding:0;border:none !important;outline:none !important;display:block;text-align:center;" src="2019-mdx-product_assets/spacer.png" height="50" width="1" />
+</div>
+<!-- endFooter -->
+</td></tr>
+</tbody></table>
+</td></tr>
+
+</tbody></table>
+
+</body>
+</html>
