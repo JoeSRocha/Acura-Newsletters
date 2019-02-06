@@ -406,5 +406,17 @@
     "path": "2019-tlx-offer_assets",
     "subject": "Power Up with The Acura TLX",
     "width": 600
+  },
+  {
+    "name": "2019-mdx-product_assets",
+    "path": "2019-mdx-product_assets",
+    "subject": "Take Command with MDX",
+    "width": 600
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "subject": "test",
+    "width": 600
   }
 ]
