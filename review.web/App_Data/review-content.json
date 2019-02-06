@@ -412,5 +412,11 @@
     "path": "2019-mdx-product_assets",
     "subject": "Take Command with MDX",
     "width": 600
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "subject": "test",
+    "width": 600
   }
 ]
