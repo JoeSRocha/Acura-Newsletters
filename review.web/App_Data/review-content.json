@@ -418,5 +418,11 @@
     "path": "test",
     "subject": "test",
     "width": 600
+  },
+  {
+    "name": "2019-motorsport-feb_assets",
+    "path": "2019-motorsport-feb_assets",
+    "subject": "Grand News From Acura Motorsports  ",
+    "width": 600
   }
 ]
