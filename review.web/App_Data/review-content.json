@@ -430,5 +430,17 @@
     "path": "2019-tlx-offer-02_assets",
     "subject": "TBD",
     "width": 600
+  },
+  {
+    "name": "2019-march_rdx_assets",
+    "path": "2019-march_rdx_assets",
+    "subject": "Drive a New Acura RDX for Less",
+    "width": 600
+  },
+  {
+    "name": "2019-march_rlx_assets",
+    "path": "2019-march_rlx_assets",
+    "subject": "TBD",
+    "width": 600
   }
 ]
